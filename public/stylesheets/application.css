@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  font-family: Lucida Grande, Arial, Tahoma, sans-serif;
+  font-size: 16px;
+  color: #171717;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+  font-size: 14px;
+}
+
+a {
+  color: #0af;
+  text-decoration: none;
+  padding: 0.1em 0.2em;
+}
+
+a:hover {
+  background: black;
+  color: white;
+}
+
+#all {
+  text-align: left;
+  margin: 0 auto;
+  width: 500px;
+  padding: 0 0 2em;
+}
+
+#header {
+  margin: 0 0 1em 0;
+}
+
+#header h1 {
+  font-size: 36px;
+  font-family: Georgia, Times, serif;
+  margin-bottom: 0;
+}
+
+#header h2 {
+  font-size: 18px;
+  font-family: Georgia, Times, serif;
+  font-weight: normal;
+}
+
+/*------------------------------------------------------------
+  General Post styles */
+
+#posts > div {
+  padding: 1em 0 1em 0;
+  border-top: 1px solid #dfdfdf;
+  clear: both;
+}
+
+#posts div .date {
+  float: left;
+  width: 55px;
+  margin-left: -76px;
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background: #eee;
+  padding: 0.2em 0;
+}
+
+#posts div h3 {
+  font-size: 22px;
+}
+
+/*------------------------------------------------------------
+  Article styles */
+
+.article h3 {
+  margin-top: 0;
+}
+
+.article .meta {
+  font-size: 12px;
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+/*------------------------------------------------------------
+  Quote styles */
+
+.quote blockquote {
+  background: transparent url(/images/quote.png) no-repeat;
+  font-size: 20px;
+  font-style: oblique;
+  font-weight: bold;
+  font-family: Georgia, Times, serif;
+  padding: 0 1em 0 2.3em;
+  margin-bottom: 0.5em;
+}
+
+.quote cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.quote blockquote a {
+  color: #373737;
+  padding: 0;
+}
+
+.quote blockquote a:hover {
+  text-decoration: underline;
+  background: white;
+}
+
+.quote blockquote a span {
+  color: #0af;
+}
+
+/*------------------------------------------------------------
+  Tweet styles */
+
+.tweet blockquote {
+  background: transparent url(/images/tweet.png) no-repeat;
+  font-size: 20px;
+  font-style: oblique;
+  font-weight: bold;
+  font-family: Georgia, Times, serif;
+  padding: 0 1em 0 2.3em;
+  margin-bottom: 0.5em;
+}
+
+.tweet cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.tweet blockquote a {
+  color: #373737;
+  padding: 0;
+}
+
+.tweet blockquote a:hover {
+  text-decoration: underline;
+  background: white;
+}
+
+.tweet blockquote a span {
+  color: #0af;
+}
+
+/*------------------------------------------------------------
+  Picture styles */
+
+.picture img {
+  margin: 6px 0 0.5em;
+}
+
+.picture cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+}

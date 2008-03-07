@@ -1,2 +1,23 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+var Logouter = {
+  click: function(event) {
+    var element = event.element();
+    element.hide();
+    $('confirm').show();
+    event.stop();
+  },
+  
+  confirm: function(event) {
+    var element = event.element();
+    var result = element.innerHTML;
+    if ( result == 'No' ) {
+      $('confirm').hide();
+      $('logout').show();
+      event.stop();
+    }
+  }
+}
+
+Event.observe(document, 'dom:loaded', function() {
+  $('logout').observe('click', Logouter.click);
+  $$('#admin #confirm a').invoke('observe', 'click', Logouter.confirm)
+})

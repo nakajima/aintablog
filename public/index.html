@@ -1,277 +1,161 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Ruby on Rails: Welcome aboard</title>
-    <style type="text/css" media="screen">
-      body {
-        margin: 0;
-        margin-bottom: 25px;
-        padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
-      }
-      
-      h1 {
-        font-size: 28px;
-        color: #000;
-      }
-      
-      a  {color: #03c}
-      a:hover {
-        background-color: #03c;
-        color: white;
-        text-decoration: none;
-      }
-      
-      
-      #page {
-        background-color: #f0f0f0;
-        width: 750px;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      
-      #content {
-        float: left;
-        background-color: white;
-        border: 3px solid #aaa;
-        border-top: none;
-        padding: 25px;
-        width: 500px;
-      }
-      
-      #sidebar {
-        float: right;
-        width: 175px;
-      }
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
 
-      #footer {
-        clear: both;
-      }
-      
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Welcome to AintaBlog</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Pat Nakajima">
+	<link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<style type="text/css" media="screen">
+	  #admin {
+	    background: black;
+	    padding: 0.4em 0.6em 0.3em;
+	    margin-bottom: -1em;
+	    font-size: 12px;
+	    color: white;
+	    text-align: left;
+	    border-bottom: 1px #ccc solid;
+	  }
+	  
+	  #admin a {
+	    color: white;
+	    margin-left: 1em;
+	    padding: 0 0.1em;
+	    margin-top: -0.1em;
+	  }
+	  
+	  #admin a:hover {
+	    background: white;
+	    color: black;
+	    text-decoration: none;
+	  }
+	  
+	  #admin #logoutLinks {
+	    float: right;
+	  }
 
-      #header, #about, #getting-started {
-        padding-left: 75px;
-        padding-right: 30px;
-      }
-
-
-      #header {
-        background-image: url("images/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-      }
-      
-      
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-      
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-        margin-left: -11px;
-      }
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
-      
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
-      
-      
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      #getting-started h1 {
-        margin: 0;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-        margin-bottom: 25px;
-      }
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
-      }
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
-      
-      
-      #search {
-        margin: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-size: 11px;
-      }
-      #search input {
-        font-size: 11px;
-        margin: 2px;
-      }
-      #search-text {width: 170px}
-      
-      
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
-      }
-      
-    </style>
-    <script type="text/javascript" src="javascripts/prototype.js"></script>
-    <script type="text/javascript" src="javascripts/effects.js"></script>
-    <script type="text/javascript">
-      function about() {
-        if (Element.empty('about-content')) {
-          new Ajax.Updater('about-content', 'rails/info/properties', {
-            method:     'get',
-            onFailure:  function() {Element.classNames('about-content').add('failure')},
-            onComplete: function() {new Effect.BlindDown('about-content', {duration: 0.25})}
-          });
-        } else {
-          new Effect[Element.visible('about-content') ? 
-            'BlindUp' : 'BlindDown']('about-content', {duration: 0.25});
-        }
-      }
-      
-      window.onload = function() {
-        $('search-text').value = '';
-        $('search').onsubmit = function() {
-          $('search-text').value = 'site:rubyonrails.org ' + $F('search-text');
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <form id="search" action="http://www.google.com/search" method="get">
-              <input type="hidden" name="hl" value="en" />
-              <input type="text" id="search-text" name="q" value="site:rubyonrails.org " />
-              <input type="submit" value="Search" /> the Rails site
-            </form>
-          </li>
-        
-          <li>
-            <h3>Join the community</h3>
-            <ul class="links">
-              <li><a href="http://www.rubyonrails.org/">Ruby on Rails</a></li>
-              <li><a href="http://weblog.rubyonrails.org/">Official weblog</a></li>
-              <li><a href="http://lists.rubyonrails.org/">Mailing lists</a></li>
-              <li><a href="http://wiki.rubyonrails.org/rails/pages/IRC">IRC channel</a></li>
-              <li><a href="http://wiki.rubyonrails.org/">Wiki</a></li>
-              <li><a href="http://dev.rubyonrails.org/">Bug tracker</a></li>
-            </ul>
-          </li>
-          
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://api.rubyonrails.org/">Rails API</a></li>
-              <li><a href="http://stdlib.rubyonrails.org/">Ruby standard library</a></li>
-              <li><a href="http://corelib.rubyonrails.org/">Ruby core</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div id="content">
-        <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
-        </div>
-
-        <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
-        
-        <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
-          
-          <ol>
-            <li>
-              <h2>Create your databases and edit <tt>config/database.yml</tt></h2>
-              <p>Rails needs to know your login and password.</p>
-            </li>
-          
-            <li>
-              <h2>Use <tt>script/generate</tt> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
-            </li>
-            
-            <li>
-              <h2>Set up a default route and remove or rename this file</h2>
-              <p>Routes are set up in config/routes.rb.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-      
-      <div id="footer">&nbsp;</div>
+	  #admin hr {
+	    clear: both;
+	    visibility: hidden;
+	    margin: 0;
+	    padding: 0;
+	  }
+	</style>
+	<script src="/javascripts/prototype.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div id="admin">
+    <span id="logoutLinks">
+      <a href="#" id="logout">Logout</a>
+      <span id="confirm" style="display:none">
+        Are you sure: 
+        <a href="/logout">Yes</a>
+        <a href="#">No</a>
+      </span>
+    </span>    
+    <strong>Admin Links: </strong>
+    <a href="#">Create a Post</a>
+    <a href="#">Add a Feed</a>
+    <a href="#">Add a User</a>
+    <a href="#">Tweet from Here</a>
+    <a href="#">Syndication</a>
+    <a href="#">Refresh Feeds</a>
+    <a href="#">Personal Info</a>
+    <hr>
+  </div>
+  <div id="all">
+    <div id="header">
+      <h1>AintaBlog</h1>
+      <h2>When all else fails, use aintablog on the stain.</h2>
     </div>
-  </body>
+    <div id="content">
+      <div id="posts">
+        
+        <div id="post_3" class="tweet">
+          <div class="date">
+            <span class="month">Jun</span>
+            <span class="day">15</span>
+          </div>
+          <blockquote>
+            Following @<a href="#"><span>tompettydotcom</span></a>. Pretty good.
+          </blockquote>
+          <cite>&#x2010; Posted via <a href="http://twitter.com/nakajim">Twitter</a></cite>
+        </div>
+        
+        <div id="post_1" class="article">
+          <h3>The Trouble with rspec</h3>
+          <div class="date">
+            <span class="month">Jun</span>
+            <span class="day">15</span>
+          </div>
+          <div class="entry">
+            <p>
+              These days, most developers (thankfully) recognize the value of test driven development. 
+              Still, the question, “To test, or not to test…” lives on, with some developers preferring 
+              to “spec” instead. Spec driven development (or Behavior Driven Development) in Ruby or Ruby 
+              on Rails means using the RSpec framework to describe what the code ought to do in a syntax 
+              that reads very much like plain English. And that’s the problem.
+            </p>
+            <p>
+              While English is a great language for communicating with other humans, it’s far too low 
+              level to be useful as a language to poke and prod Ruby code. While computer languages were 
+              originally designed as a way for humans to communicate with machines, they’re now (at least 
+              the good ones) frameworks upon which we are able to structure our thought processes. We have 
+              the problem solving muscle. We just need the programming language hammer.
+            </p>
+            <p>
+              And so I believe that Ruby is the best language for testing Ruby code. And in the same way 
+              I wouldn’t write a one-act play in a programming language, I don’t believe it’s productive 
+              to expect an interpersonal language to assume the responsibilities and abilities of programmatic 
+              one.
+            </p>            
+          </div>
+          <div class="meta">
+            <a href="#">1 Comment</a>
+          </div>
+        </div>
+        
+        <div id="post_4" class="picture">
+          <div class="date">
+            <span class="month">Jun</span>
+            <span class="day">15</span>
+          </div>
+          <img src="http://farm3.static.flickr.com/2131/2314699667_e4b3ef6da7.jpg">
+          <small>MTA Practical Jokes</small>
+          <cite>&#x2010; Posted from <a href="#">flickr</a></cite>
+        </div>
+        
+        <div id="post_2" class="quote">
+          <div class="date">
+            <span class="month">Jun</span>
+            <span class="day">15</span>
+          </div>
+          <blockquote>
+            That's what she said... no really. <a href="#"><span>She said it</span></a>. And I was stricken with a sort of madness that 
+            only now am I quite able to overcome.
+          </blockquote>
+          <cite>&#x2010; Pat Nakajima</cite>
+        </div>
+        
+        <div id="post_3" class="tweet">
+          <div class="date">
+            <span class="month">Jun</span>
+            <span class="day">15</span>
+          </div>
+          <blockquote>
+            @<a href="#"><span>jeresig</span></a>: See that show as many times as possible. I saw him here in New York and it was outstanding.
+          </blockquote>
+          <cite>&#x2010; Posted from <a href="http://twitter.com/nakajim">Twitter</a></cite>
+        </div>
+        
+      </div>
+    </div>
+    <div id="footer">
+      
+    </div>
+  </div>  
+</body>
 </html>

@@ -2,3 +2,5 @@ log/*
 tmp/*
 db/*.sqlite3
 config/database.yml
+.DS_Store
+./**/.DS_Store
