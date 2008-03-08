@@ -33,6 +33,18 @@ a:hover {
   color: white;
 }
 
+label {
+  display: block;
+  font-size: 12px;
+  width: 400px;
+  margin: 1em 0;
+}
+
+label input {
+  width: 100%;
+  font-size: 20px;
+}
+
 #all {
   text-align: left;
   margin: 0 auto;
@@ -48,6 +60,19 @@ a:hover {
   font-size: 36px;
   font-family: Georgia, Times, serif;
   margin-bottom: 0;
+}
+
+#header h1 a {
+  color: #0af;
+}
+
+#header h1 a:hover {
+  background: white;
+  text-decoration: underline;
+}
+
+#header h1 a span {
+  color: black;
 }
 
 #header h2 {
@@ -79,6 +104,19 @@ a:hover {
 
 #posts div h3 {
   font-size: 22px;
+}
+
+#posts div h3 a {
+  color: #0af;
+}
+
+#posts div h3 a:hover {
+  background: white;
+  text-decoration: underline;
+}
+
+#posts div h3 a span {
+  color: black;
 }
 
 /*------------------------------------------------------------

@@ -1,16 +1,19 @@
+<% content_for :header do %>
+<h1>New User</h1>
+<% end %>
 <%= error_messages_for :user %>
 <% form_for :user, :url => users_path do |f| -%>
-<p><label for="login">Login</label><br/>
-<%= f.text_field :login %></p>
+<label for="name">Your Name<br/>
+<%= f.text_field :name %></label>
 
-<p><label for="email">Email</label><br/>
-<%= f.text_field :email %></p>
+<label for="email">Your Email<br/>
+<%= f.text_field :email %></label>
 
-<p><label for="password">Password</label><br/>
-<%= f.password_field :password %></p>
+<label for="password">Password<br/>
+<%= f.password_field :password %></label>
 
-<p><label for="password_confirmation">Confirm Password</label><br/>
-<%= f.password_field :password_confirmation %></p>
+<label for="password_confirmation">Confirm Password<br/>
+<%= f.password_field :password_confirmation %></label>
 
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>

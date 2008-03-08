@@ -1,0 +1,43 @@
+<p>
+  <b>Permalink:</b>
+  <%=h @post.permalink %>
+</p>
+
+<p>
+  <b>Header:</b>
+  <%=h @post.header %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @post.content %>
+</p>
+
+<p>
+  <b>Cite:</b>
+  <%=h @post.cite %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @post.type %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @post.user_id %>
+</p>
+
+<p>
+  <b>Lang:</b>
+  <%=h @post.lang %>
+</p>
+
+<p>
+  <b>Comment counter:</b>
+  <%=h @post.comment_counter %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

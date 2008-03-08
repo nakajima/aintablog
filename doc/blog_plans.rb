@@ -1,28 +1,29 @@
 class Post < ActiveRecord::Base
-  
+  # Attributes:
+  # permalink:string header:string content:text cite:string type:string user_id:id lang:string comment_counter:integer
 end
 
-class Article < Post
-  
+class Article < Post  
 end
 
-class Tweet < Post
-  
+class Tweet < Post  
 end
 
-class Snippet < Post
-  
+class Snippet < Post  
 end
 
-class Picture < Post
-  
+class Picture < Post  
 end
 
-class Quote < Post
-  
+class Quote < Post  
 end
 
-class Link < Post
-  
+class Link < Post  
 end
 
+# -------------------------------
+
+class Feed < ActiveRecord::Base
+  # Attributes:
+  # url:string doctype:string 
+end

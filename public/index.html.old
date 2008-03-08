@@ -8,41 +8,7 @@
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Pat Nakajima">
 	<link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<style type="text/css" media="screen">
-	  #admin {
-	    background: black;
-	    padding: 0.3em 0.6em 0.2em;
-	    margin-bottom: -1em;
-	    font-size: 11px;
-	    color: white;
-	    text-align: left;
-	    border-bottom: 1px #ccc solid;
-	  }
-	  
-	  #admin a {
-	    color: white;
-	    margin-left: 1em;
-	    padding: 0 0.1em;
-	    margin-top: -0.1em;
-	  }
-	  
-	  #admin a:hover {
-	    background: white;
-	    color: black;
-	    text-decoration: none;
-	  }
-	  
-	  #admin #logoutLinks {
-	    float: right;
-	  }
-
-	  #admin hr {
-	    clear: both;
-	    visibility: hidden;
-	    margin: 0;
-	    padding: 0;
-	  }
-	</style>
+	<link rel="stylesheet" href="/stylesheets/admin.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<script src="/javascripts/prototype.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -64,11 +30,12 @@
     <a href="#">Syndication</a>
     <a href="#">Refresh Feeds</a>
     <a href="#">Personal Info</a>
+    <a href="#">Advanced Options</a>
     <hr>
   </div>
   <div id="all">
     <div id="header">
-      <h1>AintaBlog</h1>
+      <h1><a href="/"><span>AintaBlog</span></a></h1>
       <h2>When all else fails, use aintablog on the stain.</h2>
     </div>
     <div id="content">
@@ -86,7 +53,7 @@
         </div>
         
         <div id="post_1" class="article">
-          <h3>The Trouble with rspec</h3>
+          <h3><a href="#"><span>The Trouble with rspec</span></a></h3>
           <div class="date">
             <span class="month">Jun</span>
             <span class="day">15</span>

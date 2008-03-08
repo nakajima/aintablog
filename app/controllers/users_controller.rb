@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-  
-
   # render new.rhtml
   def new
+    redirect_to '/' if (User.count >= 1) && !logged_in?
+    @user = User.new
   end
 
   def create
@@ -23,5 +21,4 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
-
 end

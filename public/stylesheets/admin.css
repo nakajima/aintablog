@@ -1,0 +1,33 @@
+#admin {
+  background: black;
+  padding: 0.3em 0.6em 0.2em;
+  margin-bottom: -1em;
+  font-size: 11px;
+  color: white;
+  text-align: left;
+  border-bottom: 1px #ccc solid;
+}
+
+#admin a {
+  color: white;
+  margin-left: 1em;
+  padding: 0 0.2em;
+  margin-top: -0.1em;
+}
+
+#admin a:hover {
+  background: white;
+  color: black;
+  text-decoration: none;
+}
+
+#admin #logoutLinks {
+  float: right;
+}
+
+#admin hr {
+  clear: both;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
