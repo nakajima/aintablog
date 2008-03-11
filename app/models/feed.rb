@@ -4,7 +4,6 @@ class Feed < ActiveRecord::Base
   
   validates_presence_of :uri
   validates_format_of :uri, :with => %r{^(http|file)://}i, :on => :create
-  before_save :update_timestamp
   
   def learn_attributes!
     self.title  = fetched_feed.title

@@ -14,7 +14,7 @@ class FeedsControllerTest < ActionController::TestCase
 
   def test_should_create_feed
     assert_difference('Feed.count') do
-      post :create, :feed => { :uri => 'http://daringfireball.net/feed.xml' }
+      post :create, :feed => { :uri => 'http://daringfireball.net/index.xml' }
     end
 
     assert_redirected_to feed_path(assigns(:feed))
