@@ -5,14 +5,19 @@
 <blockquote>
   <%=h post.content -%>
 </blockquote>
-<% if post.cite -%>
-  
+<% unless post.cite.blank? -%>
   <cite>
     <% if post.header -%>&#x2010; <%= spanned_link h(post.cite), post.header %><% else -%>&#x2010; <%=h post.cite %><% end -%>    
     <% if logged_in? -%>
     <%= link_to 'Edit', edit_quote_path(post) %>
     <%= link_to 'Destroy', quote_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
     <% end -%>
-  </cite>
-  
+  </cite>  
+<% else -%>
+<% if logged_in? -%>
+<cite>
+<%= link_to 'Edit', edit_quote_path(post) %>
+<%= link_to 'Destroy', quote_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+</cite>
+<% end -%>
 <% end -%>

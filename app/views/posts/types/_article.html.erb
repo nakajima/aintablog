@@ -1,9 +1,4 @@
 <h3><%= spanned_link post.header, post %></h3>
-<% if logged_in? -%>
-  <small>
-    
-  </small>
-<% end -%>
 <div class="date">
   <span class="month"><%= post.created_at.strftime('%b') %></span>
   <span class="day"><%= post.created_at.strftime('%e') %></span>
@@ -17,8 +12,10 @@
 
 <div class="meta">
   <%= comments_link_for(post) %>
+  <% if logged_in? -%>
   <%= link_to 'Edit', edit_article_path(post) %>
   <%= link_to 'Destroy', article_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+  <% end %>
 </div>
 
 <% else -%>
@@ -26,15 +23,17 @@
 <div id="comments">
   <h4>Comments</h4>
   
+  <%= "<p>No comments have been left yet.</p>" if @post.comments.reject(&:new_record?).blank? %>
+  
   <% @post.comments.reject(&:new_record?).each do |comment| -%>
     <% div_for(comment) do %>
     <h5><%= comment.website ? (link_to h(comment.name), h(comment.website)) : h(comment.name) %> said... 
-    <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." if logged_in? %></h5>
+    <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment.", :class => 'right' if logged_in? %></h5>
     <div>
       <%= comment.body %>
     </div>
     <% end %>
-  <% end -%>
+  <% end -%>  
   
   <% form_for([@post, @comment]) do |f| -%>
   
