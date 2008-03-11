@@ -3,12 +3,17 @@
   <% form_for(@post) do |f| %>
     <label for="content">
       Quote<br>
-      <%= f.text_field :content %>
+      <%= f.text_area :content %>
     </label>
 
     <label for="cite">
       Who said it? (optional)<br>
       <%= f.text_field :cite %>
+    </label>
+    
+    <label for="header">
+      Where was it said? (optional)<br>
+      <%= f.text_field :header %>
     </label>
     
     <%= f.hidden_field :type, :value => 'Quote' %>

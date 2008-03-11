@@ -1,43 +1,11 @@
-<p>
-  <b>Permalink:</b>
-  <%=h @post.permalink %>
-</p>
+<% content_for :header do %>
+<h1><a href="/"><span>AintaBlog</span></a></h1>
+<h2>When all else fails, use aintablog on the stain.</h2>
+<% end %>
 
-<p>
-  <b>Header:</b>
-  <%=h @post.header %>
-</p>
+<div id="posts">
+  <div id="post_<%= @post.id %>" class="<%= @post.type.to_s.downcase %>">
+    <%= partial_for(@post) %>
+  </div>
+</div>
 
-<p>
-  <b>Content:</b>
-  <%=h @post.content %>
-</p>
-
-<p>
-  <b>Cite:</b>
-  <%=h @post.cite %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%=h @post.type %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%=h @post.user_id %>
-</p>
-
-<p>
-  <b>Lang:</b>
-  <%=h @post.lang %>
-</p>
-
-<p>
-  <b>Comment counter:</b>
-  <%=h @post.comment_counter %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

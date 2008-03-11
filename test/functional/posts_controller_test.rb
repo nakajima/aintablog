@@ -46,26 +46,26 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   def test_should_show_post
-    get :show, :id => posts(:one).id
+    get :show, :id => posts(:one).permalink
     assert_response :success
   end
 
   def test_should_get_edit
     login_as :quentin
-    get :edit, :id => posts(:one).id
+    get :edit, :id => posts(:one).permalink
     assert_response :success
   end
 
   def test_should_update_post
     login_as :quentin
-    put :update, :id => posts(:one).id, :post => { }
+    put :update, :id => posts(:one).permalink, :post => { }
     assert_redirected_to post_path(assigns(:post))
   end
 
   def test_should_destroy_post
     login_as :quentin
     assert_difference('Post.count', -1) do
-      delete :destroy, :id => posts(:one).id
+      delete :destroy, :id => posts(:one).permalink
     end
 
     assert_redirected_to posts_path

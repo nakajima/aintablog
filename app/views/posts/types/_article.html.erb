@@ -6,6 +6,12 @@
 <div class="entry">
   <%= RedCloth.new(post.content).to_html %>
 </div>
+<% if params[:action] == 'index' -%>
 <div class="meta">
-  <a href="#">No comments</a>
+  <%= link_to 'Comments', "#{article_path(post)}#comments" %>
 </div>
+<% else -%>
+<div id="comments">
+  <h4>Leave a comment</h4>
+</div>
+<% end %>

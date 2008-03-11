@@ -6,5 +6,9 @@
   <%=h post.content -%>
 </blockquote>
 <% if post.cite -%>
-<cite>&#x2010; <%=h post.cite %></cite>
+  <% if post.header %>
+  <cite>&#x2010; <%= spanned_link h(post.cite), post.header %></cite>
+  <% else %>
+  <cite>&#x2010; <%=h post.cite %></cite>
+  <% end %>
 <% end -%>

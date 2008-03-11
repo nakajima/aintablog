@@ -22,6 +22,11 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_generate_permalink
+    article = create_article
+    assert_not_nil article.permalink
+  end
+  
 protected
 
   def create_article(options={})

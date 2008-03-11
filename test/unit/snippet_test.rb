@@ -22,6 +22,11 @@ class SnippetTest < ActiveSupport::TestCase
     end
   end
   
+  def test_should_generate_permalink
+    snippet = create_snippet
+    assert_not_nil snippet.permalink
+  end
+  
 protected
 
   def create_snippet(options={})

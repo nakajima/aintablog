@@ -18,6 +18,6 @@ class PostTest < ActiveSupport::TestCase
 protected
 
   def create_post(options={})
-    Post.create({ :header => 'A name', :content => 'Some content', :type => 'Article', :user_id => users(:quentin).id }.merge(options))
+    Post.create({ :header => 'A name', :content => 'Some content', :type => 'Article', :user_id => users(:quentin).id, :permalink => 'ok' }.merge(options))
   end
 end

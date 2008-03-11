@@ -28,6 +28,10 @@ a {
   padding: 0.1em 0.2em;
 }
 
+a.active {
+  text-decoration: underline;
+}
+
 a:hover {
   background: black;
   color: white;
@@ -204,6 +208,40 @@ label textarea {
 }
 
 .tweet blockquote a span {
+  color: #0af;
+}
+
+/*------------------------------------------------------------
+  Link styles */
+
+.link blockquote {
+  background: transparent url(/images/link.png) no-repeat;
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: bold;
+  font-family: Georgia, Times, serif;
+  padding: 0 1em 0 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.link cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.link blockquote a {
+  color: #373737;
+  padding: 0;
+}
+
+.link blockquote a:hover {
+  text-decoration: underline;
+  background: white;
+}
+
+.link blockquote a span {
   color: #0af;
 }
 

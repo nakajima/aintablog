@@ -11,7 +11,7 @@ one:
   comment_counter: 1
 
 two:
-  permalink: MyString
+  permalink: MyString2
   header: MyString
   content: MyText
   cite: MyString
