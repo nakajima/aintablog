@@ -4,11 +4,6 @@
 
 <% form_for(@post) do |f| %>
   <p>
-    <b>Permalink</b><br />
-    <%= f.text_field :permalink %>
-  </p>
-
-  <p>
     <b>Header</b><br />
     <%= f.text_field :header %>
   </p>
@@ -31,16 +26,6 @@
   <p>
     <b>User</b><br />
     <%= f.text_field :user_id %>
-  </p>
-
-  <p>
-    <b>Lang</b><br />
-    <%= f.text_field :lang %>
-  </p>
-
-  <p>
-    <b>Comment counter</b><br />
-    <%= f.text_field :comment_counter %>
   </p>
 
   <p>

@@ -3,7 +3,24 @@
 <h2>When all else fails, use aintablog on the stain.</h2>
 <% end %>
 
-<div id="posts">  
+<div id="posts">
+  <% @posts.each do |post| -%>
+  <div id="post_<%= post.id %>" class="<%= post.type %>">
+    <h3><%= link_to post.header, post, :class => 'spanify' %></h3>
+    <div class="date">
+      <span class="month"><%= post.created_at.strftime('%b') %></span>
+      <span class="day"><%= post.created_at.strftime('%e') %></span>
+    </div>
+    <div class="entry">
+      <%= post.content %>
+    </div>
+    <div class="meta">
+      <a href="#">No comments</a>
+    </div>
+  </div>
+  <% end -%>
+  
+  <!--
   <div id="post_3" class="tweet">
     <div class="date">
       <span class="month">Jun</span>
@@ -80,5 +97,6 @@
     </blockquote>
     <cite>&#x2010; Posted from <a href="http://twitter.com/nakajim">Twitter</a></cite>
   </div>
+  -->
   
 </div>

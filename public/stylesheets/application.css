@@ -43,6 +43,13 @@ label {
 label input {
   width: 100%;
   font-size: 20px;
+  font-weight: bold;
+}
+
+label textarea {
+  width: 100%;
+  font-size: 14px;
+  padding: 0.2em;
 }
 
 #all {

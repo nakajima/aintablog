@@ -1,0 +1,18 @@
+<div id="quote" class="panel">
+  <h1>New Quote</h1>
+  <% form_for(@post) do |f| %>
+    <label for="content">
+      Quote<br>
+      <%= f.text_field :content %>
+    </label>
+
+    <label for="cite">
+      About (optional)<br>
+      <%= f.text_field :cite %>
+    </label>
+
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</div>

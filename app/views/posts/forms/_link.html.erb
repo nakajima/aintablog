@@ -1,0 +1,23 @@
+<div id="link" class="panel">
+  <h1>New Link</h1>
+  <% form_for(@post) do |f| %>
+    <label for="header">
+      Link Text<br />
+      <%= f.text_field :header %>
+    </label>
+    
+    <label for="content">
+      Link Href<br>
+      <%= f.text_field :content %>
+    </label>
+
+    <label for="cite">
+      About (optional)<br>
+      <%= f.text_field :cite %>
+    </label>
+
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</div>

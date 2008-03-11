@@ -9,7 +9,7 @@
 	<meta name="author" content="Pat Nakajima">
 	<%= stylesheet_link_tag 'application' %>
 	<%= stylesheet_link_tag 'admin' if logged_in? %>
-	<%= javascript_include_tag 'prototype', 'application' %>
+	<%= javascript_include_tag 'prototype', 'extensions', 'application' %>
 </head>
 <body>
   <%= render :partial => "shared/admin" if logged_in? %>
@@ -21,7 +21,7 @@
       <%= yield -%>
     </div>
     <div id="footer">
-      
+      <%= yield :footer -%>
     </div>
   </div>  
 </body>
