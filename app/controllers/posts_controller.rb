@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.find(:all, :order => 'created_at DESC')
+    @posts = Post.paginate(:order => 'created_at DESC', :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,10 +60,9 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    @post = Post.find_by_permalink(params[:id])
-
+    @post = current_user.posts.find_by_permalink(params[:id])
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(params[@post.type.downcase])
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to post_path(@post) }
         format.xml  { head :ok }

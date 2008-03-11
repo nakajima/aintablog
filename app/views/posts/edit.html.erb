@@ -1,32 +1,9 @@
-<h1>Editing post</h1>
+<%= render :partial => "/posts/forms/#{@post.type.to_s.downcase}.html.erb" %>
 
-<%= error_messages_for :post %>
+<%= link_to 'Go Back Home', '/' %>
 
-<% form_for(@post) do |f| %>
-  <p>
-    <b>Header</b><br />
-    <%= f.text_field :header %>
-  </p>
-
-  <p>
-    <b>Content</b><br />
-    <%= f.text_area :content %>
-  </p>
-
-  <p>
-    <b>Cite</b><br />
-    <%= f.text_field :cite %>
-  </p>
-
-  <p>
-    <b>Type</b><br />
-    <%= f.text_field :type %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<script type="text/javascript" charset="utf-8">
+  Event.observe(document, 'dom:loaded', function() {
+    ProtoPanel.setup({'default':'article'});
+  })
+</script>

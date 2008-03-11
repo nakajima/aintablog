@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :quotes
   has_many :snippets
   has_many :links
+  has_many :posts
   
   attr_accessible :name
   

@@ -1,5 +1,5 @@
 <div id="quote" class="panel">
-  <h1>New Quote</h1>
+  <h1><%= @post.new_record? ? "New Quote" : "Edit Quote" %></h1>
   <% form_for(@post) do |f| %>
     <label for="content">
       Quote<br>
@@ -19,7 +19,7 @@
     <%= f.hidden_field :type, :value => 'Quote' %>
 
     <p>
-      <%= f.submit "Create" %>
+      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
     </p>
   <% end %>
 </div>

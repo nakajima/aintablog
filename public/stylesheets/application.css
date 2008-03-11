@@ -7,7 +7,7 @@ body {
   text-align: center;
   font-family: Lucida Grande, Arial, Tahoma, sans-serif;
   font-size: 16px;
-  color: #171717;
+  color: #1a1a1a;
 }
 
 .left { float: left; }
@@ -17,9 +17,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0;
 }
 
+ul, ol {
+  font-size: 12px;
+}
+
 p {
   margin: 1em 0;
   font-size: 14px;
+  line-height: 1.5em;
 }
 
 a {
@@ -71,6 +76,7 @@ label textarea {
   font-size: 36px;
   font-family: Georgia, Times, serif;
   margin-bottom: 0;
+  text-shadow: 1px 1px 1px #ccc;
 }
 
 #header h1 a {
@@ -111,10 +117,12 @@ label textarea {
   text-align: center;
   background: #eee;
   padding: 0.2em 0;
+  text-shadow: 1px 1px 1px #ccc;
 }
 
 #posts div h3 {
   font-size: 22px;
+  text-shadow: 1px 1px 1px #ccc;
 }
 
 #posts div h3 a {
@@ -128,6 +136,14 @@ label textarea {
 
 #posts div h3 a span {
   color: black;
+}
+
+.pagination {
+  font-size: 12px;
+}
+
+.pagination .disabled {
+  color: #c0c0c0;
 }
 
 /*------------------------------------------------------------

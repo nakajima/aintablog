@@ -1,5 +1,5 @@
 <div id="article" class="panel">
-  <h1>New Article</h1>
+  <h1><%= @post.new_record? ? "New Article" : "Edit Article" %></h1>
   
   <% form_for(@post) do |f| %>
     <label for="header">
@@ -12,10 +12,10 @@
       <%= f.text_area :content %>
     </label>
 
-    <%= f.hidden_field :type, :value => 'Article' %>
+    <%= f.hidden_field :type, :value => 'Article' if @post.new_record? %>
 
     <p>
-      <%= f.submit "Create" %>
+      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
     </p>
   <% end %>
 </div>

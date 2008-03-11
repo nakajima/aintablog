@@ -8,7 +8,7 @@ module ApplicationHelper
   end
   
   def partial_for(post)
-    render :partial => "/posts/types/#{post.type.to_s.downcase}.html.erb", :locals => { :post => post }
+    render :partial => "/posts/types/#{post.type.downcase}.html.erb", :locals => { :post => post }
   end
   
 end
