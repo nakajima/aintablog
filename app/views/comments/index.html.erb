@@ -1,0 +1,30 @@
+<h1>Listing comments</h1>
+
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Body</th>
+    <th>Email</th>
+    <th>Website</th>
+    <th>Name</th>
+    <th>User</th>
+  </tr>
+
+<% for comment in @comments %>
+  <tr>
+    <td><%=h comment.post_id %></td>
+    <td><%=h comment.body %></td>
+    <td><%=h comment.email %></td>
+    <td><%=h comment.website %></td>
+    <td><%=h comment.name %></td>
+    <td><%=h comment.user_id %></td>
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New comment', new_comment_path %>

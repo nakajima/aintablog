@@ -1,17 +1,74 @@
 <h3><%= spanned_link post.header, post %></h3>
+<% if logged_in? -%>
+  <small>
+    
+  </small>
+<% end -%>
 <div class="date">
   <span class="month"><%= post.created_at.strftime('%b') %></span>
   <span class="day"><%= post.created_at.strftime('%e') %></span>
 </div>
+
 <div class="entry">
   <%= RedCloth.new(post.content).to_html %>
 </div>
+
 <% if params[:action] == 'index' -%>
+
 <div class="meta">
-  <%= link_to 'Comments', "#{article_path(post)}#comments" %>
+  <%= comments_link_for(post) %>
+  <%= link_to 'Edit', edit_article_path(post) %>
+  <%= link_to 'Destroy', article_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
 </div>
+
 <% else -%>
+
 <div id="comments">
-  <h4>Leave a comment</h4>
+  <h4>Comments</h4>
+  
+  <% @post.comments.reject(&:new_record?).each do |comment| -%>
+    <% div_for(comment) do %>
+    <h5><%= comment.website ? (link_to h(comment.name), h(comment.website)) : h(comment.name) %> said... 
+    <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." if logged_in? %></h5>
+    <div>
+      <%= comment.body %>
+    </div>
+    <% end %>
+  <% end -%>
+  
+  <% form_for([@post, @comment]) do |f| -%>
+  
+    <h4>Leave a comment</h4>
+  
+    <%= error_messages_for :comment, :header_message => nil %>
+  
+    <% if logged_in? %>
+    <%= f.hidden_field :email, :value => current_user.email %>
+    <%= f.hidden_field :name, :value => current_user.name %>
+    <% else %>
+    <label for="email">
+      Email <span class="nil">(required)</span><br>
+      <%= f.text_field :email %>
+    </label>
+  
+    <label for="name">
+      Name <span class="nil">(required)</span><br>
+      <%= f.text_field :name %>
+    </label>
+    
+    <label for="website">
+      Website<br>
+      <%= f.text_field :website %>
+    </label>
+    <% end %>
+    
+    <label for="body">
+      Body <span class="nil">(required)</span><br>
+      <%= f.text_area :body %>
+    </label>
+    
+    <p><%= submit_tag 'Add Comment!' %></p>
+  
+  <% end -%>
 </div>
 <% end %>

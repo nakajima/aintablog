@@ -30,6 +30,6 @@ class ArticleTest < ActiveSupport::TestCase
 protected
 
   def create_article(options={})
-    Article.create({ :header => 'A Title', :content => 'Some content', :user_id => users(:quentin).id }.merge(options))
+    users(:quentin).articles.create({ :header => 'A Title', :content => 'Some content' }.merge(options))
   end
 end

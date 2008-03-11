@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.paginate(:order => 'created_at DESC', :page => params[:page])
+    @posts = Post.paginate(:order => 'posts.created_at DESC', :page => params[:page], :include => :comments)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +15,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find_by_permalink(params[:id])
-
+    @post = Post.find_by_permalink(params[:id], :include => :comments)
+    @comment = flash[:comment] || @post.comments.build
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @post }

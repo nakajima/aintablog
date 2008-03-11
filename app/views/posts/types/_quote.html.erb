@@ -6,9 +6,13 @@
   <%=h post.content -%>
 </blockquote>
 <% if post.cite -%>
-  <% if post.header %>
-  <cite>&#x2010; <%= spanned_link h(post.cite), post.header %></cite>
-  <% else %>
-  <cite>&#x2010; <%=h post.cite %></cite>
-  <% end %>
+  
+  <cite>
+    <% if post.header -%>&#x2010; <%= spanned_link h(post.cite), post.header %><% else -%>&#x2010; <%=h post.cite %><% end -%>    
+    <% if logged_in? -%>
+    <%= link_to 'Edit', edit_quote_path(post) %>
+    <%= link_to 'Destroy', quote_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+    <% end -%>
+  </cite>
+  
 <% end -%>

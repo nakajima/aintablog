@@ -284,3 +284,32 @@ label textarea {
   font-style: normal;
   font-size: 12px;
 }
+
+/*------------------------------------------------------------
+  Comment styles */
+
+#comments form, #comments {
+  margin-top: 3em;
+}
+
+#comments label, #comments label input[type="text"] {
+  width: 100%;
+  font-weight: normal;
+  padding: 0.2em;
+}
+
+#comments label textarea {
+  height: 150px;
+  font-size: 20px;
+  padding: 0.2em;
+}
+
+#comments .fieldWithErrors input[type="text"], #comments .fieldWithErrors textarea {
+  width: 100%;
+  outline: 3px solid #f94;
+}
+
+#comments .comment {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #dfdfdf;
+}

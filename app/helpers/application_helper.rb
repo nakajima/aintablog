@@ -11,4 +11,10 @@ module ApplicationHelper
     render :partial => "/posts/types/#{post.type.downcase}.html.erb", :locals => { :post => post }
   end
   
+  def comments_link_for(post)
+    text = (post.comments.length < 1) ? 'No comments' : pluralize(post.comments.length, 'comment')
+    path = send("#{post.type.downcase}_path", post)
+    link_to text, "#{path}#comments"
+  end
+  
 end

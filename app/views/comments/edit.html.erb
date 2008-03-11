@@ -1,0 +1,42 @@
+<h1>Editing comment</h1>
+
+<%= error_messages_for :comment %>
+
+<% form_for(@comment) do |f| %>
+  <p>
+    <b>Post</b><br />
+    <%= f.text_field :post_id %>
+  </p>
+
+  <p>
+    <b>Body</b><br />
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <b>Email</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <b>Website</b><br />
+    <%= f.text_field :website %>
+  </p>
+
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>User</b><br />
+    <%= f.text_field :user_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @comment %> |
+<%= link_to 'Back', comments_path %>
