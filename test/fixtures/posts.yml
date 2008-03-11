@@ -5,7 +5,7 @@ one:
   header: MyString
   content: MyText
   cite: MyString
-  type:
+  type: Article
   user_id: 1
   lang: MyString
   comment_counter: 1
@@ -15,7 +15,7 @@ two:
   header: MyString
   content: MyText
   cite: MyString
-  type:
+  type: Link
   user_id: 1
   lang: MyString
   comment_counter: 1

@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  attr_accessible :header, :content, :cite, :type
+  validates_presence_of :user_id
 end

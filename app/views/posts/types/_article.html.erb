@@ -1,0 +1,11 @@
+<h3><%= spanned_link post.header, post %></h3>
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') %></span>
+  <span class="day"><%= post.created_at.strftime('%e') %></span>
+</div>
+<div class="entry">
+  <%= RedCloth.new(post.content).to_html %>
+</div>
+<div class="meta">
+  <a href="#">No comments</a>
+</div>

@@ -1,0 +1,10 @@
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') -%></span>
+  <span class="day"><%= post.created_at.strftime('%e') -%></span>
+</div>
+<blockquote>
+  <%=h post.content -%>
+</blockquote>
+<% if post.cite -%>
+<cite>&#x2010; <%=h post.cite %></cite>
+<% end -%>

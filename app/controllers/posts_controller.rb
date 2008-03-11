@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.find(:all)
+    @posts = Post.find(:all, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,15 +42,16 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
-
+    post_type = params[:post][:type].tableize
+    @post = current_user.send(post_type).build(params[:post])
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to post_path(@post) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
-        format.html { render :action => "new" }
+        flash[:error] = @post.errors.full_messages
+        format.html { redirect_to "#{new_post_path}##{params[:post][:type].downcase}" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
@@ -64,7 +65,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to post_path(@post) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

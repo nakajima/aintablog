@@ -1,5 +1,6 @@
 <div id="article" class="panel">
   <h1>New Article</h1>
+  
   <% form_for(@post) do |f| %>
     <label for="header">
       Title<br />
@@ -10,6 +11,8 @@
       Body<br />
       <%= f.text_area :content %>
     </label>
+
+    <%= f.hidden_field :type, :value => 'Article' %>
 
     <p>
       <%= f.submit "Create" %>

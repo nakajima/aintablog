@@ -5,18 +5,8 @@
 
 <div id="posts">
   <% @posts.each do |post| -%>
-  <div id="post_<%= post.id %>" class="<%= post.type %>">
-    <h3><%= link_to post.header, post, :class => 'spanify' %></h3>
-    <div class="date">
-      <span class="month"><%= post.created_at.strftime('%b') %></span>
-      <span class="day"><%= post.created_at.strftime('%e') %></span>
-    </div>
-    <div class="entry">
-      <%= post.content %>
-    </div>
-    <div class="meta">
-      <a href="#">No comments</a>
-    </div>
+  <div id="post_<%= post.id %>" class="<%= post.type.to_s.downcase %>">
+    <%= partial_for(post) %>
   </div>
   <% end -%>
   

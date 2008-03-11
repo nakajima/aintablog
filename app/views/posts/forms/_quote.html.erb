@@ -7,9 +7,11 @@
     </label>
 
     <label for="cite">
-      About (optional)<br>
+      Who said it? (optional)<br>
       <%= f.text_field :cite %>
     </label>
+    
+    <%= f.hidden_field :type, :value => 'Quote' %>
 
     <p>
       <%= f.submit "Create" %>

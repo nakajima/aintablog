@@ -1,6 +1,29 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  
+  # Custom tests
+  
+  def test_should_create_article
+    login_as :quentin
+    assert_difference('Post.count') do
+      post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
+    end
+
+    assert_redirected_to post_path(assigns(:post))
+  end
+  
+  def test_should_create_snippet
+    login_as :quentin
+    assert_difference('Post.count') do
+      post :create, :post => { :type => 'Snippet', :header => 'Something', :content => 'Something else', :lang => 'Ruby' }
+    end
+
+    assert_redirected_to post_path(assigns(:post))
+  end
+  
+  # Generated tests
+  
   def test_should_get_index
     get :index
     assert_response :success
@@ -16,7 +39,7 @@ class PostsControllerTest < ActionController::TestCase
   def test_should_create_post
     login_as :quentin
     assert_difference('Post.count') do
-      post :create, :post => { }
+      post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
     end
 
     assert_redirected_to post_path(assigns(:post))
