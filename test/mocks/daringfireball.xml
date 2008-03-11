@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Daring Fireball</title>
+<subtitle>Mac and web curmudgeonry/nerdery. By John Gruber.</subtitle>
+<link rel="alternate" type="text/html" href="http://daringfireball.net/" />
+<link rel="self" type="application/atom+xml" href="http://daringfireball.net/index.xml" />
+<id>http://daringfireball.net/feeds/combo</id>
+
+<updated>2008-03-11T21:06:03Z</updated><rights>Copyright © 2008, John Gruber</rights><entry>
+	<title>Filing Bugs Against iPhone SDK Restrictions</title>
+	<link rel="alternate" type="text/html" href="http://www.rogueamoeba.com/utm/2008/03/11/iphone-sdk-bug-filing/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11171</id>
+	<published>2008-03-11T17:06:03-04:00</published>
+	<updated>2008-03-11T17:06:03-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Rogue Amoeba&#8217;s list of bugs they&#8217;ve filed with Apple against the iPhone SDK serves as a concise layman&#8217;s overview of the restrictions and limitations. The Rogue Amoeba guys are pretty much taking the hard line stance that iPhone development should be as open as Mac development. I don&#8217;t agree with that, but it&#8217;s useful to have a list like this.</p>
+
+<div>
+<a  title="Permanent link to ‘Filing Bugs Against iPhone SDK Restrictions’"  href="http://daringfireball.net/linked/2008/march#tue-11-ra">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Quote, Unquote</title>
+	<link rel="alternate" type="text/html" href="http://www.ministryoftype.co.uk/words/article/quote_unquote/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11169</id>
+	<published>2008-03-11T14:55:47-04:00</published>
+	<updated>2008-03-11T14:55:47-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Nice essay on quotation marks from The Ministry of Type.</p>
+
+<div>
+<a  title="Permanent link to ‘Quote, Unquote’"  href="http://daringfireball.net/linked/2008/march#tue-11-unquote">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Apple Poaches Samsung Mobile Executive</title>
+	<link rel="alternate" type="text/html" href="http://www.intomobile.com/2008/03/11/scott-huang-drops-his-title-as-the-vp-of-samsungs-mobile-communications-unit-and-moves-to-apple.html" />
+	<id>tag:daringfireball.net,2008:/linked//6.11167</id>
+	<published>2008-03-11T14:19:42-04:00</published>
+	<updated>2008-03-11T14:20:43-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Everyone seems focused on Apple&#8217;s 2008 goal to sell 10 million iPhones, but I wonder how many they&#8217;re hoping to sell in, say, 2009. I&#8217;m guessing it&#8217;s a lot more than 10 million.</p>
+
+<div>
+<a  title="Permanent link to ‘Apple Poaches Samsung Mobile Executive’"  href="http://daringfireball.net/linked/2008/march#tue-11-huang">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Donkey Kong and Me</title>
+	<link rel="alternate" type="text/html" href="http://www.dadhacker.com/blog/?p=987" />
+	<id>tag:daringfireball.net,2008:/linked//6.11165</id>
+	<published>2008-03-11T13:53:05-04:00</published>
+	<updated>2008-03-11T13:53:05-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Great old-school Atari programming story. (Via <a href="http://twitter.com/iacas">Erik Barzeski</a>.)</p>
+
+<div>
+<a  title="Permanent link to ‘Donkey Kong and Me’"  href="http://daringfireball.net/linked/2008/march#tue-11-dkong">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Dave Girard’s Aperture 2.0 Review</title>
+	<link rel="alternate" type="text/html" href="http://arstechnica.com/reviews/apps/aperture-2-review.ars" />
+	<id>tag:daringfireball.net,2008:/linked//6.11163</id>
+	<published>2008-03-11T12:18:08-04:00</published>
+	<updated>2008-03-11T12:18:08-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>In his typical in-depth style.</p>
+
+<div>
+<a  title="Permanent link to ‘Dave Girard&#8217;s Aperture 2.0 Review’"  href="http://daringfireball.net/linked/2008/march#tue-11-girard">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Hello App Store</title>
+	<link rel="alternate" type="text/html" href="http://furbo.org/2008/03/07/hello-app-store/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11161</id>
+	<published>2008-03-11T11:57:32-04:00</published>
+	<updated>2008-03-11T14:39:38-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Craig Hockenberry:</p>
+
+<blockquote>
+  <p>But thinking through the situation a bit more, I realized that those things pale in comparison to the value of being associated with the Apple brand. Having their explicit stamp of approval and being included in the App Store will make any product more appealing to a customer.</p>
+</blockquote>
+
+<p>The other big thing about this is that users &#8212; especially typical users &#8212; will feel confident about the fact that whatever they install won&#8217;t screw up their phones.</p>
+
+<div>
+<a  title="Permanent link to ‘Hello App Store’"  href="http://daringfireball.net/linked/2008/march#tue-11-chockenberry">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>WSJ: The iPhone’s Great Email Debate</title>
+	<link rel="alternate" type="text/html" href="http://blogs.wsj.com/biztech/2008/03/10/the-iphones-great-email-debate/?mod=yahoo_hs" />
+	<id>tag:daringfireball.net,2008:/linked//6.11159</id>
+	<published>2008-03-10T19:34:43-04:00</published>
+	<updated>2008-03-10T19:34:43-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Seems weird to argue that a single point of failure is a security <em>benefit</em>.</p>
+
+<div>
+<a  title="Permanent link to ‘WSJ: The iPhone&#8217;s Great Email Debate’"  href="http://daringfireball.net/linked/2008/march#mon-10-wsj">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Good Question</title>
+	<link rel="alternate" type="text/html" href="http://www.stevenberlinjohnson.com/2008/03/games-and-the-i.html" />
+	<id>tag:daringfireball.net,2008:/linked//6.11157</id>
+	<published>2008-03-10T17:25:53-04:00</published>
+	<updated>2008-03-10T17:25:53-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Steven Berlin Johnson:</p>
+
+<blockquote>
+  <p>Does this mean the only way you can do over-the-air syncing of calendar events and contacts (a feature I really, really want) is by connecting to an Exchange server? That would be pretty intense if Apple limited a crucial feature exclusively to users of a Microsoft product. Shouldn&#8217;t iCal and Google Calendar users be first in line?</p>
+</blockquote>
+
+<p>Along the same lines, it seems weird that the iPhone&#8217;s Mail app can talk to Exchange natively, but Mac OS X Mail can&#8217;t.</p>
+
+<div>
+<a  title="Permanent link to ‘Good Question’"  href="http://daringfireball.net/linked/2008/march#mon-10-sbj">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Obsolete Skills</title>
+	<link rel="alternate" type="text/html" href="http://obsoleteskills.com/Main/HomePage" />
+	<id>tag:daringfireball.net,2008:/linked//6.11155</id>
+	<published>2008-03-10T13:46:25-04:00</published>
+	<updated>2008-03-10T13:46:25-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>If you&#8217;ve got any of these on your resume, it&#8217;s time to redo your resume. (Thanks to <a href="http://arstechnica.com/staff/fatbits.ars">John Siracusa</a>.)</p>
+
+<div>
+<a  title="Permanent link to ‘Obsolete Skills’"  href="http://daringfireball.net/linked/2008/march#mon-10-obsolete">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Blackr</title>
+	<link rel="alternate" type="text/html" href="http://blackr.net/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11153</id>
+	<published>2008-03-10T13:44:28-04:00</published>
+	<updated>2008-03-10T15:22:45-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>JavaScript bookmarklet from Robert Rezabek that hides everything on a Flickr photo page except for the pictures.</p>
+
+<div>
+<a  title="Permanent link to ‘Blackr’"  href="http://daringfireball.net/linked/2008/march#mon-10-blackr">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>LOLspeak Translashun Dictionary</title>
+	<link rel="alternate" type="text/html" href="http://www.dribin.org/dave/blog/archives/2008/03/04/lolspeak_dictionary/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11151</id>
+	<published>2008-03-10T13:42:15-04:00</published>
+	<updated>2008-03-10T13:42:15-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>The Ruby code behind Dave Dribin&#8217;s <a href="http://daringfurball.org/">Daring Furball</a>.</p>
+
+<div>
+<a  title="Permanent link to ‘LOLspeak Translashun Dictionary’"  href="http://daringfireball.net/linked/2008/march#mon-10-lolspeak">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Gone, Without a Trace</title>
+	<link rel="alternate" type="text/html" href="http://www.newsweek.com/id/120052/output/print" />
+	<id>tag:daringfireball.net,2008:/linked//6.11149</id>
+	<published>2008-03-10T12:35:38-04:00</published>
+	<updated>2008-03-10T15:00:35-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Steven Levy, on his missing MacBook Air.</p>
+
+<p>(Thanks to <a href="http://joeclark.org/">Joe Clark</a>.)</p>
+
+<div>
+<a  title="Permanent link to ‘Gone, Without a Trace’"  href="http://daringfireball.net/linked/2008/march#mon-10-macbook_air">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>G-Archiver</title>
+	<link rel="alternate" type="text/html" href="http://www.codinghorror.com/blog/archives/001072.html" />
+	<id>tag:daringfireball.net,2008:/linked//6.11147</id>
+	<published>2008-03-09T16:36:28-04:00</published>
+	<updated>2008-03-09T16:36:28-04:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>So G-Archiver is a Windows app that lets you download your archived Gmail messages. It ends up that the app emails your Gmail username and password to the author. Crazy.</p>
+
+<div>
+<a  title="Permanent link to ‘G-Archiver’"  href="http://daringfireball.net/linked/2008/march#sun-09-garchiver">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>The Beauty of 99¢ iPhone Apps</title>
+	<link rel="alternate" type="text/html" href="http://mooseyard.com/Jens/2008/03/the-beauty-of-99%c2%a2-iphone-apps/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11145</id>
+	<published>2008-03-07T19:11:23-05:00</published>
+	<updated>2008-03-07T22:35:11-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>$.99 or $1.99 is indeed low, but I think Jens Alfke may have a point. It&#8217;s not that bigger, serious apps will sell for prices that low, but smaller, simpler apps that might otherwise have been released for free might generate real money with &#8220;cup of coffee&#8221;-level prices. It&#8217;s the App Store that makes this possible.</p>
+
+<div>
+<a  title="Permanent link to ‘The Beauty of 99¢ iPhone Apps’"  href="http://daringfireball.net/linked/2008/march#fri-07-99_cent">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Can’t Help Falling in Love</title>
+	<link rel="alternate" type="text/html" href="http://arstechnica.com/staff/fatbits.ars/2008/03/07/cant-help-falling-in-love" />
+	<id>tag:daringfireball.net,2008:/linked//6.11143</id>
+	<published>2008-03-07T19:06:05-05:00</published>
+	<updated>2008-03-07T19:06:05-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>John Siracusa:</p>
+
+<blockquote>
+  <p>Skilled Mac developers are uniquely positioned to be the first to market with the iPhone applications they&#8217;ve been designing in their heads since last year. They know the tools, they know the technology, they even know a lot of the APIs already, and those they don&#8217;t know look a lot like the ones they do.</p>
+</blockquote>
+
+<div>
+<a  title="Permanent link to ‘Can&#8217;t Help Falling in Love’"  href="http://daringfireball.net/linked/2008/march#fri-07-siracusa">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Which Apps Run in the Background?</title>
+	<link rel="alternate" type="text/html" href="http://www.news.com/8301-13579_3-9888722-37.html" />
+	<id>tag:daringfireball.net,2008:/linked//6.11141</id>
+	<published>2008-03-07T18:50:18-05:00</published>
+	<updated>2008-03-07T18:50:18-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Tom Krazit: </p>
+
+<blockquote>
+  <p>The SDK item drawing the most attention Friday, however, is that third-party
+  applications will not be allowed to run in the background.</p>
+</blockquote>
+
+<p>To be fair, I don&#8217;t think many of Apple&#8217;s first-party apps run in the background, either. The Phone, SMS, Clock, iPod, and Mail apps do. Or at least they have helper app background tasks that do. But the other ones all seem to quit when you go to the home screen &#8212; you don&#8217;t really notice because they launch fast, quit fast, and save automatically.</p>
+
+<div>
+<a  title="Permanent link to ‘Which Apps Run in the Background?’"  href="http://daringfireball.net/linked/2008/march#fri-07-background">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Authentic Jobs</title>
+	<link rel="alternate" type="text/html" href="http://authenticjobs.com/?df" />
+	<id>tag:daringfireball.net,2008:/linked//6.11139</id>
+	<published>2008-03-07T16:45:04-05:00</published>
+	<updated>2008-03-07T16:45:04-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>My thanks to Authentic Jobs for sponsoring the DF RSS feed this week. Authentic Jobs is a targeted job board for standards-aware web designers. (And, coming from <a href="http://www.cameronmoll.com/">Cameron Moll</a>, Authentic Jobs is, unsurprisingly, itself a splendidly well-designed web site.) If you&#8217;re a web designer looking for full-time or freelance work, there are listings from a slew of great companies. If you&#8217;re a company looking to hire crackerjack web nerds, use promotion code DARINGFIREBALL and receive 50% off the listing price through March 10.</p>
+
+<div>
+<a  title="Permanent link to ‘Authentic Jobs’"  href="http://daringfireball.net/linked/2008/march#fri-07-authentic">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Apple Plans for Custom Enterprise App Distribution</title>
+	<link rel="alternate" type="text/html" href="http://arstechnica.com/journals/apple.ars/2008/03/06/apple-to-create-enterprise-appstore-for-internal-deployment" />
+	<id>tag:daringfireball.net,2008:/linked//6.11135</id>
+	<published>2008-03-07T12:22:15-05:00</published>
+	<updated>2008-03-07T12:22:15-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>So said Phil Schiller yesterday.</p>
+
+<div>
+<a  title="Permanent link to ‘Apple Plans for Custom Enterprise App Distribution’"  href="http://daringfireball.net/linked/2008/march#fri-07-ent">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+    <title>★ More Questions</title>
+    <link rel="alternate" type="text/html" href="http://daringfireball.net/2008/03/more_questions" />
+	<id>tag:daringfireball.net,2008://1.11133</id>
+	<published>2008-03-07T08:15:59-05:00</published>
+	<updated>2008-03-07T08:15:59-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+<summary type="html">Regarding yesterday&apos;s iPhone SDK announcement.</summary>
+	<content type="html" xml:base="http://daringfireball.net/" xml:lang="en"><![CDATA[
+<ul>
+<li><p>So it seems like the answer to my question yesterday about how users will be prevented from running apps downloaded directly from developers (rather than through the App Store) is that unsigned apps will only work on your iPhone if you pay (and get approved) for a $99 iPhone developer account. But does that mean that approved developers will be able to freely exchange unsigned apps with each other?</p></li>
+<li><p>Is there any way for developers to provide demo periods for apps? On the Mac, a &#8220;try before you buy&#8221; period is practically universal. But if you have to pay before you download from the App Store, that seems out of the question. Maybe developers can supply separate &#8220;free&#8221; trial versions of each app?</p></li>
+<li><p>Do developers get customer info from Apple? If so, how much?</p></li>
+<li><p>Developers are free to set their own app prices. It&#8217;ll be interesting to see where these settle. My guess is $9.99-14.99 &#8212; roughly the price of an album. Maybe less for simple games geared toward impulse purchases.</p></li>
+</ul>
+
+
+
+    ]]></content>
+  </entry><entry>
+	<title>KPCB — iFund Initiative</title>
+	<link rel="alternate" type="text/html" href="http://www.kpcb.com/initiatives/ifund/index.html" />
+	<id>tag:daringfireball.net,2008:/linked//6.11131</id>
+	<published>2008-03-07T07:40:56-05:00</published>
+	<updated>2008-03-07T07:40:56-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Kleiner Perkins&#8217;s info page for the $100 million iFund.</p>
+
+<div>
+<a  title="Permanent link to ‘KPCB &#8212; iFund Initiative’"  href="http://daringfireball.net/linked/2008/march#fri-07-ifund">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>‘The Other Direction’</title>
+	<link rel="alternate" type="text/html" href="http://www.macworld.com/article/132376/2008/03/liveupdate.html" />
+	<id>tag:daringfireball.net,2008:/linked//6.11127</id>
+	<published>2008-03-07T00:09:53-05:00</published>
+	<updated>2008-03-06T23:23:53-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Great quote from Steve Jobs at the very end of the press Q&amp;A today, after being asked whether phone carriers like AT&amp;T will get a share of the revenue from the App Store:</p>
+
+<blockquote>
+  <p>&#8220;We&#8217;re not going to get into details, but generally we like to see
+  the revenue flow the other direction.&#8221;</p>
+</blockquote>
+
+<div>
+<a  title="Permanent link to ‘&#8216;The Other Direction&#8217;’"  href="http://daringfireball.net/linked/2008/march#fri-07-direction">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>iPhone Human Interface Guidelines</title>
+	<link rel="alternate" type="text/html" href="http://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11129</id>
+	<published>2008-03-07T00:07:07-05:00</published>
+	<updated>2008-03-07T08:35:09-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>You&#8217;ll need a (free) ADC account to access it, but part of today&#8217;s bonanza of iPhone SDK-related documentation is the iPhone Human Interface Guidelines. (Not to be confused with the previous &#8220;<a href="http://daringfireball.net/2007/06/wwdc_2007_keynote">shit sandwich</a>&#8221; version <a href="http://developer.apple.com/documentation/iPhone/Conceptual/iPhoneHIG/">here</a>.) I haven&#8217;t had time to do much more than skim, but it seems very well thought-out and organized. <a href="http://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/DevelopingSoftware/chapter_3_section_2.html">A snippet</a>:</p>
+
+<blockquote>
+  <p>Only one iPhone application can run at a time, and third-party applications never run in the background. This means that when users switch to another application, answer the phone, or check their email, the application they were using quits. It’s important to make sure that users do not experience any negative effects because of this reality. In other words, users should not feel that leaving your iPhone application and returning to it later is any more difficult than switching among applications on a computer.</p>
+</blockquote>
+
+<p><strong>Update:</strong> Also worth noting is that the HIG&#8217;s name for the OS is &#8220;iPhone OS&#8221;. Seems wrong to use &#8220;iPhone&#8221; in the name, considering it runs on the iPod Touch, too. I&#8217;d have gone with &#8220;Mobile OS X&#8221; or &#8220;OS X Touch&#8221;.</p>
+
+<div>
+<a  title="Permanent link to ‘iPhone Human Interface Guidelines’"  href="http://daringfireball.net/linked/2008/march#fri-07-iphone_hig">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Regarding Ryan Block Asking Steve Jobs if SIM-Unlocking Apps Will Be Allowed</title>
+	<link rel="alternate" type="text/html" href="http://www.ryanblock.com/2008/03/questioning-iphone-sim-unlocks-on-the-sdk-is-the-obvious-unimportant/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11125</id>
+	<published>2008-03-06T23:21:16-05:00</published>
+	<updated>2008-03-07T08:39:03-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>I have to say, I side with Block on this one. Just because the answer is obvious doesn&#8217;t mean it wasn&#8217;t a fair question. I don&#8217;t have a problem with Apple serving as a gatekeeper with approval over all apps, but if that&#8217;s the role they want, their policies should be explicit. In the presentation, they only listed things like porno and &#8220;malicious&#8221; apps as things that wouldn&#8217;t be tolerated. Clearly, something that impedes on their carrier contracts won&#8217;t either.</p>
+
+<p>It&#8217;s probably a moot point because of the data sandboxing (iPhone apps only have access to their own files, not the files of other apps), but would Amazon be allowed to write an OS X Touch app for buying songs from the Amazon MP3 store? Again, I&#8217;m not saying it&#8217;s outrageous if the answer is &#8220;no&#8221;, but if that&#8217;s the case, it&#8217;s only fair to get it on the record as to whether Apple plans to disallow any app that impedes on an Apple revenue stream.</p>
+
+<div>
+<a  title="Permanent link to ‘Regarding Ryan Block Asking Steve Jobs if SIM-Unlocking Apps Will Be Allowed’"  href="http://daringfireball.net/linked/2008/march#thu-06-block">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Development Details Gleaned From the SDK Documentation and License Agreement</title>
+	<link rel="alternate" type="text/html" href="http://macdaddyworld.com/2008/03/06/iphone-sdk-first-thoughts/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11123</id>
+	<published>2008-03-06T22:44:54-05:00</published>
+	<updated>2008-03-06T22:44:54-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Ken Aspeslagh has culled some of the highlights from the SDK documentation and license, including:</p>
+
+<blockquote>
+  <p>Applications may only use Published APIs in the manner prescribed by Apple
+  and must not use or call any unpublished or private APIs.</p>
+</blockquote>
+
+<p>Regarding which Ken quips: &#8220;Imagine if they had this rule on the Mac, just how stable things would be.&#8221;</p>
+
+<div>
+<a  title="Permanent link to ‘Development Details Gleaned From the SDK Documentation and License Agreement’"  href="http://daringfireball.net/linked/2008/march#thu-06-gleaned">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Jason Fried on Apple’s Touch Platform</title>
+	<link rel="alternate" type="text/html" href="http://www.37signals.com/svn/posts/900-iphone-sdk-apples-touch-platform-and-the-next-two-decades" />
+	<id>tag:daringfireball.net,2008:/linked//6.11121</id>
+	<published>2008-03-06T22:36:01-05:00</published>
+	<updated>2008-03-06T22:36:01-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Bold statement:</p>
+
+<blockquote>
+  <p>What we saw today was the beginning of two-decades of mobile domination by Apple. What Microsoft and Windows was to the desktop, Apple and Touch will be to mobile.</p>
+</blockquote>
+
+<div>
+<a  title="Permanent link to ‘Jason Fried on Apple&#8217;s Touch Platform’"  href="http://daringfireball.net/linked/2008/march#thu-06-fried">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>Video From Today’s Event</title>
+	<link rel="alternate" type="text/html" href="http://www.apple.com/quicktime/qtv/keynote/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11117</id>
+	<published>2008-03-06T19:01:19-05:00</published>
+	<updated>2008-03-06T19:04:12-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>Not sure if this is a permalink. If the URL doesn&#8217;t work for you, try the main <a href="http://www.apple.com/quicktime/qtv/keynote/">QuickTime page for keynotes</a>.</p>
+
+<div>
+<a  title="Permanent link to ‘Video From Today&#8217;s Event’"  href="http://daringfireball.net/linked/2008/march#thu-06-event_video">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry><entry>
+	<title>iPhone SDK Scorecard</title>
+	<link rel="alternate" type="text/html" href="http://waffle.wootest.net/2008/03/06/iphone-sdk-scorecard-2/" />
+	<id>tag:daringfireball.net,2008:/linked//6.11115</id>
+	<published>2008-03-06T18:52:52-05:00</published>
+	<updated>2008-03-06T18:56:59-05:00</updated>
+	<author>
+		<name>John Gruber</name>
+		<uri>http://daringfireball.net/</uri>
+	</author>
+	<content type="html" xml:base="http://daringfireball.net/linked/" xml:lang="en"><![CDATA[
+<p>What&#8217;s there, what&#8217;s missing, and what would be ideal.</p>
+
+<div>
+<a  title="Permanent link to ‘iPhone SDK Scorecard’"  href="http://daringfireball.net/linked/2008/march#thu-06-waffle">&nbsp;★&nbsp;</a>
+</div>
+
+	]]></content>
+  </entry></feed>

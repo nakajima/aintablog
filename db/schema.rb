@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(:version => 3) do
     t.datetime "updated_at"
   end
 
+  create_table "feeds", :force => true do |t|
+    t.datetime "last_updated_at"
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.string   "uri"
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "permalink"
     t.string   "header"
@@ -30,6 +42,7 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "cite"
     t.string   "type"
     t.integer  "user_id"
+    t.integer  "feed_id"
     t.string   "lang"
     t.integer  "comment_counter"
     t.datetime "created_at"

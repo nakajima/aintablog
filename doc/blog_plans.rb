@@ -25,5 +25,27 @@ end
 
 class Feed < ActiveRecord::Base
   # Attributes:
-  # url:string doctype:string 
+  # last_updated_at:datetime title:string url:string description:text uri:string user_id:integer type:string
+  
+  def self.inherited(subclass)
+    subclass.send :include, Aintablog::Feedable
+  end
+  
+  def poll!
+    
+  end
+  
 end
+
+class Twitter < Feed
+  entries_become :tweets
+end
+
+class Blog < Feed
+  entries_become :articles
+end
+
+class Flickr < Feed
+  entries_become :pictures
+end
+

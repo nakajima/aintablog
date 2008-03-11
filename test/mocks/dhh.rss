@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" xml:lang="en-US">
+  <id>tag:www.loudthinking.com,2007:posts</id>
+  <link type="text/html" href="http://www.loudthinking.com/" rel="alternate" />
+  <link type="application/atom+xml" href="http://feeds.feedburner.com/LoudThinking" rel="self" />
+  <title>Loud Thinking by David Heinemeier Hansson</title>
+  <updated>2008-01-29T12:51:00-06:00</updated>
+  <author>
+    <name>David Heinemeier Hansson</name>
+    <email>david@loudthinking.com</email>
+  </author>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post22</id>
+    <published>2008-01-29T12:51:00-06:00</published>
+    <updated>2008-01-29T12:52:08-06:00</updated>
+    <title>In it for the long haul</title>
+    <content type="html">&lt;p&gt;Announcing &lt;a href="http://weblog.rubyonrails.org/2008/1/29/railsconf-08-registration-is-open"&gt;RailsConf '08&lt;/a&gt; today, I stopped to think about that by the time this conference rolls around, I will have been working on Ruby on Rails for five years. Wow. There are so many memories from this wild ride that it's at once both hard to fathom that it's been so long and yet it feels like I've been doing it forever. Time can be funny like that.&lt;/p&gt;
+
+&lt;p&gt;But what pleases me the most is that I still absolutely love working on and with Ruby and Rails. It didn't pass, it wasn't just a phase, it wasn't a run for an exit event. I think that's significant because it means that I, and everyone else still involved with the project, are just as likely to keep at this for another five years or more.&lt;/p&gt;
+
+&lt;p&gt;When you do what you love for the sake of itself, the rewards are so much greater than if you just do it for external incentives. For lots of measures of "winning", we've long since won with Ruby on Rails. The impact on the industry, the adoption by thousands of companies and developers, the books, the conferences, and all that jazz. And yet, it doesn't really matter that much in the end. What matters is getting excited about continuing the work.&lt;/p&gt;
+
+&lt;p&gt;In light of this, I strongly recommend that you find a vocation in your life where you just really enjoy the act itself. Not just the results, not just the external incentives. The actual work. There's not enough time to spend it doing anything else.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/225402880/22-in-it-for-the-long-haul" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/22-in-it-for-the-long-haul</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post21</id>
+    <published>2008-01-09T23:27:00-06:00</published>
+    <updated>2008-01-10T00:05:11-06:00</updated>
+    <title>The deal with shared hosts</title>
+    <content type="html">&lt;p&gt;Most Rails contributors are not big users of shared hosting and they tend to work on problems or enhancements that'll benefit their own usage of the framework. You don't have to have a degree in formal logic to deduce that work to improve life on shared hosting is not exactly a top priority for these people, myself included.&lt;/p&gt;
+
+&lt;p&gt;That's not a value judgement. It's not saying that shared hosting is bad or evil. It's simply saying that the Rails contributors generally don't use it. By extension, it's not something that we are personally invested in solving as a traditional "scratch your own itch" type of development.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Improve what is for profit and fun&lt;/b&gt;
+&lt;br /&gt;I'd love for Rails to be easy as pie to run in a shared hosting environment, though. I'd love for Rails to be easy as pie to run in any environment. In that "more people could have fun learning Rails and deploying their first hobby application" kind of way. But I don't &lt;i&gt;need&lt;/i&gt; it in the sense that I'm going to put in the work, personally, to make it happen.&lt;/p&gt;
+
+&lt;p&gt;Others might, though. The Dreamhost guys in particular &lt;a href="http://blog.dreamhost.com/2008/01/07/how-ruby-on-rails-could-be-much-better/"&gt;sounds like they're experiencing a lot of hurt&lt;/a&gt; running Rails in their shared hosting environments. That should be a great motivator to jump in and help improve things. The work I do every day to improve Rails is usually about removing hurt. Heck, it's currently in the slogan on the Rails site: "Web development that doesn't hurt".
+&lt;br /&gt;  
+&lt;br /&gt;Second, it sounds like they have a substantial economic interest in making the shared hosting scenario for Rails easier. I read that a fair number of their customers are going elsewhere because they can't get Rails to run well at Dreamhost. Before they leave, though, they probably tax the support system quite heavily as well. So there's direct costs, lost revenues, and probably also a great upside waiting if Rails ran great on their system.&lt;/p&gt;
+
+&lt;p&gt;That's both a personal motive for having a less stressful day and a profit motive for making your business more money. Sounds like a match made in heaven for someone like Dreamhost to get involved and help do the work to make Rails a great shared host experience. They might not have the man-power in-house today to make that happen, but I'm sure they could easily hire their way out of that. If the plan they want to pursue is a better mod_ruby, I'd start looking at that project for people who've contributed and ask if they'd like to earn a living improving the state of affairs.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;We'll work with you if you're willing to work with us&lt;/b&gt;
+&lt;br /&gt;Again, I'd love to see someone tackle this challenge and would be more than happy to work with a group pursuing this to get their results into Rails or working with Rails the best way we can. Consider that an open, standing invitation.&lt;/p&gt;
+
+&lt;p&gt;In exchange, I'll ask a few, small favors. Don't treat the current Rails community as your unpaid vendor. Wipe the wah-wah tears off your chin and retract the threats of imminent calamity if we don't drop everything we're doing to pursue your needs. Stop assuming that it's either a "complete lack of understanding of how web hosting works, or an utter disregard for the real world" that we're not working on issues that would benefit your business. Think of it more as we're all just working on the issues that matters most to our business or interests.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;The alternatives&lt;/b&gt;
+&lt;br /&gt;Now if you're a user of shared hosting and you're not satisfied with the results you're getting &amp;mdash; and you're not getting good vibes that things will be better &amp;mdash; there are alternatives. Lots of them in fact. And it doesn't have to cost an arm and a leg. Self-service VPS outfits like &lt;a href="http://www.slicehost.com/"&gt;Slice Host&lt;/a&gt; has plans starting at $20/month that runs Rails great (I use them to run this site). &lt;a href="http://railsmachine.com/"&gt;RailsMachine&lt;/a&gt; has a Rails-specific setup for $75/month. And for the more high-end stuff, you can get great setups from &lt;a href="http://www.joyent.com"&gt;Joyent&lt;/a&gt;, &lt;a href="http://www.engineyard.com/"&gt;Engine Yard&lt;/a&gt;, and tons of others.&lt;/p&gt;
+
+&lt;p&gt;So as a programmer looking to deploy Rails, you have tons of options in all price ranges. If you're a shared host looking to capitalize on a framework that's driving a lot of demand, it would seem that your best option is to actually get involved and help the community help you. &lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/214200294/21-the-deal-with-shared-hosts" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/21-the-deal-with-shared-hosts</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post20</id>
+    <published>2007-12-30T12:25:00-06:00</published>
+    <updated>2007-12-30T12:26:04-06:00</updated>
+    <title>Don't overestimate the power of versions</title>
+    <content type="html">&lt;p&gt;I've long been impressed and puzzled by the power of big version numbers. To open source projects like Ruby on Rails, it's such a divorced measure of quality or features that I feel we need to take it's importance down a few notches. &lt;/p&gt;
+
+&lt;p&gt;First of all, nothing magical happens when a certain revision of the code base is blessed with a release. It's simply the decision that what we have now should have a label. So when edge revision 8441 is given the alias of Rails 2.0.2, it's just that, an alias.&lt;/p&gt;
+
+&lt;p&gt;In other realms of software development, it might very well imply a large amount of release preparation. Some projects and products go months in a strict feature-freeze mode where only bugs are sought out. Most open source software doesn't adhere to something this stringent, Rails certainly doesn't.&lt;/p&gt;
+
+&lt;p&gt;The only real software-related attribute of versions for Rails is to communicate issues of backwards compatibility. Slapping 2.0 on something is a license to break existing code that has been deprecated in the past. But this really happens so very rarely that it hardly deserves big attention.&lt;/p&gt;
+
+&lt;p&gt;All this is not to say that versions are meaningless, just that they're more about culture and information than about the quality of software. Having a big release is a worthy way of celebrating that things have moved forward since last time we did a release. And to give people a chance to catch up on all the new features. That's great.&lt;/p&gt;
+
+&lt;p&gt;But the problem is that lots of people, especially clients paying the bills of consultants, are overestimating the value of these release names to the point of avoiding newer versions of the repository that fix particular issues that they're dealing with. That doesn't make any sense at all. If you're encountering a bug or desiring a feature that's been included in the latest edge version, you're not doing yourself any favors by waiting for the whim of a release.&lt;/p&gt;
+
+&lt;p&gt;The great thing about open source is that you can control your own release schedule. If you happen to run in to a bug that was fixed 5 revisions past the latest release, you can simply tie your application to exactly that revision and see your problem go away. All the information is available about what changed between the official release and the revision you want to move to. And presumably your test suite will do a reasonable job of catching any adverse changes.&lt;/p&gt;
+
+&lt;p&gt;I think the main problem is that people do not differentiate between low-level systems, like their OS, web server, or database server, and high-level frameworks like Rails. The latter are never unstable in the traditional sense of the word like the former. The risk of applications crashing with segfaults because of a "bad version" of Rails is incredibly unlikely. So the fear and uncertainty of things just going awry in unexplained ways doesn't belong in this realm.&lt;/p&gt;
+
+&lt;p&gt;So please do take control of your own release schedule. It's perfectly fine to start off with a released version, but don't dream up dragons and demons lurking in a newer version of edge. Most of the time, edge is of considerably higher quality than the last released version because we've been committing loads of bug fixes since then. Take advantage of that when you can.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/208570467/20-dont-overestimate-the-power-of-versions" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/20-dont-overestimate-the-power-of-versions</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post19</id>
+    <published>2007-12-07T10:50:00-06:00</published>
+    <updated>2007-12-07T10:52:58-06:00</updated>
+    <title>Rails 2.0 is out</title>
+    <content type="html">&lt;p&gt;Yes, yes, I've been awfully quiet here lately. But let's blame that on the long crunch session for Rails 2.0 and call it cheers, ye? It's out, gawd dammit. Finally. After about a year in development and oh-so-many we're-almost-there's. Feels good, does it.&lt;/p&gt;
+
+&lt;p&gt;Now I just have to put the final hand on the new screencast for Rails. The current one is awfully stale.&lt;/p&gt;
+
+&lt;p&gt;So dig in and get it: &lt;a href="http://weblog.rubyonrails.org/2007/12/7/rails-2-0-it-s-done"&gt;Rails 2.0&lt;/a&gt;.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/196722743/19-rails-20-is-out" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/19-rails-20-is-out</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post18</id>
+    <published>2007-11-12T21:00:00-06:00</published>
+    <updated>2007-11-12T22:55:11-06:00</updated>
+    <title>Rackspace trouble knocks 37signals offline [back!]</title>
+    <content type="html">&lt;p&gt;Rackspace has had a major power incident at the data center keeping the 37signals suite of machines. Apparently, a traffic accident knocked power out to some vital cooling systems. When the power was restored through generators, the cooling systems failed to come back online.&lt;/p&gt;
+
+&lt;p&gt;They now have the cooling systems back up and are getting everything back online. We hope to be back very shortly.&lt;/p&gt;
+
+&lt;p&gt;No data has been harmed, the machines were preemptively shut down when the cooling systems failed.&lt;/p&gt;
+
+&lt;p&gt;A good number of other applications, such as Wesabe was hit by this as well. Hopefully they'll be back shortly as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;UPDATE:&lt;/b&gt; Everything is back in working order. &lt;a href="http://37signals.blogs.com/products/2007/11/downtime-explan.html"&gt;Read more on the product blog&lt;/a&gt;.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/183938767/18-rackspace-trouble-knocks-37signals-offline-back" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/18-rackspace-trouble-knocks-37signals-offline-back</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post17</id>
+    <published>2007-10-17T13:28:00-05:00</published>
+    <updated>2007-10-18T09:20:45-05:00</updated>
+    <title>Swearing at work boosts morale</title>
+    <content type="html">&lt;p&gt;Speaking of fuck, &lt;a href="http://www.breitbart.com/article.php?id=071017125814.w6whem5y&amp;show_article=1"&gt;researchers find it to boost morale at work&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote&gt;Regular swearing at work can help boost team spirit among staff, allowing them to express better their feelings as well as develop social relationships, according to a study by researchers.&lt;br/&gt;&lt;br/&gt;"We hope that this study will serve not only to acknowledge the part that swearing plays in our work and our lives, but also to indicate that leaders sometimes need to 'think differently' and be open to intriguing ideas."&lt;/blockquote&gt;&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/171619461/17-swearing-at-work-boosts-morale" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/17-swearing-at-work-boosts-morale</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post16</id>
+    <published>2007-10-12T14:16:00-05:00</published>
+    <updated>2007-10-12T14:18:03-05:00</updated>
+    <title>Kathy's zones of emotion</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://headrush.typepad.com/creating_passionate_users/2005/01/be_brave.html"&gt;&lt;img src="http://www.loudthinking.com/lt-files/kathy-zones.jpg" width="461" height="317" style="border: 0px" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I miss Kathy's blogging. Don't you?&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/169067266/16-kathys-zones-of-emotion" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/16-kathys-zones-of-emotion</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post15</id>
+    <published>2007-10-11T16:08:00-05:00</published>
+    <updated>2007-10-17T10:57:16-05:00</updated>
+    <title>Potty mouths</title>
+    <content type="html">&lt;p&gt;I'm allergic to people who willingly and without irony use the term "potty mouth" in adult conversation. The notion that a word like &lt;i&gt;fuck&lt;/i&gt; can make your brain curl up and cry like a toddler is so pathetically disturbing that it makes my skin crawl. It has the plastic smell of a barbie playhouse and the repressed insecurities of casual friday khakis.&lt;/p&gt;
+
+&lt;p&gt;I can't fucking stand it. &lt;/p&gt;
+
+&lt;p&gt;But at least the potty mouth reaction is a useful leading indicator for personality fits. It's almost as good as the f-bomb reaction. Both are fake euphemisms that are actually much worse than the honest words they're trying to put a fig leaf to. And if you're serious about using them, I'm serious about thinking you're too fucking lame to bother further debate with. &lt;/p&gt;
+
+&lt;p&gt;Which of course is ironic. Since the whole potty mouth fuzz is about distancing yourself from that foul person on the basis of words. Heh. &lt;/p&gt;
+
+&lt;p&gt;But at least us sailors recognize that the sea flows both ways. That by using wonderfully flexible joker words like fuck, we're sending a signal of distance to the inevitable crowd who takes offense from that. The potty mouth crowd seems shocked &amp;mdash; &lt;i&gt;shocked&lt;/i&gt; &amp;mdash; that their language could have a similar effect in the opposite direction.&lt;/p&gt;
+
+&lt;p&gt;Anyway, fuck it (how great is this word? I seriously considered naming this post "Fuck: The Mother Word" but in the end my despise of the potty mouth term won out just slightly over my affection for the word fuck).&lt;/p&gt;
+
+&lt;p&gt;If you want to dive deeper into the wonderful world of cursing, I highly recommend &lt;a href="http://www.tnr.com/docprint.mhtml?i=20071008&amp;s=pinker100807"&gt;What The Fuck: Why We Curse&lt;/a&gt; by Steven Pinker&lt;/p&gt;
+
+&lt;p&gt;P.S.: See also &lt;a href="http://www.youtube.com/watch?v=AUaWCcDlI5s"&gt;Fuck&lt;/a&gt;, a marvelous tour of the utility of this word.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/168632594/15-potty-mouths" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/15-potty-mouths</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post14</id>
+    <published>2007-09-24T11:37:00-05:00</published>
+    <updated>2007-09-24T11:40:41-05:00</updated>
+    <title>The language of bias</title>
+    <content type="html">&lt;p&gt;If you don't like something new that's getting a lot of attention, you call it out as being all &lt;i&gt;hype&lt;/i&gt; propelled by &lt;i&gt;fanboys&lt;/i&gt; enamoured by an &lt;i&gt;immature&lt;/i&gt; solution.&lt;/p&gt;
+
+&lt;p&gt;If you like that something new, you say it has &lt;i&gt;momentum&lt;/i&gt; that's being accelerated by passionate &lt;i&gt;advocates&lt;/i&gt; of a &lt;i&gt;fresh&lt;/i&gt; approach.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/160673485/14-the-language-of-bias" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/14-the-language-of-bias</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post13</id>
+    <published>2007-09-23T18:58:00-05:00</published>
+    <updated>2007-09-23T19:00:20-05:00</updated>
+    <title>Thinking about The Big Rewrite?</title>
+    <content type="html">&lt;p&gt;Rewriting existing applications from scratch in a Big Bang-style is rarely a good idea and often ends in failure. Chad Fowler wrote a good post summarizing some of the reasons why a year ago: &lt;a href="http://chadfowler.com/2006/12/27/the-big-rewrite"&gt;The Big Rewrite&lt;/a&gt;.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/160380984/13-thinking-about-the-big-rewrite" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/13-thinking-about-the-big-rewrite</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post12</id>
+    <published>2007-09-19T16:35:00-05:00</published>
+    <updated>2007-09-20T22:42:58-05:00</updated>
+    <title>Good times at RailsConf Europe</title>
+    <content type="html">&lt;p&gt;It's hard to fathom that we've just finished &lt;a href="http://www.railsconfeurope.com/"&gt;our fourth RailsConf&lt;/a&gt; in just 15 months. The first one already seems so long ago, which just underlines how fast things have been moving in the Rails world.&lt;/p&gt;
+
+&lt;p&gt;It's even more impressive to think of all the people we've had go through the conferences. More than three thousands attendees combined and some of the most interesting speakers in technology.&lt;/p&gt;
+
+&lt;p&gt;This year I was especially pleased to &lt;a href="http://conferences.oreillynet.com/presentations/railsconfeurope07/re7_royfielding.pdf"&gt;hear Roy Fielding speak&lt;/a&gt; and to have the opportunity to chat with him afterwards. The past year and a half been about trying to understand and implement the ideas and the specifications that Roy has been involved with for more than a decade. It was very pleasing to hear him talk so warmly of our progress so far.&lt;/p&gt;
+
+&lt;p&gt;Sun continued to surprise positively (and still slightly puzzling), but I had so much to say about that, I went ahead and wrote it up separately in &lt;a href="http://www.loudthinking.com/posts/11-sun-surprises-at-railsconf-europe-2007"&gt;Sun surprises at RailsConf Europe 2007&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As I process all the inputs from the conference, I'm sure I'll have more to say. But for now I want to make sure to thank everyone involved. Ruby Central and O'Reilly did a spectacular job organizing everything. And I had a great time speaking to so many different users of Rails. The most amazing things are being done with this framework we're building.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;P.S.: My keynote slides were few and almost entirely without meaning out of context, but Casper Fabricius did a good job with &lt;a href="http://casperfabricius.com/blog/2007/09/18/railsconf2007-dhh/"&gt;his summary&lt;/a&gt;.&lt;/small&gt;&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/158732538/12-good-times-at-railsconf-europe" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/12-good-times-at-railsconf-europe</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post11</id>
+    <published>2007-09-19T15:23:00-05:00</published>
+    <updated>2007-09-19T16:31:55-05:00</updated>
+    <title>Sun surprises at RailsConf Europe 2007</title>
+    <content type="html">&lt;p&gt;The biggest surprise at RailsConf Europe 2007 was &lt;a href="http://conferences.oreillynet.com/presentations/railsconfeurope07/re7_craigrmcclanahan.pdf"&gt;hearing Craig McClanahan from Sun speak&lt;/a&gt;. Craig is the creator of Struts, the original blockbuster web framework for Java, and more recently Java Server Faces. Not exactly an obvious advocate for Ruby on Rails, but he sure played the part well. &lt;/p&gt;
+
+&lt;p&gt;And not just on a superficial level because Sun was a diamond sponsor of the conference, but from months of experience developing Rails applications using the latest techniques and frameworks (like pushing the envelope with Active Resource). He even went as far as to say that developing web applications in Java after working with Rails would probably not be a particularly pleasant experience for him. Wow.&lt;/p&gt;
+
+&lt;p&gt;Sun's support for Rails goes even further, though. Their work on &lt;a href="http://www.netbeans.org/kb/60/ruby-index.html"&gt;making Netbeans a kick-ass Rails IDE&lt;/a&gt; seems to be progressing at a rapid clip (and already &lt;a href="http://lifeonrails.org/2007/8/30/netbeans-the-best-ruby-on-rails-ide"&gt;winning fans&lt;/a&gt;). Yet it pales in comparison to the rise of &lt;a href="http://jruby.codehaus.org/"&gt;JRuby&lt;/a&gt; as driven by Thomas, Charles, and Ola. These guys are improving their JVM implementation of Ruby at a truly insane speed.&lt;/p&gt;
+
+&lt;p&gt;JRuby on Rails is already in production at a fair number of companies. The &lt;a href="http://download.java.net/javaee5/screencasts/jruby-in-glassfish/"&gt;Rails is just a WAR&lt;/a&gt; argument is certainly making it easier for companies like ThoughtWorks to push Rails deep into the enterprise. Throw the "integrate with your Java legacy" argument on top (where you can even go as far as work with EJBs!) and it's easy to see why The Enterprise is getting all giddy.&lt;/p&gt;
+
+&lt;p&gt;"Why are they doing all this?", that's a common concern with most Ruby folks (and a question I must have asked them personally at least half a dozen times ;)). Apparently, they see this as something quite simple: A Sun that's heavily involved with Rails on the software side is a Sun that's much better positioned to sell loads of hardware to run all these new Rails applications in both the enterprise and to start-ups.&lt;/p&gt;
+
+&lt;p&gt;It seems to be working too. &lt;a href="http://www.joyent.com"&gt;Joyent&lt;/a&gt; is running all their new gear with Sun badges. And they got some serious applications cooking there, including &lt;a href="http://www.twitter.com"&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So it's kinda hard to argue with their good deeds. Which is a peculiar feeling for a Rails person to have towards a company that used to be regarded solely as the high church of enterprisey. I guess that they've accepted that Java (the language) is no longer always the answer regardless of the question, as it used to be.&lt;/p&gt;
+
+&lt;p&gt;Yet there's still that nagging doomsday image of a mystery man sitting somewhere inside of Sun petting a black cat with a hollow laugh just waiting to reveal his evil master plan as the reason for all this. But the exceptional work and high character of people like Tim Bray, Nick Sieger, Thomas Enebo, Charles Nutter, and now even Craig McClanahan championing Ruby and Rails inside Sun, I think I'll have to waive goodbye to the last sliver of that suspicion very soon.
+&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/158732539/11-sun-surprises-at-railsconf-europe-2007" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/11-sun-surprises-at-railsconf-europe-2007</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post10</id>
+    <published>2007-07-30T12:34:00-05:00</published>
+    <updated>2007-07-30T12:45:10-05:00</updated>
+    <title>Three years with Ruby on Rails</title>
+    <content type="html">&lt;p&gt;We've just passed the three year anniversary of Ruby on Rails' first release to the public. Which in turn means that I've been working on the framework for more than four years. Wild.&lt;/p&gt;
+
+&lt;p&gt;It's been an incredibly rewarding experience. I've met so many great people. Worked with so many talented programmers. Seen so many amazing sites and applications be launched off Rails. &lt;/p&gt;
+
+&lt;p&gt;To image that this whirlwind tour all started because I wasn't happy working with the mainstream environments and decided to give Ruby a try. And to image the impact Ruby on Rails have had on the industry with none of the big-company backing that traditionally is needed to make waves there.&lt;/p&gt;
+
+&lt;p&gt;What's even more rewarding is knowing that we're not done. That the work to make web-application development ever more pleasant continues every day. &lt;/p&gt;
+
+&lt;p&gt;We might have taken the pace of radical changes in the core framework down a few notches (remember when we did multiple releases per month?), but the steady stream of improvement and refinement continues relentlessly.&lt;/p&gt;
+
+&lt;p&gt;So cheers, Rails.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/138912689/10-three-years-with-ruby-on-rails" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/10-three-years-with-ruby-on-rails</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post9</id>
+    <published>2007-07-21T09:34:00-05:00</published>
+    <updated>2007-07-21T09:35:19-05:00</updated>
+    <title>A billion dollars doesn't buy much these days</title>
+    <content type="html">&lt;p&gt;Just days after Microsoft announced &lt;a href="http://www.engadget.com/2007/07/05/xbox-360-warranty-extended-to-three-years/"&gt;spending a billion dollars on extending the Xbox 360 warranty&lt;/a&gt;, my own console surrended to the dreaded three flashing red lights. &lt;/p&gt;
+
+&lt;p&gt;Now you'd think a billion dollars would buy Microsoft some premium, grade-A service and expedition to make short order of such a widespread problem, no? Think again.&lt;/p&gt;
+
+&lt;p&gt;It took three separate tries to even get through on their support line. The final attempt required about an hour on the line. All that to get a paper box shipped as the return package using UPS 3-day service (unlike, say, Apple's overnight delivery). &lt;/p&gt;
+
+&lt;p&gt;But much worse, expected service time is 4-6 weeks! Between the attempts at calling support and shipping boxes back and forth with snail service, I'm looking at a &lt;i&gt;two-month turn-around&lt;/i&gt; from problem to resolution. Yikes. &lt;/p&gt;
+
+&lt;p&gt;How am I supposed to cope with no Forza Motorsports for that along!? It's inhuman, I tell you.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/135950673/9-a-billion-dollars-doesnt-buy-much-these-days" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/9-a-billion-dollars-doesnt-buy-much-these-days</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post8</id>
+    <published>2007-06-15T15:13:00-05:00</published>
+    <updated>2007-06-20T13:04:03-05:00</updated>
+    <title>Registration open for RailsConf Europe 2007</title>
+    <content type="html">&lt;p&gt;I've actually never been to Berlin before, so I'm excited to get the chance to not only see one of the great cities of Europe, but at the same time share in a meeting with the Rails community in Europe and around for &lt;a href="http://www.railsconfeurope.com/"&gt;RailsConf Europe 2007&lt;/a&gt;. The doors for registration have just been opened and until August 6th, the price is €645 (after that, it jumps to €795).&lt;/p&gt;
+
+&lt;p&gt;I really had a smashing time last year in London. There was somehow more time to get into more discussions with people than the more hectic version in the US. And I got to premiere a bunch of new Rails features I had been working on over the Summer.&lt;/p&gt;
+
+&lt;p&gt;So I hope to see a lot of the familiar faces from last year and new ones too when we convene from September 17th through 19th in Germany.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/126471634/8-registration-open-for-railsconf-europe-2007" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/8-registration-open-for-railsconf-europe-2007</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post7</id>
+    <published>2007-06-06T11:28:00-05:00</published>
+    <updated>2007-06-06T11:50:20-05:00</updated>
+    <title>Multi-core hysteria and the thread confusion</title>
+    <content type="html">&lt;p&gt;New CPUs are growing in cores and not in GHz. That's a tough problem for applications that have been traditionally single-threaded, like games. They have to learn all new techniques and rework their thinking to get the most out of the next-generation platforms.&lt;/p&gt;
+
+&lt;p&gt;But the fear of that transition has bled into places where it's largely not relevant, like web-application development. Which has caused quite a few folks to pontificate that the sky is falling for Rails because we're not big on using threads. It isn't.&lt;/p&gt;
+
+&lt;p&gt;Multiple cores are laughably easy to utilize for web applications because our problems are rarely in the speed of serving 1 request. The problem is in serving thousands or tens or hundreds of thousands of requests. Preferably per second.&lt;/p&gt;
+
+&lt;p&gt;Threads are not the only way to do that. Processes do the job nearly as well with a drop of the complexity. And that's exactly how Rails is scaling to use all the cores you can throw at it.&lt;/p&gt;
+
+&lt;p&gt;The 37signals suite is currently using some ~25 cores for the application servers that all the applications have dips on. We'd welcome a 64-core chip any day.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Read more: &lt;a href="http://radar.oreilly.com/archives/2007/06/googles_folding.html"&gt;A good summary of a discussion on multi-core programming in general&lt;/a&gt;.&lt;/small&gt; &lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/122676418/7-multi-core-hysteria-and-the-thread-confusion" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/7-multi-core-hysteria-and-the-thread-confusion</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post6</id>
+    <published>2007-06-05T13:39:00-05:00</published>
+    <updated>2007-06-05T13:59:23-05:00</updated>
+    <title>Why there's no Rails Inc</title>
+    <content type="html">&lt;p&gt;IDC predicts &lt;a href="http://www.siliconrepublic.com/news/news.nv?storyid=single8473"&gt;the market for open-source software will reach some six billion dollars in 2011&lt;/a&gt;. No wonder the VCs are getting anxious to play on that roulette.&lt;/p&gt;
+
+&lt;p&gt;Which brings me to why there's no Rails Inc. It certainly isn't for lack of VCs wanting to fund. I've had more than a handful conversations with various outfits eager to pour big money into such an operation, but I'm just not interested.&lt;/p&gt;
+
+&lt;p&gt;There are &lt;a href="http://www.37signals.com/svn/archives2/entrepreneurs_angels_and_the_cost_of_launch.php"&gt;many reasons not to be interested in VC money&lt;/a&gt; these days, but let's just give two specific ones for Rails.&lt;/p&gt;
+
+&lt;p&gt;First, Rails is not my job. I don't want it to be my job. The best frameworks are in my opinion extracted, not envisioned. And the best way to extract is first to actually do. &lt;/p&gt;
+
+&lt;p&gt;That's really hard if your full-time job is just the extraction part since you now have to come up with contrived examples or merely live off the short bursts of consulting. For some that might work, but I find that all my best ideas and APIs come from working on a real project for a sustained period of time.&lt;/p&gt;
+
+&lt;p&gt;Second, the growth of the Rails ecosystem has been staggering. There are so many shops out there offering Rails consulting and training. I believe part of that proliferation is due to the fact that there's no core-group monopoly that can dominate the market.&lt;/p&gt;
+
+&lt;p&gt;I believe a Rails Inc consisting of a large group of core committers would have an unfair advantage in the training and consulting space &amp;mdash; easily siphoning off all the best juice and leaving little for anything else. There are plenty of examples in our industry of that happening around open source tools.&lt;/p&gt;
+
+&lt;p&gt;It's much more satisfying to see a broader pool of companies all competing on a level playing field.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/122419854/6-why-theres-no-rails-inc" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/6-why-theres-no-rails-inc</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post5</id>
+    <published>2007-05-28T18:22:00-05:00</published>
+    <updated>2007-05-30T14:50:02-05:00</updated>
+    <title>Digesting RailsConf 2007</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://www.flickr.com/photos/x180/503984295/in/set-72157600225783815/"&gt;&lt;img src="http://farm1.static.flickr.com/216/503984295_d553005de7_m.jpg" align="right" title="Photo by James Duncan Davidson" /&gt;&lt;/a&gt;Going from five to sixteen hundred people is a big risk for a conference. There's so much to lose: The atmosphere, the coherence of content, and the interestingness of the people. But in my mind we didn't, RailsConf 2007 was a roaring success.&lt;/p&gt;
+
+&lt;p&gt;There were so many great debates going on, so much fascinating work happening, and so extraordinary tales of adoption.  It was wonderful to meet up with people like Martin Fowler, &lt;a href="http://www.flickr.com/photos/x180/505480123/in/set-72157600225783815/"&gt;&lt;img src="http://farm1.static.flickr.com/197/505480123_5b320612f6_m.jpg" align="right" title="Photo by James Duncan Davidson" /&gt;&lt;/a&gt;Ward Cunningham, Tim Bray, Dave Thomas, Robert Martin, and other industry leaders.&lt;/p&gt;
+
+&lt;p&gt;But in many ways, even more wonderful was the level of involvement from everyone else. I remember RubyConf '03 when we just had a couple of people doing professional Ruby work. This year at RailsConf more than half the room raised their hand when I asked how many were working professionally with Rails. What a leap.&lt;/p&gt;
+
+&lt;p&gt;So many people doing applications in all niches and of all shades. Plenty of startups, naturally, but also plenty of so-called enterprise operations. From banks to insurance companies. ThoughtWorks announcing that 40% of all new business in the US is Ruby on Rails projects. Wow.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/x180/505509499/in/set-72157600225783815/"&gt;&lt;img src="http://farm1.static.flickr.com/230/505509499_ae308355f8_m.jpg" align="right" title="Photo by James Duncan Davidson" /&gt;&lt;/a&gt;I loved the fact that it wasn't all about the nitty gritty stuff either. We had an &lt;a href="http://extra-action.com/"&gt;Extra Action marching band&lt;/a&gt; that pushed the comfort level of many on the fun side of things. &lt;/p&gt;
+
+&lt;p&gt;And on the more serious side, Alan Francis explored the similarities between the Rails and XP movements on a higher plane of approach, angry teenager-tendencies, and peaks.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/x180/505428730/in/set-72157600225783815/"&gt;&lt;img src="http://farm1.static.flickr.com/216/505428730_065b8b44d6_m.jpg" title="Photo by James Duncan Davidson" align="right" /&gt;&lt;/a&gt;I also much enjoyed the fact that it was broader than just Ruby and Rails circle. That we had &lt;a href="http://smallthought.com/avi/"&gt;Avi Bryant&lt;/a&gt; talk to us about this magical parallel universe of Smalltalk. And that we attracted people like Scott Hanselman from the .NET world (and that he posed plenty of opposing opinion that we sorta captured in &lt;a href="http://www.hanselman.com/blog/HanselminutesPodcast65MartinFowlerAndDavidHeinemeierHansson.aspx"&gt;a podcast with Martin Fowler and me&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;All in all, a spectacular extended weekend. It made me all the more excited for turning another chapter in the conference book in Berlin come late September with &lt;a href="http://www.railsconfeurope.com/"&gt;RailsConf Europe&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;All photos by the always awesome James Duncan Davidson&lt;/small&gt;&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/120365969/5-digesting-railsconf-2007" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/5-digesting-railsconf-2007</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post4</id>
+    <published>2007-05-28T14:28:00-05:00</published>
+    <updated>2007-12-31T10:43:01-06:00</updated>
+    <title>Cranking up the machinery</title>
+    <content type="html">&lt;p&gt;So I finally had a few spare moments to work on the Loud Thinking machine again. Instead of going with one of the million packages out there, I decided to eat some dog food and just roll my own.&lt;/p&gt;
+
+&lt;p&gt;Yes, yes, terribly inefficient from a productivity perspective, but I indulged myself with a learning experience on how it feels to setup a small Rails application from scratch using Ubuntu Feisty, nginx, Mongrel, and SQLite3.&lt;/p&gt;
+
+&lt;p&gt;As a side-effect, I haven't bothered implementing comments for my little machine just yet. And I'm thinking that's actually a blessing in part disguise. I think I'll be happy with the tranquillity for a while.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/120327732/4-cranking-up-the-machinery" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/4-cranking-up-the-machinery</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post1</id>
+    <published>2007-05-18T09:55:00-05:00</published>
+    <updated>2007-05-28T14:22:41-05:00</updated>
+    <title>While we're hoping that the backups are good</title>
+    <content type="html">&lt;p&gt;Loud Thinking is down for the count while the server that held it up for the past six years is in ICU. Hopefully it'll make it through and allow the archives to appear unscathed. But if not, we'll deal with that too. Currently I have from June '05 and backwards recovered..&lt;/p&gt;
+
+&lt;p&gt;Nothing like a little forced Spring cleaning to get the cruft moved out.&lt;/p&gt;
+
+&lt;p&gt;But if you sent me any email to the loudthinking address over the past 3-4 days, it might not have made it. So if it was important, please do shoot it over again.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/120324920/1-while-were-hoping-that-the-backups-are-good" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/1-while-were-hoping-that-the-backups-are-good</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post2</id>
+    <published>2007-04-17T13:14:00-05:00</published>
+    <updated>2007-05-28T13:14:53-05:00</updated>
+    <title>Getting back to the foil</title>
+    <content type="html">&lt;p&gt;I used to fence in high school. It's such an elegant sport. Yes, stamina, agility, and even strength are elements, but fencing foil is so much more about technique. A small rotation of the wrist is all it takes to parry an attack and you're all set for riposte.&lt;/p&gt;
+
+&lt;p&gt;I relearned that last Wednesday when I went my first fencing class in more than a decade. Most of the footwork was still imprinted in my memory, but that was the easy part. The hard part was realizing just how much technique I had lost as I was getting schooled by a 7 year-old girl.&lt;/p&gt;
+
+&lt;p&gt;Which is of course also one of the wonders of fencing. It allows for such a wide range of physical attributes to enjoy it together. In the small group that was at the session that night, it ranged from Alexa, 7 to a 50-something Argentinean. With a few teenagers and me in between.&lt;/p&gt;
+
+&lt;p&gt;So lots of fun, but I'm also grateful that there's a full week between sessions on the beginner's team. It's taken at least half that to be able to walk without pain again. Nothing like exercising muscles that have laid dormant since Jurassic Park was a box office hit.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/120324921/2-getting-back-to-the-foil" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/2-getting-back-to-the-foil</feedburner:origLink></entry>
+  <entry>
+    <id>tag:www.loudthinking.com,2007:Post3</id>
+    <published>2007-04-15T13:15:00-05:00</published>
+    <updated>2007-05-28T13:16:12-05:00</updated>
+    <title>Scaling to multiple databases with Rails</title>
+    <content type="html">&lt;p&gt;Remember that point about Rails lacking an easy-to-use way of dealing with multiple read/write databases? Strike that. &lt;a href="http://drnicwilliams.com/2007/04/12/magic-multi-connections-a-facility-in-rails-to-talk-to-more-than-one-database-at-a-time/"&gt;Nic Williams has released&lt;/a&gt; &lt;a href="http://magicmodels.rubyforge.org/magic_multi_connections/"&gt;Magic Multi-Connections&lt;/a&gt;. It makes it dead easy to use a cluster of databases to scale read and write speeds higher than a single connection would ever allow.&lt;/p&gt;
+
+&lt;p&gt;That in itself is wonderful. Williams let code be his reply to the discussion of &lt;a href="http://www.loudthinking.com/arc/000608.html"&gt;Twitter's woes on scaling the database&lt;/a&gt;. I would of course rather have seen this work come out of Twitter, but I'm happy that they got a free offering handed to them regardless. They didn't even have to pass step 1 in &lt;a href="http://kasparov.skife.org/blog/src/ruby/your-responsibility.html"&gt;Brian McCallister's road map for getting stuff fixed in open source&lt;/a&gt;. And the turn-around time was within the same day of this whole thing blowing up.&lt;/p&gt;
+
+&lt;p&gt;Now how could this be. How could Nic fix such an apparent "critical flaw", as others have billed the lack of this facility in Rails, in such a short time? Simple, he did it in less than 75 lines of Ruby as a plugin for Rails. Less than 75 lines. &lt;/p&gt;
+
+&lt;p&gt;In my mind, that's the crux of the story. That extending Rails to do what you want is often much simpler than you think. That you can't compare extending a high-level framework written in a language like Ruby to, say, patching Apache or MySQL. The barriers of entry are simply not in the same sport.&lt;/p&gt;
+
+&lt;p&gt;So let's use this occasion to celebrate the wonders of open source ("some times you can just ask and you will receive"), but at the same time keep the effort involved in this example as a guidance for the future ("maybe next time, I could just have a look at how hard it would be to fix myself"). And of course, a big thanks to Nic Williams to making a big fuss a non-issue.&lt;/p&gt;</content>
+    <link type="text/html" href="http://feeds.feedburner.com/~r/LoudThinking/~3/120324922/3-scaling-to-multiple-databases-with-rails" rel="alternate" />
+  <feedburner:origLink>http://www.loudthinking.com/posts/3-scaling-to-multiple-databases-with-rails</feedburner:origLink></entry>
+</feed>

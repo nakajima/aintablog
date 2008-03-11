@@ -34,6 +34,8 @@ class Test::Unit::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
+  
+  MOCK_ROOT = File.dirname(__FILE__) + '/mocks' unless defined?(MOCK_ROOT)
 
   # Add more helper methods to be used by all tests here...
   include AuthenticatedTestHelper

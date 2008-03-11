@@ -7,9 +7,9 @@ class CreatePosts < ActiveRecord::Migration
       t.string :cite
       t.string :type
       t.integer :user_id
+      t.integer :feed_id
       t.string :lang
       t.integer :comment_counter
-
       t.timestamps
     end
   end
