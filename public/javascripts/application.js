@@ -1,7 +1,6 @@
 var Logouter = {
   click: function(event) {
-    var element = event.element();
-    element.hide();
+    $('logout').hide();
     $('confirm').show();
     event.stop();
   },

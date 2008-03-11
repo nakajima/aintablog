@@ -1,4 +1,24 @@
 // Prototype Extensions/Plugins
+var Logger = {
+  debug: function(message) {
+    return Logger.say(message, 'debug')
+  },
+  
+  info: function(message) {
+    return Logger.say(message, 'info')
+  },
+  
+  warn: function(message) {
+    return Logger.say(message, 'warn')
+  },
+  
+  say: function(message, level) {
+    if ( console && console[level] ) {
+      return console[level](message)
+    }
+  }
+}
+
 
 /*  Protopanel Javascript Library, version 0.0.1
  *  (c) 2008 Pat Nakajima
@@ -6,8 +26,6 @@
  *  Protopanel is freely distributable under the terms of an MIT-style license.
  *
  *--------------------------------------------------------------------------*/
-
-
 var ProtoPanel = {
   Version: '0.0.1'
 }
@@ -72,8 +90,6 @@ Object.extend(ProtoPanel, {
     click: function(event) {
       var element = event.element();
       var targetId = element.readAttribute('href').gsub('#', '');
-      $$('._panelControl').without(element).invoke('removeClassName', 'active');
-      element.addClassName('active');
       $(targetId).activate();
     }
   }
@@ -95,6 +111,7 @@ Object.extend(ProtoPanel, {
 
 Object.extend(ProtoPanel, {
   setup: function(options) {
+    HistoryManager.start();
     document.panelManager = new ProtoPanel.Manager(options)
   },
 
@@ -137,6 +154,11 @@ Object.extend(ProtoPanel, {
 
     activate: function(panel) {
       var panel = $(panel);
+      var control = $(panel.controlId);
+      if ( control != null ) {
+        $$('._panelControl').without(control).invoke('removeClassName', 'active');
+        control.addClassName('active');
+      }      
       this.panels.without(panel).invoke('hide');
       this.panels = this.panels.without(panel);
       this.panels.push(panel);
@@ -164,21 +186,21 @@ Event.observe(document, 'dom:loaded', function() {
 // a cached value. If there's a difference, the active panel is updated
 // using the new URL hash component.
 var HistoryManager = {
-  lastHash: '',
-
   start: function() {
     HistoryManager.lastHash = HistoryManager.currentHash();
     new PeriodicalExecuter(HistoryManager.check, 0.2);
   },
 
   check: function(executer) {
-    if ( HistoryManager.isNewHash() ) {
-      var hash = HistoryManager.currentHash();
-      if ( hash != null && $('#' + hash) != null ) {
+    if ( HistoryManager.isNewHash() ) {      
+      function activateNew() {
+        var hash = HistoryManager.currentHash();
         document.panelManager.activate(hash);
         executer.stop();
         HistoryManager.start();
       }
+      
+      Try.these(activateNew);
     }
   },
 
@@ -192,6 +214,3 @@ var HistoryManager = {
   }
 }
 
-Event.observe(document, 'dom:loaded', function() {
-  HistoryManager.start();
-})

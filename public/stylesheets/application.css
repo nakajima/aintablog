@@ -59,6 +59,7 @@ label textarea {
   width: 100%;
   font-size: 14px;
   padding: 0.2em;
+  font-family: Monaco, Courier, monospace;
 }
 
 #all {
@@ -322,4 +323,11 @@ label textarea {
   margin-top: 0.5em;
   padding: 0.5em;
   background: #eee;
+}
+
+/*------------------------------------------------------------
+  Quote Form styles */
+
+#quote textarea {
+  height: 100px;
 }
