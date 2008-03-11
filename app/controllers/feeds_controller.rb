@@ -1,4 +1,7 @@
 class FeedsController < ApplicationController
+  
+  before_filter :login_required
+  
   # GET /feeds
   # GET /feeds.xml
   def index
