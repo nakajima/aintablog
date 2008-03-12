@@ -103,7 +103,6 @@ label textarea {
   General Post styles */
 
 #posts > div {
-  padding: 2em 0 2em 0;
   border-top: 1px solid #dfdfdf;
   clear: both;
 }
@@ -159,6 +158,10 @@ label textarea {
 
 /*------------------------------------------------------------
   Article styles */
+  
+.article {
+  padding: 1em 0;
+}
 
 .article h3 {
   margin-top: 0;
@@ -175,6 +178,10 @@ label textarea {
 
 /*------------------------------------------------------------
   Quote styles */
+
+.quote {
+  padding: 1.6em 0;
+}
 
 .quote blockquote {
   background: transparent url(/images/quote.png) no-repeat;
@@ -215,6 +222,10 @@ label textarea {
 /*------------------------------------------------------------
   Tweet styles */
 
+.tweet {
+  padding: 1.4em 0;
+}
+
 .tweet blockquote {
   background: transparent url(/images/tweet.png) no-repeat;
   font-size: 20px;
@@ -252,6 +263,10 @@ label textarea {
 
 /*------------------------------------------------------------
   Link styles */
+
+.link {
+  padding: 2em 0;
+}
 
 .link blockquote {
   background: transparent url(/images/link.png) no-repeat;
