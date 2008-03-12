@@ -8,10 +8,13 @@
     </span>
   </span>    
   <strong>Admin Links: </strong>
+  <%= link_to 'View Site', '/' %>
   <%= link_to "Create a Post", new_post_path %>
-  <%= link_to "Add a User", signup_path %>
+  <strong>Feeds: </strong>
+  <%= link_to 'Add a Feed', new_feed_path %>
+  <%= link_to 'View Feeds', feeds_path %>
+  <%= link_to 'Refresh', refresh_feeds_path, :method => :post %>
   <!--
-  <a href="#">Add a Feed</a>
   <a href="#">Tweet from Here</a>
   <a href="#">Comments</a>
   <a href="#">Syndication</a>

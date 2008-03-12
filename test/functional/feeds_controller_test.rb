@@ -17,10 +17,10 @@ class FeedsControllerTest < ActionController::TestCase
   def test_should_create_feed
     login_as :quentin
     assert_difference('Feed.count') do
-      post :create, :feed => { :uri => 'http://daringfireball.net/index.xml' }
+      post :create, :feed => { :uri => "file://#{MOCK_ROOT}/twitter_feed.xml", :type => 'Twitter' }
     end
 
-    assert_redirected_to feed_path(assigns(:feed))
+    assert_redirected_to feeds_path
   end
 
   def test_should_show_feed
@@ -38,7 +38,7 @@ class FeedsControllerTest < ActionController::TestCase
   def test_should_update_feed
     login_as :quentin
     put :update, :id => feeds(:one).id, :feed => { }
-    assert_redirected_to feed_path(assigns(:feed))
+    assert_redirected_to feeds_path
   end
 
   def test_should_destroy_feed

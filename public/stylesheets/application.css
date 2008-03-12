@@ -103,16 +103,15 @@ label textarea {
   General Post styles */
 
 #posts > div {
-  padding: 1em 0 1em 0;
+  padding: 2em 0 2em 0;
   border-top: 1px solid #dfdfdf;
   clear: both;
 }
 
-#posts div .date {
+.date {
   float: left;
   width: 55px;
   margin-left: -76px;
-  margin-top: 6px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -170,6 +169,10 @@ label textarea {
   text-align: right;
 }
 
+.article .date {
+  margin-top: 0.4em;
+}
+
 /*------------------------------------------------------------
   Quote styles */
 
@@ -203,6 +206,10 @@ label textarea {
 
 .quote blockquote a span {
   color: #0af;
+}
+
+.quote .date {
+  margin-top: 0;
 }
 
 /*------------------------------------------------------------
@@ -239,6 +246,10 @@ label textarea {
   color: #0af;
 }
 
+.tweet .date {
+  margin-top: 0;
+}
+
 /*------------------------------------------------------------
   Link styles */
 
@@ -271,6 +282,10 @@ label textarea {
 
 .link blockquote a span {
   color: #0af;
+}
+
+.link .date {
+  margin-top: 0;
 }
 
 /*------------------------------------------------------------

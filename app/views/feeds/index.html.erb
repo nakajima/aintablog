@@ -1,32 +1,19 @@
+<% content_for :header do -%>
 <h1>Listing feeds</h1>
+<% end -%>
 
-<table>
-  <tr>
-    <th>Last updated at</th>
-    <th>Title</th>
-    <th>Url</th>
-    <th>Description</th>
-    <th>Uri</th>
-    <th>User</th>
-    <th>Type</th>
-  </tr>
+<div id="feeds">
+  <% @feeds.each do |feed| -%>
+  <div id="<%= dom_id(feed) %>">
+    <h3><%= feed.title || '(no title)' %></h3>
+    <small>
+      <%= link_to pluralize(feed.posts.length, 'post'), feed_path(feed) %>
+      <%= link_to 'Edit', edit_feed_path(feed) %>
+      <%= link_to 'Refresh', "#{feed_path(feed)}?refresh=true", :method => :put %>
+      <%= link_to 'Delete', feed_path(feed), :method => :delete, :confirm => "Click OK to delete this feed (and all of its posts)." %>
+    </small>
+  </div>  
+  <% end -%>
+</div>
 
-<% for feed in @feeds %>
-  <tr>
-    <td><%=h feed.last_updated_at %></td>
-    <td><%=h feed.title %></td>
-    <td><%=h feed.url %></td>
-    <td><%=h feed.description %></td>
-    <td><%=h feed.uri %></td>
-    <td><%=h feed.user_id %></td>
-    <td><%=h feed.type %></td>
-    <td><%= link_to 'Show', feed %></td>
-    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-    <td><%= link_to 'Destroy', feed, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New feed', new_feed_path %>
+<p><%= link_to 'New feed', new_feed_path %></p>

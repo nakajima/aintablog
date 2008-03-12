@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+runner = File.dirname(__FILE__) + "/runner"
+system "#{runner} 'Feed.refresh_all!'"

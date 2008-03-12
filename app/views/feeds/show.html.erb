@@ -1,38 +1,16 @@
-<p>
-  <b>Last updated at:</b>
-  <%=h @feed.last_updated_at %>
-</p>
+<% content_for :header do -%>
+<h1><%= @feed.title %></h1>
+<h3>Viewing Posts</h3>
+<% end -%>
+
+<ul id="posts">
+  <% @feed.posts.each do |post| -%>
+  <li id="<%= dom_id(post) %>"><%= truncate(post.content, 60) %></li>
+  <% end -%>
+</ul>
 
 <p>
-  <b>Title:</b>
-  <%=h @feed.title %>
+  <%= link_to 'Edit', edit_feed_path(@feed) %> |
+  <%= link_to 'Back', feeds_path %>
 </p>
 
-<p>
-  <b>Url:</b>
-  <%=h @feed.url %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h @feed.description %>
-</p>
-
-<p>
-  <b>Uri:</b>
-  <%=h @feed.uri %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%=h @feed.user_id %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%=h @feed.type %>
-</p>
-
-
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>

@@ -5,7 +5,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.xml
   def index
-    @feeds = Feed.find(:all)
+    @feeds = Feed.find(:all, :include => :posts)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,12 +43,12 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.xml
   def create
-    @feed = Feed.new(params[:feed])
+    @feed = params[:feed][:type].constantize.new(params[:feed])
 
     respond_to do |format|
       if @feed.save
         flash[:notice] = 'Feed was successfully created.'
-        format.html { redirect_to(@feed) }
+        format.html { redirect_to(feeds_url) }
         format.xml  { render :xml => @feed, :status => :created, :location => @feed }
       else
         format.html { render :action => "new" }
@@ -61,14 +61,15 @@ class FeedsController < ApplicationController
   # PUT /feeds/1.xml
   def update
     @feed = Feed.find(params[:id])
-
+    @feed.refresh!
     respond_to do |format|
-      if @feed.update_attributes(params[:feed])
+      if params[:refresh] || @feed.update_attributes(params[:feed])
         flash[:notice] = 'Feed was successfully updated.'
-        format.html { redirect_to(@feed) }
+        format.html { redirect_to(feeds_url) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        flash[:error] = 'Feed was unable to be updated.'
+        format.html { redirect_to(feeds_url) }
         format.xml  { render :xml => @feed.errors, :status => :unprocessable_entity }
       end
     end
@@ -80,6 +81,15 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     @feed.destroy
 
+    respond_to do |format|
+      format.html { redirect_to(feeds_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def refresh
+    @feeds = Feed.find(:all)
+    @feeds.each(&:refresh!)
     respond_to do |format|
       format.html { redirect_to(feeds_url) }
       format.xml  { head :ok }

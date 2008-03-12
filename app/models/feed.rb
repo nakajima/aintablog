@@ -2,8 +2,18 @@ class Feed < ActiveRecord::Base
   
   acts_as_feed
   
+  has_many :posts
+  
   validates_presence_of :uri
   validates_format_of :uri, :with => %r{^(http|file)://}i, :on => :create
+  
+  after_create :learn_attributes!
+  
+  class << self
+    def refresh_all!
+      find(:all).each(&:refresh!)
+    end
+  end
   
   def learn_attributes!
     self.title  = fetched_feed.title

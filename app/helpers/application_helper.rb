@@ -17,4 +17,8 @@ module ApplicationHelper
     link_to text, "#{path}#comments"
   end
   
+  def twitterize(string)
+    string.gsub(/@(\w*)/, '<a href="http://twitter.com/\1"><span>\1</span></a>')
+  end
+  
 end

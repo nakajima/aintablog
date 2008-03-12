@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :user_id, :unless => :feed_id
   validates_presence_of :feed_id, :unless => :user_id
   
-  def self.per_page; 5; end
+  def self.per_page; 10; end
   
   def type
     attributes['type']

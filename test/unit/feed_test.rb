@@ -21,7 +21,7 @@ class FeedTest < ActiveSupport::TestCase
   end
   
   def test_should_learn_attributes
-    feed = create_feed :uri => "#{MOCK_ROOT}/daringfireball.xml"
+    feed = create_feed :uri => "file://#{MOCK_ROOT}/daringfireball.xml"
     feed.learn_attributes!
     assert_equal 'Daring Fireball', feed.title
     assert_equal Time.parse('Tue Mar 11 21:06:03 UTC 2008'), feed.last_updated_at
@@ -29,7 +29,7 @@ class FeedTest < ActiveSupport::TestCase
   end
 
   def test_should_have_entries
-    feed = create_feed :uri => "#{MOCK_ROOT}/daringfireball.xml"
+    feed = create_feed :uri => "file://#{MOCK_ROOT}/daringfireball.xml"
     assert_not_nil feed.entries
     assert ! feed.entries.empty?
   end
@@ -37,7 +37,7 @@ class FeedTest < ActiveSupport::TestCase
 protected
 
   def create_feed(options={})
-    Feed.create({ :uri => 'http://daringfireball.net/index.xml' }.merge(options))
+    Feed.create({ :uri => "file://#{MOCK_ROOT}/daringfireball.xml" }.merge(options))
   end
   
 end

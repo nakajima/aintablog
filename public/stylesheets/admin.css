@@ -8,6 +8,10 @@
   border-bottom: 1px #ccc solid;
 }
 
+#admin strong {
+  margin-left: 1em;
+}
+
 #admin a {
   color: white;
   margin-left: 1em;

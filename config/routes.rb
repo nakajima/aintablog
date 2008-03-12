@@ -1,10 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :feeds
-
-  
+  map.resources :feeds, :collection => { :refresh => :post }  
   map.resources :posts
   map.resources :users
-  map.resource :session
+  map.resource  :session
   map.resources :articles, :controller => 'posts', :has_many => :comments
   map.resources :quotes, :controller => 'posts'
 
