@@ -27,7 +27,7 @@
   
   <% @post.comments.reject(&:new_record?).each do |comment| -%>
     <% div_for(comment) do %>
-    <h5><%= comment.website ? (link_to h(comment.name), h(comment.website)) : h(comment.name) %> said... 
+    <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... 
     <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment.", :class => 'right' if logged_in? %></h5>
     <div>
       <%= comment.body %>

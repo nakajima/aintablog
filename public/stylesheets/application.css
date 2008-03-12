@@ -57,7 +57,7 @@ label input {
 
 label textarea {
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
   padding: 0.2em;
   font-family: Monaco, Courier, monospace;
 }
@@ -317,7 +317,7 @@ label textarea {
 
 #comments label textarea {
   height: 150px;
-  font-size: 20px;
+  font-size: 12px;
   padding: 0.2em;
 }
 
