@@ -2,7 +2,7 @@
 # from topfunky's peepserver plugin
 # http://topfunky.net/svn/plugins/peepserver
 upstream mongrel_<%= application.gsub('.', '_') %> {
-  <% mongrel_port.upto(mongrel_port - 1 + mongrel_servers) do |port| %>
+  <% thin_port.upto(thin_port - 1 + thin_servers) do |port| %>
   server 127.0.0.1:<%= port %>;
   <% end %>
 }
