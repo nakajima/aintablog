@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.paginate(:order => 'posts.created_at DESC', :page => params[:page], :include => :comments)
+    @posts = Post.paginate(:order => 'posts.created_at DESC', :page => params[:page], :include => [:comments, :feed])
 
     respond_to do |format|
       format.html # index.html.erb

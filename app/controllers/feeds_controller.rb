@@ -60,7 +60,8 @@ class FeedsController < ApplicationController
   # PUT /feeds/1
   # PUT /feeds/1.xml
   def update
-    @feed = Feed.find(params[:id])
+    feed = Feed.find(params[:id])
+    @feed = feed.becomes(feed.type.constantize)
     @feed.refresh!
     respond_to do |format|
       if params[:refresh] || @feed.update_attributes(params[:feed])

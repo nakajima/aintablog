@@ -5,7 +5,7 @@
 
 <div id="posts">
   <% @posts.each do |post| -%>
-  <div id="post_<%= post.id %>" class="<%= post.attributes['type'].downcase %>">
+  <div id="post_<%= post.id %>" class="<%= post.attributes['type'].downcase %> hentry">
     <%= partial_for(post) %>
   </div>
   <% end -%>

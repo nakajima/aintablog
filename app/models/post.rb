@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
+
+  belongs_to :user
+  belongs_to :feed
   
   has_many :comments, :as => :commentable
-    
-  validates_presence_of :permalink  
+
+  validates_uniqueness_of :permalink, :scope => :type
   validates_presence_of :user_id, :unless => :feed_id
   validates_presence_of :feed_id, :unless => :user_id
   

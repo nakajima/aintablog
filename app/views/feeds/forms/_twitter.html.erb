@@ -1,0 +1,15 @@
+<div id="twitter" class="panel">
+  <% form_for(@feed) do |f| %>
+
+    <label for="uri">
+      Feed URI<br />
+      <%= f.text_field :uri %>
+    </label>
+
+    <%= f.hidden_field :type, :value => 'Twitter' %>
+
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</div>

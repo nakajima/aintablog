@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ArticleTest < ActiveSupport::TestCase
-  
+
   def test_should_create_an_article
     assert_difference 'Article.count' do
       article = create_article
@@ -25,6 +25,33 @@ class ArticleTest < ActiveSupport::TestCase
   def test_should_generate_permalink
     article = create_article
     assert_not_nil article.permalink
+  end
+  
+  def test_should_have_allow_comments_boolean_helper
+    article = create_article
+    assert article.allow_comments?
+    article.user_id = nil
+    article.feed_id = feeds(:one).id
+    assert ! article.allow_comments?
+  end
+  
+  def test_should_have_from_feed_boolean_helper
+    article = create_article
+    assert ! article.from_feed?
+    article.user_id = nil
+    article.feed_id = feeds(:one).id
+    assert article.from_feed?
+  end
+  
+  def test_should_strip_style_from_imported_articles
+    article = feeds(:blog).articles.create \
+      :header => 'Something',
+      :content => "You know...<style>\n  .bad { color: white }\n</style>",
+      :permalink => 'http://daringfirebal.net/something.html'
+    assert ! article.content.match(/<style>/), "Didn't remove style open tag"
+    assert ! article.content.match(/\.bad \{ color\: white \}/), "Didn't remove rogue styles"
+    assert ! article.content.match(/<\/style>/), "Didn't remove style close tag"
+    assert_equal 'You know...', article.content
   end
   
 protected

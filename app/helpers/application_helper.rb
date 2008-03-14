@@ -7,6 +7,13 @@ module ApplicationHelper
     link_to(*args)
   end
   
+  def spanify_links(text)
+    # text.gsub(/<a(.*|\w*)?>(.+)<\/a[>\s\S]/ix) do |s|
+    text.gsub(/<a\s(.*)>(.*)<\/a>/ix) do |s|
+      "<a #{$1}><span>#{strip_tags($2)}</span></a>"
+    end
+  end
+  
   def partial_for(post)
     render :partial => "/posts/types/#{post.type.downcase}.html.erb", :locals => { :post => post }
   end
@@ -19,6 +26,13 @@ module ApplicationHelper
   
   def twitterize(string)
     string.gsub(/@(\w*)/, '<a href="http://twitter.com/\1"><span>\1</span></a>')
+  end
+  
+  def clean_content_for(post)
+    text = post.content
+    text.gsub!(/<(script|noscript|object|embed|style|frameset|frame|iframe)[>\s\S]*<\/\1>/, '') if post.from_feed?
+    text = RedCloth.new(text, [:filter_styles, :no_span_caps]).to_html
+    text = spanify_links(text)
   end
   
 end

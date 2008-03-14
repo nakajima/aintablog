@@ -5,10 +5,15 @@
 <% form_for(@feed) do |f| %>
 
   <label for="uri">
-    Feed URI<br />
+    Feed URI<br>
     <%= f.text_field :uri %>
   </label>
   
+  <label for="type">
+    Type of Feed<br>
+    <%= f.select :type, ['Twitter', 'Blog'] %>
+  </label>
+
   <%= f.hidden_field :type, :value => 'Twitter' %>
 
   <p>

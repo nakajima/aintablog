@@ -7,7 +7,7 @@ body {
   text-align: center;
   font-family: Lucida Grande, Arial, Tahoma, sans-serif;
   font-size: 16px;
-  color: #1a1a1a;
+  color: #2a2a2a;
 }
 
 .left { float: left; }
@@ -74,7 +74,7 @@ label textarea {
 }
 
 #header h1 {
-  font-size: 36px;
+  font-size: 40px;
   font-family: Georgia, Times, serif;
   margin-bottom: 0;
   text-shadow: 1px 1px 1px #ccc;
@@ -82,6 +82,7 @@ label textarea {
 
 #header h1 a {
   color: #0af;
+  padding: 0;
 }
 
 #header h1 a:hover {
@@ -89,8 +90,12 @@ label textarea {
   text-decoration: underline;
 }
 
-#header h1 a span {
+#header h1 a:hover span {
   color: black;
+}
+
+#header h1 a span {
+  color: #202020;
 }
 
 #header h2 {
@@ -110,31 +115,41 @@ label textarea {
 .date {
   float: left;
   width: 55px;
+  color: #373737;
   margin-left: -76px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  background: #eee;
+  background: #efefef;
   padding: 0.2em 0;
+  text-shadow: 1px 1px 1px #c0c0c0;
+}
+
+.date .month {
+  display: block;
+}
+
+#posts div h3.entry-title {
+  margin-top: 0;
+  font-size: 26px;
   text-shadow: 1px 1px 1px #ccc;
 }
 
-#posts div h3 {
-  font-size: 22px;
-  text-shadow: 1px 1px 1px #ccc;
-}
-
-#posts div h3 a {
+#posts div h3.entry-title a {
   color: #0af;
   padding-left: 0;
 }
 
-#posts div h3 a:hover {
+#posts div h3.entry-title a:hover {
   background: white;
   text-decoration: underline;
 }
 
-#posts div h3 a span {
+#posts div h3.entry-title a span {
+  color: #101010;
+}
+
+#posts div h3.entry-title a:hover span {
   color: black;
 }
 
@@ -163,17 +178,20 @@ label textarea {
   padding: 1em 0;
 }
 
-.article h3 {
-  margin-top: 0;
-}
-
 .article .meta {
   font-size: 12px;
   text-align: right;
 }
 
 .article .date {
-  margin-top: 0.4em;
+  margin-top: 0.3em;
+}
+
+.article cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
 }
 
 /*------------------------------------------------------------

@@ -18,8 +18,13 @@ class Feed < ActiveRecord::Base
   def learn_attributes!
     self.title  = fetched_feed.title
     self.description = fetched_feed.description
+    self.url = fetched_feed.urls.first
     self.update_timestamp
     self.save
+  end
+  
+  def type
+    attributes['type']
   end
   
   def update_timestamp

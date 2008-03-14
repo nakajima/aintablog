@@ -5,15 +5,24 @@ one:
   title: MyString
   url: MyString
   description: MyText
-  uri: MyString
+  uri: file://<%= MOCK_ROOT %>/twitter_feed.xml
   user_id: 1
-  type:
+  type: Twitter
 
 two:
   last_updated_at: 2008-03-11 16:52:23
   title: MyString
   url: MyString
   description: MyText
-  uri: MyString
+  uri: file://<%= MOCK_ROOT %>/twitter_feed.xml
   user_id: 1
-  type:
+  type: Twitter
+
+blog:
+  last_updated_at: 2008-03-11 16:52:23
+  title: Daring Fireball
+  url: http://daringfireball.net/
+  description: Mac and web curmudgeonry/nerdery. By John Gruber.
+  uri: file://<%= MOCK_ROOT %>/daringfireball.xml
+  user_id: 1
+  type: Blog

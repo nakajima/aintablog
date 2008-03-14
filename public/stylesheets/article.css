@@ -1,0 +1,58 @@
+/*------------------------------------------------------------
+  Article styles */
+
+.article .entry {
+  color: #202020;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.article .entry h1 {
+  font-size: 20px;
+}
+
+.article .entry h2 {
+  font-size: 18px;
+}
+
+.article .entry h3 {
+  font-size: 16px;
+}
+
+.article .entry h4 {
+  font-size: 14px;
+}
+
+.article .entry h5 {
+  font-size: 12px;
+}
+
+.article .entry h6 {
+  font-size: 10px;
+}
+
+.article .entry a {
+  padding: 0 0.1em;
+  color: #0ad;
+  text-decoration: underline;
+}
+
+.article .entry a:hover {
+  background: #0af;
+  color: white;
+}
+
+.article .entry a:hover span {
+  color: white;
+}
+
+.article .entry a span {
+  color: black;
+}
+
+.article .entry pre, .article .entry pre code {
+  font-size: 12px;
+  padding: 1em 0;
+  font-family: Monaco, Courier, monospace;
+  line-height: 1.3em;
+}
