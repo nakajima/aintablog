@@ -287,12 +287,11 @@ label textarea {
 }
 
 .link blockquote {
-  background: transparent url(/images/link.png) no-repeat;
   font-size: 30px;
   font-style: oblique;
   font-weight: bold;
   font-family: Georgia, Times, serif;
-  padding: 0 1em 0 1.3em;
+  padding: 0 1em 0 0.2em;
   margin-bottom: 0.5em;
 }
 
@@ -338,7 +337,7 @@ label textarea {
 /*------------------------------------------------------------
   Comment styles */
 
-#comments form, #comments {
+#comments .new_comment, #comments {
   margin-top: 3em;
 }
 

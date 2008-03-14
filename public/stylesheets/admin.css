@@ -35,3 +35,44 @@
   margin: 0;
   padding: 0;
 }
+
+/* CSS for new and edit pages */
+
+#all.admin {
+  width: 600px;
+}
+
+#all.admin label {
+  width: 600px;
+}
+
+/* Edit in place links */
+
+.editable {
+  padding: 0;
+  color: #202020;
+}
+
+.editable:hover {
+  background: #ffc;
+  color: #202020;
+}
+
+.editor {
+  margin-top: 0;
+  text-align: right;
+}
+
+.editor textarea {
+  width: 99%;
+}
+
+.editor a {
+  font-size: 12px;
+  padding: 4px;
+}
+
+.editor a:hover {
+  background: transparent;
+  color: #202020;
+}

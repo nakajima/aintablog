@@ -10,10 +10,11 @@
 	<%= stylesheet_link_tag 'application', 'article' %>
 	<%= stylesheet_link_tag 'admin' if logged_in? %>
 	<%= javascript_include_tag 'prototype', 'extensions', 'application' %>
+	<%= javascript_include_tag 'admin' if logged_in? %>
 </head>
 <body>
   <%= render :partial => "shared/admin" if logged_in? %>
-  <div id="all">
+  <div <%= %{class="admin"} if params[:action].match(/new|edit/) %> id="all">
     <div id="header">
       <%= yield :header -%>
     </div>

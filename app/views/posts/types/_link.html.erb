@@ -5,6 +5,6 @@
 <blockquote>
   <%= spanned_link h(post.link_text), post.permalink -%>
 </blockquote>
-<% if post.cite -%>
+<% unless post.cite.blank? -%>
 <cite>&#x2010; <%=h post.cite %></cite>
 <% end -%>

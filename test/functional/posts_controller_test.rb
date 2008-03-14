@@ -40,9 +40,9 @@ class PostsControllerTest < ActionController::TestCase
     login_as :quentin
     assert_difference('Post.count') do
       post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
+      assert assigns(:post)
+      assert_redirected_to posts_path
     end
-
-    assert_redirected_to post_path(assigns(:post))
   end
 
   def test_should_show_post

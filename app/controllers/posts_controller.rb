@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to post_path(@post) }
+        format.html { redirect_to posts_path }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         flash[:error] = @post.errors.full_messages

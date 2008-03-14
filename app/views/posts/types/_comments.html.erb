@@ -5,12 +5,16 @@
   
   <% @post.comments.reject(&:new_record?).each do |comment| -%>
     <% div_for(comment) do %>
-    <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... 
-    <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment.", :class => 'right' if logged_in? %></h5>
-    <div>
-      <%= comment.body %>
-    </div>
-    <% end %>
+    <% if logged_in? -%>
+    <small class="right"><%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." %></small>
+    <% end -%>
+    <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... </h5>
+      <% if logged_in? %>
+      <p><%= link_to h(comment.body), [@post, comment], :class => 'editable', :id => 'comment[body]' %></p>
+      <% else -%>
+      <p><%= comment.body %></p>
+      <% end -%>
+    <% end -%>
   <% end -%>  
   
   <% form_for([@post, @comment]) do |f| -%>

@@ -8,7 +8,6 @@ module ApplicationHelper
   end
   
   def spanify_links(text)
-    # text.gsub(/<a(.*|\w*)?>(.+)<\/a[>\s\S]/ix) do |s|
     text.gsub(/<a\s(.*)>(.*)<\/a>/ix) do |s|
       "<a #{$1}><span>#{strip_tags($2)}</span></a>"
     end
