@@ -163,10 +163,6 @@ label textarea {
   color: #101010;
 }
 
-#posts div h3.entry-title a:hover span {
-  color: black;
-}
-
 .pagination {
   font-size: 12px;
 }
@@ -176,8 +172,12 @@ label textarea {
   padding: 0.3em 0.5em;
 }
 
+.pagination > a:hover {
+  background: #202020;
+}
+
 .pagination > .current {
-  background: black;
+  background: #202020;
   color: white;
 }
 
