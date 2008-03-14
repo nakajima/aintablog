@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :login_required, :only => [:update, :destroy]
   before_filter :get_commentable
   skip_before_filter :verify_authenticity_token, :only => :update
   
