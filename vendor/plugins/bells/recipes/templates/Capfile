@@ -1,0 +1,57 @@
+require 'capistrano/version'
+load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
+
+# =============================================================
+
+# General configuration settings, required for all recipes!
+set :application, "project-name"
+set :domain, "project-domain"
+# set :extra_domains, %w(www.project-domain.com)
+role :app, domain
+role :web, domain
+role :db,  domain, :primary => true
+
+# set :user, "user"
+
+# Deployment Settings
+set :repository,  "repository url"
+set :deploy_to, "/absolute/path/to/location/your/server"
+set :deploy_via, :checkout
+set :config_files, %w(database.yml)
+
+# SSH Keys for caching (you must generate these first.)
+ssh_options[:keys] = %w(~/.ssh/mykey1 ~/.ssh/mykey2)
+
+# =============================================================
+# Mongrel Settings
+# =============================================================
+set :mongrel_servers, 1
+set :mongrel_port, 7007
+set :mongrel_environment, 'production'
+set :mongrel_address, '127.0.0.1'
+set :mongrel_conf, "/etc/mongrel_cluster/#{application}.yml"
+
+# =============================================================
+# Nginx Settings
+# =============================================================
+set :nginx_sites_available, "/usr/local/nginx/sites-available"
+set :nginx_sites_enabled, "/usr/local/nginx/sites-enabled"
+
+# =============================================================
+# Apache Settings
+# =============================================================
+set :apache_server_name, nil
+set :apache_conf, "/usr/local/apache2/conf/apps/#{application}.conf"
+# set :apache_default_vhost, false
+# set :apache_default_vhost_conf, nil
+set :apache_ctl, "/usr/local/apache2/bin/apachectl"
+set :apache_server_aliases, []
+set :apache_proxy_port, mongrel_port
+set :apache_proxy_servers, mongrel_servers
+set :apache_proxy_address, mongrel_address
+# set :apache_ssl_enabled, false
+# set :apache_ssl_ip, nil
+# set :apache_ssl_forward_all, false
+# set :apache_ssl_chainfile, false
+set :local_apache_ctl_path, apache_ctl

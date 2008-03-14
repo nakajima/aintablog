@@ -1,0 +1,100 @@
+
+# from topfunky's peepserver plugin
+# http://topfunky.net/svn/plugins/peepserver
+upstream mongrel_<%= application.gsub('.', '_') %> {
+  <% mongrel_port.upto(mongrel_port - 1 + mongrel_servers) do |port| %>
+  server 127.0.0.1:<%= port %>;
+  <% end %>
+}
+
+# the server directive is nginx's virtual host directive.
+server {
+  # port to listen on. Can also be set to an IP:PORT
+  listen 80;
+  
+  # Set the max size for file uploads to 50Mb
+  client_max_body_size 50M;
+
+  # sets the domain[s] that this vhost server requests for.
+  # None means listen to all.
+  server_name <%= domain %> <%= extra_domains.join(" ") %>;
+
+  # doc root
+  root <%= deploy_to %>/current/public;
+
+  # vhost specific access log
+  access_log  <%= deploy_to %>/shared/log/nginx.vhost.access.log  main;
+
+  # this rewrites all the requests to the maintenance.html
+  # page if it exists in the doc root. This is for capistrano's
+  # disable web task
+  if (-f $document_root/system/maintenance.html) {
+    rewrite  ^(.*)$  /system/maintenance.html last;
+    break;
+  }
+
+  # Uncomment to Redirect all subdomains back to root domain
+  #if ($host !~ ^<%= application.gsub('.', '\.') %>$) {
+  #  rewrite ^.+ http://<%= application %>$uri permanent;
+  #  break;
+  #}
+
+  # Uncomment for FeedBurner redirects
+  # if ($http_user_agent !~ FeedBurner) {
+  #   rewrite ^/xml/rss/feed.xml$    http://feeds.feedburner.com/<%= application %> permanent;
+  #   rewrite ^/xml/rss20/feed.xml$  http://feeds.feedburner.com/<%= application %> permanent;
+  #   rewrite ^/xml/atom/feed.xml$   http://feeds.feedburner.com/<%= application %> permanent;
+  #   rewrite ^/xml/atom10/feed.xml$ http://feeds.feedburner.com/<%= application %> permanent;
+  #   break;
+  # }
+
+  location / {
+    # Uncomment to allow server side includes
+    # ssi on;
+
+    # needed to forward user's IP address to rails
+    proxy_set_header  X-Real-IP  $remote_addr;
+
+    # needed for HTTPS
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect false;
+    proxy_max_temp_file_size 0;
+    
+    # If the file exists as a static file serve it directly without
+    # running all the other rewite tests on it
+    if (-f $request_filename) { 
+      break; 
+    }
+
+    # check for index.html for directory index
+    # if its there on the filesystem then rewite 
+    # the url to add /index.html to the end of it
+    # and then break to send it to the next config rules.
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    # this is the meat of the rails page caching config
+    # it adds .html to the end of the url and then checks
+    # the filesystem for that file. If it exists, then we
+    # rewite the url to have explicit .html on the end 
+    # and then send it on its way to the next config rule.
+    # if there is no file on the fs then it sets all the 
+    # necessary headers and proxies to our upstream mongrels
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass http://mongrel_<%= application.gsub('.', '_') %>;
+      break;
+    }
+  }
+
+  error_page   500 502 503 504  /500.html;
+  location = /500.html {
+    root   <%= deploy_to %>/current/public;
+  }
+
+}

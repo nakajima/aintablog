@@ -1,0 +1,9 @@
+= Capistrano Bells
+  By Pat Nakajima.
+
+=== About
+
+Capistrano Bells is a collection of recipes intended to make deploying
+Rails apps easier. That's it and that's all.
+
+More documentation on its way...
