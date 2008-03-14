@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+*:active, *:focus {
+  outline: none;
+}
+
 body {
   text-align: center;
   font-family: Lucida Grande, Arial, Tahoma, sans-serif;
@@ -68,6 +72,16 @@ label textarea {
   width: 500px;
   padding: 0 0 2em;
 }
+
+/*------------------------------------------------------------
+  Form validator styles */
+
+.err {
+  outline: 1px solid #f00;
+}
+
+/*------------------------------------------------------------
+  Header styles */
 
 #header {
   margin: 0 0 1em 0;

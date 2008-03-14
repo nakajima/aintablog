@@ -4,16 +4,16 @@
 <%= error_messages_for :user %>
 <% form_for :user, :url => users_path do |f| -%>
 <label for="name">Your Name<br/>
-<%= f.text_field :name %></label>
+<%= f.text_field :name, :class => "required" %></label>
 
 <label for="email">Your Email<br/>
-<%= f.text_field :email %></label>
+<%= f.text_field :email, :class => "required" %></label>
 
 <label for="password">Password<br/>
-<%= f.password_field :password %></label>
+<%= f.password_field :password, :class => "required" %></label>
 
 <label for="password_confirmation">Confirm Password<br/>
-<%= f.password_field :password_confirmation %></label>
+<%= f.password_field :password_confirmation, :class => "required" %></label>
 
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>

@@ -29,12 +29,12 @@
     <% else %>
     <label for="email">
       Email <span class="nil">(required)</span><br>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :class => "required" %>
     </label>
   
     <label for="name">
       Name <span class="nil">(required)</span><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :class => "required" %>
     </label>
     
     <label for="website">
@@ -45,7 +45,7 @@
     
     <label for="body">
       Body <span class="nil">(required)</span><br>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, :class => "required" %>
     </label>
     
     <p><%= submit_tag 'Add Comment!' %></p>

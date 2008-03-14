@@ -3,12 +3,12 @@
   <% form_for(@post) do |f| %>
     <label for="header">
       Link Text<br />
-      <%= f.text_field :header %>
+      <%= f.text_field :header, :class => "required" %>
     </label>
     
     <label for="content">
       Link Href<br>
-      <%= f.text_field :permalink %>
+      <%= f.text_field :permalink, :class => "required" %>
     </label>
 
     <label for="cite">

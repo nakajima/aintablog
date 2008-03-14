@@ -4,12 +4,12 @@
   <% form_for(@post) do |f| %>
     <label for="header">
       Title<br />
-      <%= f.text_field :header %>
+      <%= f.text_field :header, :class => "required" %>
     </label>
 
     <label for="content">
       Body<br />
-      <%= f.text_area :content %>
+      <%= f.text_area :content, :class => "required" %>
     </label>
 
     <%= f.hidden_field :type, :value => 'Article' if @post.new_record? %>
