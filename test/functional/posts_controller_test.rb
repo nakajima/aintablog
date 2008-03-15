@@ -10,7 +10,7 @@ class PostsControllerTest < ActionController::TestCase
       post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to posts_path
   end
   
   def test_should_create_snippet
@@ -19,7 +19,7 @@ class PostsControllerTest < ActionController::TestCase
       post :create, :post => { :type => 'Snippet', :header => 'Something', :content => 'Something else', :lang => 'Ruby' }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to posts_path
   end
   
   # Generated tests
