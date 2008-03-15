@@ -4,8 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.paginate(:order => 'posts.created_at DESC', :page => params[:page], :include => [:comments, :feed])
-
+    @posts = request.path.gsub(/\/(articles|tweets|pictures)/i, '\1').classify.constantize.paginate_index(:page => params[:page])
+    rescue
+      @posts = Post.paginate_index(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }

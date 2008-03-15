@@ -9,6 +9,12 @@ class Post < ActiveRecord::Base
   validates_presence_of :user_id, :unless => :feed_id
   validates_presence_of :feed_id, :unless => :user_id
   
+  class << self
+    def paginate_index(options={})
+      paginate({:order => 'posts.created_at DESC', :include => [:comments, :feed]}.merge(options))
+    end
+  end
+  
   def self.per_page; 10; end
   
   def type
