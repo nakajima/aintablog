@@ -352,6 +352,10 @@ label textarea {
   font-size: 12px;
 }
 
+.picture small {
+  display: block;
+}
+
 .picture .date {
   margin-top: 0.3em;
 }
