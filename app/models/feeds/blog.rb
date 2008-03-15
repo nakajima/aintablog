@@ -10,6 +10,7 @@ class Blog < Feed
       article.updated_at = entry.try(:last_updated)
       article.save
     end
+    update_attribute :updated_at, Time.now
   end
 
 end

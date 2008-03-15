@@ -8,6 +8,7 @@ class Twitter < Feed
       tweet.created_at = entry.try(:date_published)
       tweet.save
     end
+    update_attribute :updated_at, Time.now
   end
 
 end
