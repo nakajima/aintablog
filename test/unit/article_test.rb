@@ -43,17 +43,6 @@ class ArticleTest < ActiveSupport::TestCase
     assert article.from_feed?
   end
   
-  def test_should_strip_style_from_imported_articles
-    article = feeds(:blog).articles.create \
-      :header => 'Something',
-      :content => "You know...<style>\n  .bad { color: white }\n</style>",
-      :permalink => 'http://daringfirebal.net/something.html'
-    assert ! article.content.match(/<style>/), "Didn't remove style open tag"
-    assert ! article.content.match(/\.bad \{ color\: white \}/), "Didn't remove rogue styles"
-    assert ! article.content.match(/<\/style>/), "Didn't remove style close tag"
-    assert_equal 'You know...', article.content
-  end
-  
 protected
 
   def create_article(options={})

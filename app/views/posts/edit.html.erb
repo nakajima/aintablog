@@ -1,4 +1,4 @@
-<% content_for :title do -%>Editing a post at <% end -%>
+<% content_for :title do -%>Editing “<%=h @post.header %>” at <% end -%>
 <%= render :partial => "/posts/forms/#{@post.type.to_s.downcase}.html.erb" %>
 
 <%= link_to 'Go Back Home', '/' %>
