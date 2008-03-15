@@ -7,3 +7,5 @@ class Object
     send method if respond_to? method
   end
 end
+
+SITE_SETTINGS = YAML.load_file(File.join(RAILS_ROOT, 'config', 'settings.yml'))

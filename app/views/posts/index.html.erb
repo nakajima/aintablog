@@ -1,94 +1,11 @@
-<% content_for :header do %>
-<h1><a href="/"><span>AintaBlog</span></a></h1>
-<h2>When all else fails, use aintablog on the stain.</h2>
-<% end %>
+<% content_for :title do -%>Welcome to <% end -%>
+<% content_for :header do -%>
+<h1><a href="/"><span><%= SITE_SETTINGS['site_name'] -%></span></a></h1>
+<h2><%= SITE_SETTINGS['site_tagline'] -%></h2>
+<% end -%>
 
 <div id="posts">
-  <% @posts.each do |post| -%>
-  <div id="post_<%= post.id %>" class="<%= post.type.downcase %> hentry">
-    <%= partial_for(post) %>
-  </div>
-  <% end -%>
-  
-  <!--
-  <div id="post_3" class="tweet">
-    <div class="date">
-      <span class="month">Jun</span>
-      <span class="day">15</span>
-    </div>
-    <blockquote>
-      Following @<a href="#"><span>tompettydotcom</span></a>. Pretty good.
-    </blockquote>
-    <cite>&#x2010; Posted via <a href="http://twitter.com/nakajim">Twitter</a></cite>
-  </div>
-  
-  <div id="post_1" class="article">
-    <h3><a href="#"><span>The Trouble with rspec</span></a></h3>
-    <div class="date">
-      <span class="month">Jun</span>
-      <span class="day">15</span>
-    </div>
-    <div class="entry">
-      <p>
-        These days, most developers (thankfully) recognize the value of test driven development. 
-        Still, the question, “To test, or not to test…” lives on, with some developers preferring 
-        to “spec” instead. Spec driven development (or Behavior Driven Development) in Ruby or Ruby 
-        on Rails means using the RSpec framework to describe what the code ought to do in a syntax 
-        that reads very much like plain English. And that’s the problem.
-      </p>
-      <p>
-        While English is a great language for communicating with other humans, it’s far too low 
-        level to be useful as a language to poke and prod Ruby code. While computer languages were 
-        originally designed as a way for humans to communicate with machines, they’re now (at least 
-        the good ones) frameworks upon which we are able to structure our thought processes. We have 
-        the problem solving muscle. We just need the programming language hammer.
-      </p>
-      <p>
-        And so I believe that Ruby is the best language for testing Ruby code. And in the same way 
-        I wouldn’t write a one-act play in a programming language, I don’t believe it’s productive 
-        to expect an interpersonal language to assume the responsibilities and abilities of programmatic 
-        one.
-      </p>            
-    </div>
-    <div class="meta">
-      <a href="#">1 Comment</a>
-    </div>
-  </div>
-  
-  <div id="post_4" class="picture">
-    <div class="date">
-      <span class="month">Jun</span>
-      <span class="day">15</span>
-    </div>
-    <img src="http://farm3.static.flickr.com/2131/2314699667_e4b3ef6da7.jpg">
-    <small>MTA Practical Jokes</small>
-    <cite>&#x2010; Posted from <a href="#">flickr</a></cite>
-  </div>
-  
-  <div id="post_2" class="quote">
-    <div class="date">
-      <span class="month">Jun</span>
-      <span class="day">15</span>
-    </div>
-    <blockquote>
-      That's what she said... no really. <a href="#"><span>She said it</span></a>. And I was stricken with a sort of madness that 
-      only now am I quite able to overcome.
-    </blockquote>
-    <cite>&#x2010; Pat Nakajima</cite>
-  </div>
-  
-  <div id="post_3" class="tweet">
-    <div class="date">
-      <span class="month">Jun</span>
-      <span class="day">15</span>
-    </div>
-    <blockquote>
-      @<a href="#"><span>jeresig</span></a>: See that show as many times as possible. I saw him here in New York and it was outstanding.
-    </blockquote>
-    <cite>&#x2010; Posted from <a href="http://twitter.com/nakajim">Twitter</a></cite>
-  </div>
-  -->
-  
+  <%= render :partial => "post", :collection => @posts %>
 </div>
 
 <%= will_paginate(@posts) %>
