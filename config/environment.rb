@@ -62,3 +62,5 @@ Rails::Initializer.run do |config|
 end
 
 require 'authenticated_model'
+
+ActionController::Base.cache_store = :file_store, "#{RAILS_ROOT}/public/cache"

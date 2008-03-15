@@ -6,7 +6,9 @@
 </div>
 
 <div class="entry entry-content">
+<% cache(post.permalink) do -%>
   <%= clean_content_for(post) %>
+<% end -%>
 </div>
 
 <% if params[:action] == 'index' -%>
@@ -27,4 +29,4 @@
 
 <%= render :partial => "/posts/types/comments.html.erb" %>
 
-<% end %>
+<% end -%>

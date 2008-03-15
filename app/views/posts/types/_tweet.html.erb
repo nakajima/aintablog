@@ -1,3 +1,4 @@
+<% cache(post.permalink) do -%>
 <div class="date">
   <span class="month"><%= post.created_at.strftime('%b') -%></span>
   <span class="day"><%= post.created_at.strftime('%e') -%></span>
@@ -6,3 +7,4 @@
   <%= twitterize(post.content) %>
 </blockquote>
 <cite>&#x2010; Posted via <%= link_to 'Twitter', post.permalink %></cite>
+<% end -%>

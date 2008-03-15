@@ -64,6 +64,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_permalink(params[:id])
     respond_to do |format|
       if @post.update_attributes(params[@post.type.downcase])
+        expire_fragment(@post.permalink)
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to post_path(@post) }
         format.xml  { head :ok }
@@ -79,7 +80,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_permalink(params[:id])
     @post.destroy
-
+    expire_fragment(@post.permalink)
     respond_to do |format|
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }

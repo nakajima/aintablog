@@ -6,3 +6,5 @@ config/settings.yml
 .DS_Store
 ./**/.DS_Store
 Capfile
+public/cache
+public/cache/**
