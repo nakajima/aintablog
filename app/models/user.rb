@@ -2,6 +2,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   authenticated_model
   
+  has_many :pictures
   has_many :articles
   has_many :quotes
   has_many :snippets

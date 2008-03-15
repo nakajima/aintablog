@@ -337,6 +337,10 @@ label textarea {
 /*------------------------------------------------------------
   Picture styles */
 
+.picture {
+  padding: 1.4em 0;
+}
+
 .picture img {
   margin: 6px 0 0.5em;
 }

@@ -1,7 +1,9 @@
 <div class="date">
-  <span class="month">Jun</span>
-  <span class="day">15</span>
+  <span class="month"><%= post.created_at.strftime('%b') -%></span>
+  <span class="day"><%= post.created_at.strftime('%e') -%></span>
 </div>
-<img src="http://farm3.static.flickr.com/2131/2314699667_e4b3ef6da7.jpg">
-<small>MTA Practical Jokes</small>
-<cite>&#x2010; Posted from <a href="#">flickr</a></cite>
+<%= image_tag post.permalink %>
+<% if post.header -%>
+<small><%=h post.header %></small>
+<% end -%>
+<cite>&#x2010; Posted from <%= link_to 'flickr', post.cite %></cite>

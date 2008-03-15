@@ -1,4 +1,5 @@
 require 'feed-normalizer'
+require 'hpricot'
 
 module Aintablog
   module Feedable
