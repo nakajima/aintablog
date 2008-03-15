@@ -1,6 +1,28 @@
-= AintaBlog
-== The Closed Version
+h1. AintaBlog: Open Source Tumblogging
 
-For patnakajima.com
+Aintablog is an open source blogging platform that attempts to combine the cooler parts of tumblr with more traditional blogging mainstays (commenting anyone?) It's not done. It's really not done.
 
-(c) 2008 Pat Nakajima
+Still, certain things work. You can create new posts (or as we call them, “articles”), quotes, and even import your Twitter feed.
+
+This app isn't quite for beginners (yet?). You need to know your way around a Rails app to really get going. With that being said, if you know Rails, then this app should be a piece of cake.
+
+So fork away, and let me know if you add anything cool.
+
+h3. REQUIREMENTS
+
+You're going to need the feed-normalizer gem.
+
+  sudo gem install feed-normalizer
+
+If you want to run the test suite, you'll need the mocha gem.
+
+  sudo gem install mocha
+
+I think that's about it.
+
+h3. TODO
+
+* Put together a better regex for the spanify_links helper
+* Page titles!
+* Page caching
+* More control over posts (publish_at, commentable?)
