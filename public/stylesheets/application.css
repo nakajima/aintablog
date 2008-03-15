@@ -352,6 +352,10 @@ label textarea {
   font-size: 12px;
 }
 
+.picture .date {
+  margin-top: 0.3em;
+}
+
 /*------------------------------------------------------------
   Comment styles */
 
