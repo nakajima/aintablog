@@ -5,3 +5,4 @@ config/database.yml
 config/settings.yml
 .DS_Store
 ./**/.DS_Store
+Capfile
