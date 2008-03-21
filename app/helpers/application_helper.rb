@@ -26,6 +26,7 @@ module ApplicationHelper
   def twitterize(string)
     string.gsub!(/\b(\w+\.com)\s/, '<a href="http://\1"><span>\1</span></a> ')
     string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
+    string = auto_link(string)
     string
   end
   

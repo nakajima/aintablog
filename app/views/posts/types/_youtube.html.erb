@@ -1,0 +1,9 @@
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') -%></span>
+  <span class="day"><%= post.created_at.strftime('%e') -%></span>
+</div>
+<%= image_tag post.content %>
+<% if post.header -%>
+<small><%=h post.header %></small>
+<% end -%>
+<cite>&#x2010; Posted from <%= link_to 'youtube', post.permalink %></cite>
