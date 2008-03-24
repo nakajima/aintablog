@@ -43,6 +43,11 @@ class ArticleTest < ActiveSupport::TestCase
     assert article.from_feed?
   end
   
+  def test_should_disallow_comments
+    article = create_article :allow_comments => '0'
+    assert ! article.allow_comments?, "Allowed comments"
+  end
+  
 protected
 
   def create_article(options={})
