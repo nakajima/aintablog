@@ -17,7 +17,7 @@ module ActionView
     #   ActionController::Base.asset_host = "assets.example.com"
     #   image_tag("rails.png")
     #     => <img src="http://assets.example.com/images/rails.png" alt="Rails" />
-    #   stylesheet_include_tag("application")
+    #   stylesheet_link_tag("application")
     #     => <link href="http://assets.example.com/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     #
     # This is useful since browsers typically open at most two connections to a single host,
@@ -28,7 +28,7 @@ module ActionView
     #
     #   image_tag("rails.png")
     #     => <img src="http://assets0.example.com/images/rails.png" alt="Rails" />
-    #   stylesheet_include_tag("application")
+    #   stylesheet_link_tag("application")
     #     => <link href="http://assets3.example.com/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     #
     # To do this, you can either setup 4 actual hosts, or you can use wildcard DNS to CNAME 
@@ -47,7 +47,7 @@ module ActionView
     #   ActionController::Base.asset_host = Proc.new { |source| "http://assets#{rand(2) + 1}.example.com" }
     #   image_tag("rails.png")
     #     => <img src="http://assets2.example.com/images/rails.png" alt="Rails" />
-    #   stylesheet_include_tag("application")
+    #   stylesheet_link_tag("application")
     #     => <link href="http://assets1.example.com/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     #
     # The proc takes a <tt>source</tt> parameter (which is the path of the source asset) and an optional
@@ -64,7 +64,7 @@ module ActionView
     #    }
     #   image_tag("rails.png")
     #     => <img src="http://images.example.com/images/rails.png" alt="Rails" />
-    #   stylesheet_include_tag("application")
+    #   stylesheet_link_tag("application")
     #     => <link href="http://assets.example.com/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     #
     # The optional <tt>request</tt> parameter to the proc is useful in particular for serving assets from an
@@ -249,14 +249,14 @@ module ActionView
           expand_javascript_sources(sources).collect { |source| javascript_src_tag(source, options) }.join("\n")
         end
       end
-      
+
       # Register one or more javascript files to be included when <tt>symbol</tt>
-      # is passed to <tt>javascript_include_tag</tt>. This method is typically intended 
+      # is passed to <tt>javascript_include_tag</tt>. This method is typically intended
       # to be called from plugin initialization to register javascript files
       # that the plugin installed in <tt>public/javascripts</tt>.
-      # 
+      #
       #   ActionView::Helpers::AssetTagHelper.register_javascript_expansion :monkey => ["head", "body", "tail"]
-      # 
+      #
       #   javascript_include_tag :monkey # =>
       #     <script type="text/javascript" src="/javascripts/head.js"></script>
       #     <script type="text/javascript" src="/javascripts/body.js"></script>
@@ -264,14 +264,14 @@ module ActionView
       def self.register_javascript_expansion(expansions)
         @@javascript_expansions.merge!(expansions)
       end
-      
+
       # Register one or more stylesheet files to be included when <tt>symbol</tt>
-      # is passed to <tt>stylesheet_link_tag</tt>. This method is typically intended 
+      # is passed to <tt>stylesheet_link_tag</tt>. This method is typically intended
       # to be called from plugin initialization to register stylesheet files
       # that the plugin installed in <tt>public/stylesheets</tt>.
-      # 
+      #
       #   ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :monkey => ["head", "body", "tail"]
-      # 
+      #
       #   stylesheet_link_tag :monkey # =>
       #     <link href="/stylesheets/head.css"  media="screen" rel="stylesheet" type="text/css" />
       #     <link href="/stylesheets/body.css"  media="screen" rel="stylesheet" type="text/css" />
@@ -287,11 +287,11 @@ module ActionView
       def self.register_javascript_include_default(*sources)
         @@javascript_expansions[:defaults].concat(sources)
       end
-      
+
       def self.reset_javascript_include_default #:nodoc:
         @@javascript_expansions[:defaults] = JAVASCRIPT_DEFAULT_SOURCES.dup
       end
-      
+
       # Computes the path to a stylesheet asset in the public stylesheets directory.
       # If the +source+ filename has no extension, .css will be appended.
       # Full paths from the document root will be passed through.
@@ -565,14 +565,15 @@ module ActionView
         end
 
         def expand_javascript_sources(sources)
-         if sources.include?(:all)
-           @@all_javascript_sources ||= Dir[File.join(JAVASCRIPTS_DIR, '*.js')].collect { |file| File.basename(file).split(".", 0).first }.sort
-         else
-           expanded_sources = sources.collect do |source|
-             determine_source(source, @@javascript_expansions)
-           end.flatten
-           expanded_sources << "application" if sources.include?(:defaults) && file_exist?(File.join(JAVASCRIPTS_DIR, "application.js"))
-           expanded_sources
+          if sources.include?(:all)
+            all_javascript_files = Dir[File.join(JAVASCRIPTS_DIR, '*.js')].collect { |file| File.basename(file).split(".", 0).first }.sort
+            @@all_javascript_sources ||= ((determine_source(:defaults, @@javascript_expansions).dup & all_javascript_files) + all_javascript_files).uniq
+          else
+            expanded_sources = sources.collect do |source|
+              determine_source(source, @@javascript_expansions)
+            end.flatten
+            expanded_sources << "application" if sources.include?(:defaults) && file_exist?(File.join(JAVASCRIPTS_DIR, "application.js"))
+            expanded_sources
           end
         end
 
@@ -585,7 +586,7 @@ module ActionView
             end.flatten
           end
         end
-        
+
         def determine_source(source, collection)
           case source
           when Symbol

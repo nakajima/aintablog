@@ -1,5 +1,29 @@
 *SVN*
 
+* Added ActiveRecord#Base.all/first/last as aliases for find(:all/:first/:last) #11413 [nkallen, thechrisoshow]
+
+* Merge the has_finder gem, renamed as 'named_scope'.  #11404 [nkallen]
+
+  class Article < ActiveRecord::Base
+    named_scope :published, :conditions => {:published => true}
+    named_scope :popular, :conditions => ...
+  end
+
+  Article.published.paginate(:page => 1)
+  Article.published.popular.count
+  Article.popular.find(:first)
+  Article.popular.find(:all, :conditions => {...})
+
+  See http://pivots.pivotallabs.com/users/nick/blog/articles/284-hasfinder-it-s-now-easier-than-ever-to-create-complex-re-usable-sql-queries
+
+* Add has_one :through support.  #4756 [thechrisoshow]
+
+* Migrations: create_table supports primary_key_prefix_type.  #10314 [student, thechrisoshow]
+
+* Added logging for dependency load errors with fixtures #11056 [stuthulhu]
+
+* Time zone aware attributes use Time#in_time_zone [Geoff Buesing]
+
 * Fixed that scoped joins would not always be respected #6821 [Theory/Danger]
 
 * Ensure that ActiveRecord::Calculations disambiguates field names with the table name.  #11027 [cavalle]

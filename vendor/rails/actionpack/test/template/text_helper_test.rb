@@ -24,6 +24,9 @@ class TextHelperTest < Test::Unit::TestCase
 
     text = "A\r\n  \nB\n\n\r\n\t\nC\nD".freeze
     assert_equal "<p>A\n<br />  \n<br />B</p>\n\n<p>\t\n<br />C\n<br />D</p>", simple_format(text)
+    
+     assert_equal %q(<p class="test">This is a classy test</p>), simple_format("This is a classy test", :class => 'test')
+     assert_equal %Q(<p class="test">para 1</p>\n\n<p class="test">para 2</p>), simple_format("para 1\n\npara 2", :class => 'test')     
   end
 
   def test_truncate
@@ -102,30 +105,47 @@ class TextHelperTest < Test::Unit::TestCase
   end
 
   def test_excerpt
-    assert_equal("...is a beautiful morni...", excerpt("This is a beautiful morning", "beautiful", 5))
+    assert_equal("...is a beautiful morn...", excerpt("This is a beautiful morning", "beautiful", 5))
     assert_equal("This is a...", excerpt("This is a beautiful morning", "this", 5))
     assert_equal("...iful morning", excerpt("This is a beautiful morning", "morning", 5))
     assert_nil excerpt("This is a beautiful morning", "day")
   end
 
+  def test_excerpt_in_borderline_cases
+    assert_equal("", excerpt("", "", 0))
+    assert_equal("a", excerpt("a", "a", 0))
+    assert_equal("...b...", excerpt("abc", "b", 0))
+    assert_equal("abc", excerpt("abc", "b", 1))
+    assert_equal("abc...", excerpt("abcd", "b", 1))
+    assert_equal("...abc", excerpt("zabc", "b", 1))
+    assert_equal("...abc...", excerpt("zabcd", "b", 1))
+    assert_equal("zabcd", excerpt("zabcd", "b", 2))
+
+    # excerpt strips the resulting string before ap-/prepending excerpt_string.
+    # whether this behavior is meaningful when excerpt_string is not to be
+    # appended is questionable.
+    assert_equal("zabcd", excerpt("  zabcd  ", "b", 4))
+    assert_equal("...abc...", excerpt("z  abc  d", "b", 1))
+  end
+
   def test_excerpt_with_regex
-    assert_equal('...is a beautiful! morn...', excerpt('This is a beautiful! morning', 'beautiful', 5))
-    assert_equal('...is a beautiful? morn...', excerpt('This is a beautiful? morning', 'beautiful', 5))
+    assert_equal('...is a beautiful! mor...', excerpt('This is a beautiful! morning', 'beautiful', 5))
+    assert_equal('...is a beautiful? mor...', excerpt('This is a beautiful? morning', 'beautiful', 5))
   end
 
   if RUBY_VERSION < '1.9'
     def test_excerpt_with_utf8
       with_kcode('u') do
-        assert_equal("...ﬃciency could not be h...", excerpt("That's why eﬃciency could not be helped", 'could', 8))
+        assert_equal("...ﬃciency could not be...", excerpt("That's why eﬃciency could not be helped", 'could', 8))
       end
       with_kcode('none') do
-        assert_equal("...\203ciency could not be h...", excerpt("That's why eﬃciency could not be helped", 'could', 8))
+        assert_equal("...\203ciency could not be...", excerpt("That's why eﬃciency could not be helped", 'could', 8))
       end
     end
   else
     def test_excerpt_with_utf8
-      assert_equal("...ﬃciency could not be h...".force_encoding('UTF-8'), excerpt("That's why eﬃciency could not be helped".force_encoding('UTF-8'), 'could', 8))
-      assert_equal("...\203ciency could not be h...", excerpt("That's why eﬃciency could not be helped", 'could', 8))
+      assert_equal("...ﬃciency could not be...".force_encoding('UTF-8'), excerpt("That's why eﬃciency could not be helped".force_encoding('UTF-8'), 'could', 8))
+      assert_equal("...\203ciency could not be...", excerpt("That's why eﬃciency could not be helped", 'could', 8))
     end
   end
 
