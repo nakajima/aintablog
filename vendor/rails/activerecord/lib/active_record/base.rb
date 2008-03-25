@@ -511,7 +511,19 @@ module ActiveRecord #:nodoc:
           else             find_from_ids(args, options)
         end
       end
+      
+      # This is an alias for find(:first).  You can pass in all the same arguments to this method as you can
+      # to find(:first)
+      def first(*args)
+        find(:first, *args)
+      end
 
+      # This is an alias for find(:last).  You can pass in all the same arguments to this method as you can
+      # to find(:last)
+      def last(*args)
+        find(:last, *args)
+      end
+      
       #
       # Executes a custom sql query against your database and returns all the results.  The results will
       # be returned as an array with columns requested encapsulated as attributes of the model you call
@@ -974,14 +986,19 @@ module ActiveRecord #:nodoc:
       end
 
       def reset_primary_key #:nodoc:
+        key = get_primary_key(base_class.name)
+        set_primary_key(key)
+        key
+      end
+
+      def get_primary_key(base_name) #:nodoc:
         key = 'id'
         case primary_key_prefix_type
           when :table_name
-            key = Inflector.foreign_key(base_class.name, false)
+            key = Inflector.foreign_key(base_name, false)
           when :table_name_with_underscore
-            key = Inflector.foreign_key(base_class.name)
+            key = Inflector.foreign_key(base_name)
         end
-        set_primary_key(key)
         key
       end
 
@@ -1421,6 +1438,20 @@ module ActiveRecord #:nodoc:
          (safe_to_array(first) + safe_to_array(second)).uniq
         end
 
+        # Merges conditions so that the result is a valid +condition+
+        def merge_conditions(*conditions)
+          segments = []
+
+          conditions.each do |condition|
+            unless condition.blank?
+              sql = sanitize_sql(condition)
+              segments << sql unless sql.blank?
+            end
+          end
+
+          "(#{segments.join(') AND (')})" unless segments.empty?
+        end
+
         # Object#to_a is deprecated, though it does have the desired behavior
         def safe_to_array(o)
           case o
@@ -1493,12 +1524,11 @@ module ActiveRecord #:nodoc:
         # The optional scope argument is for the current :find scope.
         def add_conditions!(sql, conditions, scope = :auto)
           scope = scope(:find) if :auto == scope
-          segments = []
-          segments << sanitize_sql(scope[:conditions]) if scope && !scope[:conditions].blank?
-          segments << sanitize_sql(conditions) unless conditions.blank?
-          segments << type_condition if finder_needs_type_condition?
-          segments.delete_if{|s| s.blank?}
-          sql << "WHERE (#{segments.join(") AND (")}) " unless segments.empty?
+          conditions = [conditions]
+          conditions << scope[:conditions] if scope
+          conditions << type_condition if finder_needs_type_condition?
+          merged_conditions = merge_conditions(*conditions)
+          sql << "WHERE #{merged_conditions} " unless merged_conditions.blank?
         end
 
         def type_condition
@@ -1740,7 +1770,7 @@ module ActiveRecord #:nodoc:
                     (hash[method].keys + params.keys).uniq.each do |key|
                       merge = hash[method][key] && params[key] # merge if both scopes have the same key
                       if key == :conditions && merge
-                        hash[method][key] = [params[key], hash[method][key]].collect{ |sql| "( %s )" % sanitize_sql(sql) }.join(" AND ")
+                        hash[method][key] = merge_conditions(params[key], hash[method][key])
                       elsif key == :include && merge
                         hash[method][key] = merge_includes(hash[method][key], params[key]).uniq
                       else
@@ -1934,7 +1964,7 @@ module ActiveRecord #:nodoc:
         #   { :status => nil, :group_id => 1 }
         #     # => "status = NULL , group_id = 1"
         def sanitize_sql_hash_for_assignment(attrs)
-          conditions = attrs.map do |attr, value|
+          attrs.map do |attr, value|
             "#{connection.quote_column_name(attr)} = #{quote_bound_value(value)}"
           end.join(', ')
         end

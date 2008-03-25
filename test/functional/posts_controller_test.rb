@@ -44,6 +44,13 @@ class PostsControllerTest < ActionController::TestCase
       assert_redirected_to posts_path
     end
   end
+  
+  def test_should_mark_as_uncommentable
+    login_as :quentin
+    post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else', :allow_comments => '0' }
+    assert assigns(:post), "Didn't assign post"
+    assert ! assigns(:post).allow_comments?, "Allowed comments"
+  end
 
   def test_should_show_post
     get :show, :id => posts(:one).permalink

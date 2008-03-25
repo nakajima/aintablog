@@ -92,21 +92,21 @@ module ActionView
         # Extracts an excerpt from +text+ that matches the first instance of +phrase+. 
         # The +radius+ expands the excerpt on each side of the first occurrence of +phrase+ by the number of characters
         # defined in +radius+ (which defaults to 100). If the excerpt radius overflows the beginning or end of the +text+,
-        # then the +excerpt_string+ will be prepended/appended accordingly. If the +phrase+ 
-        # isn't found, nil is returned.
+        # then the +excerpt_string+ will be prepended/appended accordingly. The resulting string will be stripped in any case.
+        # If the +phrase+ isn't found, nil is returned.
         #
         # ==== Examples
         #   excerpt('This is an example', 'an', 5) 
-        #   # => "...s is an examp..."
+        #   # => "...s is an exam..."
         #
         #   excerpt('This is an example', 'is', 5) 
-        #   # => "This is an..."
+        #   # => "This is a..."
         #
         #   excerpt('This is an example', 'is') 
         #   # => "This is an example"
         #
         #   excerpt('This next thing is an example', 'ex', 2) 
-        #   # => "...next t..."
+        #   # => "...next..."
         #
         #   excerpt('This is also an example', 'an', 8, '<chop> ')
         #   # => "<chop> is also an example"
@@ -116,10 +116,10 @@ module ActionView
 
             if found_pos = text.chars =~ /(#{phrase})/i
               start_pos = [ found_pos - radius, 0 ].max
-              end_pos   = [ found_pos + phrase.chars.length + radius, text.chars.length ].min
+              end_pos   = [ [ found_pos + phrase.chars.length + radius - 1, 0].max, text.chars.length ].min
 
               prefix  = start_pos > 0 ? excerpt_string : ""
-              postfix = end_pos < text.chars.length ? excerpt_string : ""
+              postfix = end_pos < text.chars.length - 1 ? excerpt_string : ""
 
               prefix + text.chars[start_pos..end_pos].strip + postfix
             else
@@ -134,10 +134,10 @@ module ActionView
 
             if found_pos = text =~ /(#{phrase})/i
               start_pos = [ found_pos - radius, 0 ].max
-              end_pos   = [ found_pos + phrase.length + radius, text.length ].min
+              end_pos   = [ [ found_pos + phrase.length + radius - 1, 0].max, text.length ].min
 
               prefix  = start_pos > 0 ? excerpt_string : ""
-              postfix = end_pos < text.length ? excerpt_string : ""
+              postfix = end_pos < text.length - 1 ? excerpt_string : ""
 
               prefix + text[start_pos..end_pos].strip + postfix
             else
@@ -291,24 +291,29 @@ module ActionView
       # considered as a linebreak and a <tt><br /></tt> tag is appended. This
       # method does not remove the newlines from the +text+. 
       #
+      # You can pass any HTML attributes into <tt>html_options</tt>.  These 
+      # will be added to all created paragraphs.
       # ==== Examples
-      #   my_text = """Here is some basic text...
-      #             ...with a line break."""
+      #   my_text = "Here is some basic text...\n...with a line break."
       #
       #   simple_format(my_text)
-      #   # => "<p>Here is some basic text...<br />...with a line break.</p>"
+      #   # => "<p>Here is some basic text...\n<br />...with a line break.</p>"
       #
-      #   more_text = """We want to put a paragraph...
-      #     
-      #               ...right there."""
+      #   more_text = "We want to put a paragraph...\n\n...right there."
       #
       #   simple_format(more_text)
-      #   # => "<p>We want to put a paragraph...</p><p>...right there.</p>"
-      def simple_format(text)
-        content_tag 'p', text.to_s.
-          gsub(/\r\n?/, "\n").                    # \r\n and \r -> \n
-          gsub(/\n\n+/, "</p>\n\n<p>").           # 2+ newline  -> paragraph
-          gsub(/([^\n]\n)(?=[^\n])/, '\1<br />')  # 1 newline   -> br
+      #   # => "<p>We want to put a paragraph...</p>\n\n<p>...right there.</p>"
+      #
+      #   simple_format("Look ma! A class!", :class => 'description')
+      #   # => "<p class='description'>Look ma! A class!</p>"
+      def simple_format(text, html_options={})
+        start_tag = tag('p', html_options, true)
+        text = text.to_s.dup
+        text.gsub!(/\r\n?/, "\n")                    # \r\n and \r -> \n
+        text.gsub!(/\n\n+/, "</p>\n\n#{start_tag}")  # 2+ newline  -> paragraph
+        text.gsub!(/([^\n]\n)(?=[^\n])/, '\1<br />') # 1 newline   -> br
+        text.insert 0, start_tag
+        text << "</p>"
       end
 
       # Turns all URLs and e-mail addresses into clickable links. The +link+ parameter 

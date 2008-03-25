@@ -8,14 +8,18 @@ class Article < Post
   validates_presence_of :header, :content
   validates_uniqueness_of :permalink
   
-  attr_accessible :content, :header, :permalink
+  attr_accessible :content, :header, :permalink, :allow_comments
+  
+  def allow_comments=(status)
+    self.feed_id = (status == '0') ? 0 : nil
+  end
   
   def allow_comments?
-    !! user_id
+    feed_id.nil?
   end
   
   def from_feed?
-    !! feed_id
+    !!feed_id && (feed_id != 0)
   end
   
   def link(root='')

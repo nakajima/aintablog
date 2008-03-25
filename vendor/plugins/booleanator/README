@@ -1,0 +1,15 @@
+Booleanator
+===========
+
+Adds #to_boolean method to Integer, NilClass and String, for massaging Rails
+param strings in the model, since Rails only does this in the controller context.
+
+Example
+=======
+
+  options[:allow_comments] = '0'
+  options[:allow_comments].to_boolean # => false
+
+Check out more at github.
+
+Copyright (c) 2008 Pat Nakajima, released under the MIT license

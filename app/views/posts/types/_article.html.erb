@@ -13,20 +13,22 @@
 
 <% if params[:action] == 'index' -%>
 
-  <% if post.allow_comments? -%>
   <div class="meta"> 
-    <%= comments_link_for(post) %>
+    <%= comments_link_for(post) if post.allow_comments? %>
     <% if logged_in? -%>
-    <%= link_to 'Edit', edit_article_path(post) %>
+    <%= link_to 'Edit', edit_article_path(post) unless post.from_feed? %>
     <%= link_to 'Destroy', article_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
     <% end %>
   </div>
-  <% else -%>
+  
+  <% if post.from_feed? -%>
   <cite>&#x2010; Posted via <%= link_to post.feed.title, post.feed.url %></cite>
   <% end -%>
 
 <% else -%>
 
-<%= render :partial => "/posts/types/comments.html.erb" %>
+<%= render :partial => "/posts/types/comments.html.erb" if post.allow_comments? %>
+
+<small><%= link_to 'Click here to go home', '/' %></small>
 
 <% end -%>
