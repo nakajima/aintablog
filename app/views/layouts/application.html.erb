@@ -7,6 +7,7 @@
 	<title><%= yield :title %><%= SITE_SETTINGS['site_title'] %></title>
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Pat Nakajima">
+	<meta name="viewport" content="width=500">
 	<%= stylesheet_link_tag 'application', 'article' %>
 	<%= stylesheet_link_tag 'admin' if logged_in? %>
 	<%= javascript_include_tag 'prototype', 'extensions', 'application' %>
