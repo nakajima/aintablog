@@ -20,6 +20,10 @@ If you want to run the test suite, you'll need the mocha gem.
 
 I think that's about it.
 
+h4. Defensio Spam Protection
+
+Aintablog now has built-in Defensio Spam protection. You need to get API keys from "defensio.com":http://defensio.com, then put them into @config/defensio.yml@.
+
 h3. TODO
 
 * Put together a better regex for the spanify_links helper
