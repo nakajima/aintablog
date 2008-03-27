@@ -6,14 +6,16 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
   def index
-    redirect_to @commentable
+    redirect_to @commentable and return if @commentable
+    access_denied and return unless logged_in?
+    @comments = Comment.find(:all)
   end
 
   # POST /comments
   # POST /comments.xml
   def create
     @comment = @commentable.comments.build(params[:comment])
-
+    @comment.env = request.env
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'

@@ -15,7 +15,7 @@
 </head>
 <body>
   <%= render :partial => "shared/admin" if logged_in? %>
-  <div <%= %{class="admin"} if params[:action].match(/new|edit/) %> id="all">
+  <div <%= %{class="admin"} if params[:action].match(/new|edit/) || params[:controller].match(/comments/) %> id="all">
     <div id="header">
       <%= yield :header -%>
     </div>
