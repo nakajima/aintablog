@@ -56,6 +56,11 @@ class PostsControllerTest < ActionController::TestCase
     get :show, :id => posts(:one).permalink
     assert_response :success
   end
+  
+  def test_should_redirect_to_index_from_show_unless_article
+    get :show, :id => posts(:two).id
+    assert_redirected_to '/'
+  end
 
   def test_should_get_edit
     login_as :quentin
