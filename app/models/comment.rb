@@ -5,6 +5,13 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, :polymorphic => true
 
   validates_presence_of :name, :email, :body
+  
+  before_save :report_status
+  
+  def report_status
+    method = spam? ? :report_as_spam : :report_as_ham
+    send(method)
+  end
 
   def texilized_body
     text = body || ''

@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :feed
   
-  has_many :comments, :as => :commentable
+  has_many :comments, :as => :commentable, :conditions => ['comments.spam = ?', false]
 
   validates_uniqueness_of :permalink, :scope => :type
   validates_presence_of :user_id, :unless => :feed_id

@@ -6,7 +6,10 @@
   <% @post.comments.reject(&:new_record?).each do |comment| -%>
     <% div_for(comment) do %>
     <% if logged_in? -%>
-    <small class="right"><%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." %></small>
+    <small class="right">
+      <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." %>
+      <%= link_to '(spam)', article_comment_path(@post, comment, :comment => { :spam => true }), :method => :put %>
+    </small>
     <% end -%>
     <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... </h5>
       <% if logged_in? %>

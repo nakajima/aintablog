@@ -3,8 +3,6 @@ class Article < Post
   
   # We don't want to generate permalinks for imported posts
   has_permalink :header, :if => :user_id
-  
-  has_many :comments, :as => :commentable
 
   validates_presence_of :header, :content
   validates_uniqueness_of :permalink
