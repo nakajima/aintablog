@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
   def index
     redirect_to @commentable and return if @commentable
     access_denied and return unless logged_in?
-    @comments = Comment.find(:all)
+    @spams = Comment.find_all_by_spam(true)
+    @hams = Comment.find_all_by_spam(false)
   end
 
   # POST /comments
@@ -30,16 +31,16 @@ class CommentsController < ApplicationController
   end
   
   def update
-    @comment = @commentable.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to post_path(@post) }
+        format.html { redirect_to @commentable ? @commentable : comments_path }
         format.js   { render :json => @comment }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.js   { render :text => 'fail', :status => :unprocessable_entity }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @commentable.errors, :status => :unprocessable_entity }
       end
     end
   end

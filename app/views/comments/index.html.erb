@@ -1,7 +1,9 @@
 <h1>Listing comments</h1>
 
+<h3>Good Comments</h3>
+<%= render :partial => "comment", :collection => @hams %>
+<%= "<p>No good comments found.</p>" if @hams.empty? %>
 
-
-<br />
-
-<%= link_to 'New comment', new_comment_path %>
+<h3>Spammy Comments</h3>
+<%= render :partial => "comment", :collection => @spams %>
+<%= "<p>No spammy comments found.</p>" if @spams.empty? %>
