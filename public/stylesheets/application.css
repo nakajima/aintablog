@@ -305,8 +305,11 @@ label textarea {
   font-style: oblique;
   font-weight: bold;
   font-family: Georgia, Times, serif;
-  padding: 0 1em 0 0.2em;
   margin-bottom: 0.5em;
+}
+
+.link p {
+  padding: 0 1em 0 0.2em;
 }
 
 .link cite {

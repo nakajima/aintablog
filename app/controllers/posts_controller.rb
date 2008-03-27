@@ -16,7 +16,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find_by_permalink(params[:id], :include => :comments)
+    @post = Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
+    redirect_to '/' and return unless @post.type.match(/Article/)
     @comment = flash[:comment] || @post.comments.build
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find_by_permalink(params[:id])
+    @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
   end
 
   # POST /posts
@@ -61,7 +62,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    @post = current_user.posts.find_by_permalink(params[:id])
+    @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
     respond_to do |format|
       if @post.update_attributes(params[@post.type.downcase])
         expire_fragment(@post.permalink)
@@ -78,7 +79,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.xml
   def destroy
-    @post = Post.find_by_permalink(params[:id])
+    @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
     @post.destroy
     expire_fragment(@post.permalink)
     respond_to do |format|
