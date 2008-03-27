@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pictures, :controller => 'posts'
   map.resources :tweets, :controller => 'posts'
   map.resources :links, :controller => 'posts'
-  map.resources :comments
+  map.resources :comments, :member => { :report => :put }
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'

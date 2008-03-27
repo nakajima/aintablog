@@ -8,7 +8,7 @@
     <% if logged_in? -%>
     <small class="right">
       <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." %>
-      <%= link_to '(spam)', article_comment_path(@post, comment, :comment => { :spam => true }), :method => :put %>
+      <%= link_to '(spam)', report_comment_path(comment, :as => :spam, :article_id => @post.id), :method => :put %>
     </small>
     <% end -%>
     <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... </h5>

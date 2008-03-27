@@ -4,9 +4,9 @@
     <%= link_to comment.commentable.header, comment.commentable %>
     <%= link_to 'Delete', comment, :method => :delete, :confirm => "Click OK to delete this comment forever." %>
     <% if comment.spam? -%>
-    <%= link_to 'Mark as OK', comment_path(comment, :comment => { :spam => false }), :method => :put %>
+    <%= link_to 'Mark as OK', report_comment_path(comment, :as => :ham), :method => :put %>
     <% else -%>
-    <%= link_to 'Mark as spam', comment_path(comment, :comment => { :spam => true }), :method => :put %>
+    <%= link_to 'Mark as spam', report_comment_path(comment, :as => :spam), :method => :put %>
     <% end -%>
   </small>
 <% end -%>

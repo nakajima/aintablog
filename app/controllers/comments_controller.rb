@@ -45,6 +45,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def report
+    @comment = Comment.find(params[:id])
+    @comment.send("report_as_#{params[:as]}")
+    redirect_to @commentable ? @commentable : comments_path 
+  end
+
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
