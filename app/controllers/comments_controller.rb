@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def index
     redirect_to @commentable and return if @commentable
     access_denied and return unless logged_in?
-    @spams = Comment.find_all_by_spam(true, :include => :commentable)
+    @spams = Comment.find_all_by_spam(true, :include => :commentable, :order => 'spaminess ASC')
     @hams = Comment.find_all_by_spam(false, :include => :commentable)
   end
 
