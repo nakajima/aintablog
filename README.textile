@@ -10,9 +10,9 @@ So fork away, and let me know if you add anything cool.
 
 h3. REQUIREMENTS
 
-You're going to need the feed-normalizer gem.
+You're going to need the feed-normalizer and hpricot gems.
 
-  sudo gem install feed-normalizer
+  sudo gem install feed-normalizer hpricot
 
 If you want to run the test suite, you'll need the mocha gem.
 
@@ -20,9 +20,13 @@ If you want to run the test suite, you'll need the mocha gem.
 
 I think that's about it.
 
+h4. Defensio Spam Protection
+
+Aintablog now has built-in Defensio Spam protection. You need to get API keys from "defensio.com":http://defensio.com, then put them into @config/defensio.yml@.
+
 h3. TODO
 
 * Put together a better regex for the spanify_links helper
-* Page titles!
-* Page caching
-* More control over posts (publish_at, commentable?)
+* -Page titles!-
+* Page caching, -Fragment Caching-
+* More control over posts (publish_at, -commentable?-)

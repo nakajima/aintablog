@@ -1,0 +1,12 @@
+<% div_for(comment) do -%>
+  <p><%=h comment.body %></p>
+  <small>
+    <%= link_to comment.commentable.header, comment.commentable %>
+    <%= link_to 'Delete', comment, :method => :delete, :confirm => "Click OK to delete this comment forever." %>
+    <% if comment.spam? -%>
+    <%= link_to 'Mark as OK', report_comment_path(comment, :as => :ham), :method => :put %>
+    <% else -%>
+    <%= link_to 'Mark as spam', report_comment_path(comment, :as => :spam), :method => :put %>
+    <% end -%>
+  </small>
+<% end -%>

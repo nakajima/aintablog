@@ -8,4 +8,7 @@ class Link < Post
     header || permalink
   end
   
+  def to_param
+    attributes['id']
+  end
 end

@@ -6,14 +6,17 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
   def index
-    redirect_to @commentable
+    redirect_to @commentable and return if @commentable
+    access_denied and return unless logged_in?
+    @spams = Comment.find_all_by_spam(true)
+    @hams = Comment.find_all_by_spam(false)
   end
 
   # POST /comments
   # POST /comments.xml
   def create
     @comment = @commentable.comments.build(params[:comment])
-
+    @comment.env = request.env
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'
@@ -28,28 +31,34 @@ class CommentsController < ApplicationController
   end
   
   def update
-    @comment = @commentable.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to post_path(@post) }
+        format.html { redirect_to @commentable ? @commentable : comments_path }
         format.js   { render :json => @comment }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.js   { render :text => 'fail', :status => :unprocessable_entity }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @commentable.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def report
+    @comment = Comment.find(params[:id])
+    @comment.send("report_as_#{params[:as]}")
+    redirect_to @commentable ? @commentable : comments_path 
   end
 
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
-    @comment = @commentable.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@commentable) }
+      format.html { redirect_to @commentable ? @commentable : comments_path }
       format.xml  { head :ok }
     end
   end

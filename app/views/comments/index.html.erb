@@ -1,30 +1,10 @@
-<h1>Listing comments</h1>
+<% content_for :title do -%>Comments for <% end -%>
+<% content_for :header do -%><h1>Listing comments</h1><% end -%>
 
-<table>
-  <tr>
-    <th>Post</th>
-    <th>Body</th>
-    <th>Email</th>
-    <th>Website</th>
-    <th>Name</th>
-    <th>User</th>
-  </tr>
+<h3>Good Comments</h3>
+<%= render :partial => "comment", :collection => @hams %>
+<%= "<p>No good comments found.</p>" if @hams.empty? %>
 
-<% for comment in @comments %>
-  <tr>
-    <td><%=h comment.post_id %></td>
-    <td><%=h comment.body %></td>
-    <td><%=h comment.email %></td>
-    <td><%=h comment.website %></td>
-    <td><%=h comment.name %></td>
-    <td><%=h comment.user_id %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New comment', new_comment_path %>
+<h3>Spammy Comments</h3>
+<%= render :partial => "comment", :collection => @spams %>
+<%= "<p>No spammy comments found.</p>" if @spams.empty? %>

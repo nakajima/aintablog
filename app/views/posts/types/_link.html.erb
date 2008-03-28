@@ -5,6 +5,12 @@
 <blockquote>
   <%= spanned_link h(post.link_text), post.permalink -%>
 </blockquote>
-<% unless post.cite.blank? -%>
-<cite>&#x2010; <%=h post.cite %></cite>
+
+<% unless post.cite.blank? -%><p><%=h post.cite %></p><% end -%>
+
+<% if logged_in? -%>
+<cite>
+<%= link_to 'Edit', edit_link_path(post.id) %>
+<%= link_to 'Destroy', link_path(post.id), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+</cite>
 <% end -%>
