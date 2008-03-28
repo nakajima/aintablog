@@ -8,9 +8,7 @@ module ApplicationHelper
   end
   
   def spanify_links(text)
-    text.gsub(/<a\s(.*)>(.*)<\/a>/ix) do |s|
-      "<a #{$1}><span>#{strip_tags($2)}</span></a>"
-    end
+    text.gsub(/<a\s+(.*)>(.*)<\/a>/i, '<a \1><span>\2</span></a>')
   end
   
   def partial_for(post)
@@ -24,8 +22,9 @@ module ApplicationHelper
   end
   
   def twitterize(string)
-    string.gsub!(/\b(\w+\.com)\s/, '<a href="http://\1"><span>\1</span></a> ')
+    string.gsub!(/\b(\w+\.com|net|org)\b/, '<a href="http://\1"><span>\1</span></a> ')
     string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
+    string = auto_link(string)
     string
   end
   
