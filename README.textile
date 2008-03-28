@@ -24,6 +24,10 @@ h4. Defensio Spam Protection
 
 Aintablog now has built-in Defensio Spam protection. You need to get API keys from "defensio.com":http://defensio.com, then put them into @config/defensio.yml@.
 
+h4. The tests are hurting
+
+Currently, the tests are in a state of utter disrepair while I figure out how to best integrate them with the new Defensio stuff I added. Stay tuned.
+
 h3. TODO
 
 * Put together a better regex for the spanify_links helper
