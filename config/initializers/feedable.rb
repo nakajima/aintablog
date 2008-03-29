@@ -11,7 +11,6 @@ module Aintablog
       def acts_as_feed
         unless included_modules.include? InstanceMethods 
           class_inheritable_accessor :target_class # What do entries become 
-          extend(ClassMethods)
           include(InstanceMethods)
         end
       end      
