@@ -8,4 +8,6 @@
   <%= render :partial => "post", :collection => @posts %>
 </div>
 
+<%= '<p>There were no posts found.</p>' if @posts.empty? %>
+
 <%= will_paginate(@posts) %>
