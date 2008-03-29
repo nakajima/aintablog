@@ -34,12 +34,6 @@ module Aintablog
         end
       end
     end
-    
-    module ClassMethods
-      def entries_become(target)
-        self.target_class = target.to_s.classify.constantize
-      end
-    end
   end
 end
 
