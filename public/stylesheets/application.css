@@ -12,6 +12,7 @@ body {
   font-family: Lucida Grande, Arial, Tahoma, sans-serif;
   font-size: 16px;
   color: #2a2a2a;
+  padding-bottom: 20px;
 }
 
 .left { float: left; }
@@ -73,6 +74,14 @@ label textarea {
   padding: 0 0 2em;
 }
 
+#credits {
+  color: #c0c0c0;
+  float: left;
+  margin: 20px 0;
+  text-align: center;
+  display: block;
+}
+
 /*------------------------------------------------------------
   Form validator styles */
 
@@ -116,6 +125,13 @@ label textarea {
   font-size: 18px;
   font-family: Georgia, Times, serif;
   font-weight: normal;
+}
+
+/*------------------------------------------------------------
+  Footer styles */
+
+#footer {
+  clear: both;
 }
 
 /*------------------------------------------------------------
