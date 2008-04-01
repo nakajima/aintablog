@@ -172,13 +172,19 @@ label textarea {
   padding: 0.3em 0.5em;
 }
 
-.pagination > a:hover {
+.pagination a:hover {
   background: #202020;
+  text-shadow: 1px 1px 1px #171717;
 }
 
-.pagination > .current {
+.pagination a:active {
+  text-shadow: none;
+}
+
+.pagination .current {
   background: #202020;
   color: white;
+  text-shadow: 1px 1px 1px #171717;
 }
 
 .pagination .disabled {
