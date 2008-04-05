@@ -23,14 +23,38 @@ Event.observe(document, 'dom:loaded', function() {
     initialize: function(element, options) {
       Object.extend(this, options);
       this.element = $(element);
-      this.field = this.element.identify();
+      this.field = this.parseField();
       this.value = this.element.innerHTML;
       this.setupForm();
       this.setupBehaviors();
     },
-  
+    
+    parseField: function() {
+      var params = new Array;
+      var string = this.element.identify();
+      var levels = this.element.readAttribute('rel').replace(/(http:|https:|file:)\/\/[^\/]+/, '').split('/').without('');
+      levels.each(function(level, i) { if ( i % 2 == 0 ) { params.push(level.gsub(/s$/, '')) } })
+      var split = this.element.identify().split('_');
+      var attrs = $A(split).select(function(m) { return params.include(m); });
+      var field = split.inject(new Array, function(memo, attr) {
+        if ( attrs.include(attr) ) {
+          memo.push(attr);
+          return memo;
+        } else {
+          if ( !attrs.include(memo.last()) || attr == 'id' ) {
+            memo[memo.length - 1] += '_' + attr;
+          } else { memo.push(attr) }
+          return memo;
+        }
+      })
+      var fieldString = field.join('[');
+      (field.length - 1).times(function() { fieldString += ']' });
+      console.info(fieldString)
+      return fieldString;
+    },
+    
     setupForm: function() {
-      this.editForm = new Element('form', { 'action': this.element.readAttribute('href'), 'style':'display:none', 'class':'editor' })
+      this.editForm = new Element('form', { 'action': this.element.readAttribute('rel'), 'style':'display:none', 'class':'editor' })
       this.editInput = new Element(this.editFieldTag, { 'name':this.field });
       this.editInput.update(this.element.innerHTML);
       var saveInput = new Element('input', { 'type':'submit', 'value':'Save' });
@@ -93,9 +117,11 @@ Event.observe(document, 'dom:loaded', function() {
     }
   })
  
-  Editable.create = function(element) {
-    new Editable(element);
-  }
+  Object.extend(Editable, {
+    create: function(element) {
+      new Editable(element);
+    }
+  })
  
   $$('.editable').each(Editable.create);
   $$('#logout').invoke('observe', 'click', Logouter.click);
