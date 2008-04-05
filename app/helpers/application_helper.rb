@@ -21,8 +21,11 @@ module ApplicationHelper
     link_to text, "#{path}#comments"
   end
   
+  # TODO This method sucks. Learn about regex and fix it.
   def twitterize(string)
-    string.gsub!(/\b(((http:|https:|file:)\/\/)?([a-z]+\.)?(\w+\.com|net|org)(\/.*)?)\b/, '<a href="http://\1"><span>\1</span></a>')
+    string.gsub!(/\b(((http:|https:|file:)\/\/)?([a-z]+\.)?(\w+\.com|net|org)(\/.*)?)\b/) do
+      "<a href='#{"http://" unless $1.include?('http://')}#{$1}'><span>#{$1}</span></a>"
+    end
     string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
     string = auto_link(string)
     spanify_links(string)
