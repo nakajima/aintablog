@@ -22,10 +22,10 @@ module ApplicationHelper
   end
   
   def twitterize(string)
-    string.gsub!(/\b((\w+\.)?(\w+\.com|net|org))\b/, '<a href="http://\1"><span>\1</span></a>')
+    string.gsub!(/\b(((http:|https:|file:)\/\/)?([a-z]+\.)?(\w+\.com|net|org)(\/.*)?)\b/, '<a href="http://\1"><span>\1</span></a>')
     string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
     string = auto_link(string)
-    string
+    spanify_links(string)
   end
   
   def clean_content_for(post)
