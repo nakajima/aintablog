@@ -24,4 +24,12 @@ class Post < ActiveRecord::Base
   def to_param
     permalink
   end
+  
+  def delete!
+    update_attribute :deleted_at, Time.now
+  end
+  
+  def deleted?
+    !!deleted_at
+  end
 end
