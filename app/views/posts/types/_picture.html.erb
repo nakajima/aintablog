@@ -6,4 +6,9 @@
 <% if post.header -%>
 <small><%=h post.header %></small>
 <% end -%>
-<cite>&#x2010; Posted from <%= link_to 'flickr', post.cite %></cite>
+<cite>
+  &#x2010; Posted from <%= link_to 'flickr', post.cite %> 
+  <%- if logged_in? -%>
+  <%= link_to 'Delete', post_path(post.id), :method => :delete, :confirm => "Click OK to delete this post." %>
+  <%- end -%>
+</cite>

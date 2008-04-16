@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  
+  named_scope :active, :conditions => 'deleted_at IS NULL'
 
   belongs_to :user
   belongs_to :feed
@@ -11,7 +13,7 @@ class Post < ActiveRecord::Base
   
   class << self
     def paginate_index(options={})
-      paginate({:order => 'posts.created_at DESC', :include => [:comments, :feed]}.merge(options))
+      active.paginate({:order => 'posts.created_at DESC', :include => [:comments, :feed]}.merge(options))
     end
   end
   

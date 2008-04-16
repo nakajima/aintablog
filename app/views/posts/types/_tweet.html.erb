@@ -6,5 +6,10 @@
 <blockquote>
   <%= twitterize(post.content) %>
 </blockquote>
-<cite>&#x2010; Posted via <%= link_to 'Twitter', post.permalink %></cite>
+<cite>
+  &#x2010; Posted via <%= link_to 'Twitter', post.permalink %> 
+  <%- if logged_in? -%>
+  <%= link_to 'Delete', post_path(post.id), :method => :delete, :confirm => "Click OK to delete this post." %>
+  <%- end -%>
+</cite>
 <% end -%>
