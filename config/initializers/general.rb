@@ -8,4 +8,9 @@ class Object
   end
 end
 
+unless File.file?("#{RAILS_ROOT}/config/settings.yml")
+  include FileUtils
+  copy_file("#{RAILS_ROOT}/config/settings.yml.sample", "#{RAILS_ROOT}/config/settings.yml")
+end
+
 SITE_SETTINGS = YAML.load_file(File.join(RAILS_ROOT, 'config', 'settings.yml'))

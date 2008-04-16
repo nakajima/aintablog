@@ -62,9 +62,9 @@ class FeedsController < ApplicationController
   def update
     feed = Feed.find(params[:id])
     @feed = feed.becomes(feed.type.constantize)
-    @feed.refresh!
     respond_to do |format|
-      if params[:refresh] || @feed.update_attributes(params[:feed])
+      if @feed.update_attributes(params[feed.type.downcase])
+        @feed.learn_attributes! # This should go in the model.
         flash[:notice] = 'Feed was successfully updated.'
         format.html { redirect_to(feeds_url) }
         format.xml  { head :ok }
