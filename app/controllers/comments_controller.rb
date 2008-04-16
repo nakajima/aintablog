@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = @commentable.comments.build(params[:comment])
-    @comment.env = request.env
+    @comment.env = request.env if SITE_SETTINGS[:use_defensio]
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'

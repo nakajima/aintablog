@@ -1,3 +1,9 @@
+unless defined?(RAILS_ROOT)
+  RAILS_ROOT = File.dirname(__FILE__) + '/../../'
+  RAILS_ENV = 'development'
+  require 'yaml'
+end
+
 class Object
   ##
   #   @person ? @person.name : nil
@@ -13,4 +19,5 @@ unless File.file?("#{RAILS_ROOT}/config/settings.yml")
   copy_file("#{RAILS_ROOT}/config/settings.yml.sample", "#{RAILS_ROOT}/config/settings.yml")
 end
 
-SITE_SETTINGS = YAML.load_file(File.join(RAILS_ROOT, 'config', 'settings.yml'))
+site_settings = YAML.load_file(File.join(RAILS_ROOT, 'config', 'settings.yml'))[RAILS_ENV]
+SITE_SETTINGS = HashWithIndifferentAccess.new(site_settings)

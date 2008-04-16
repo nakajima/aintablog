@@ -1,5 +1,5 @@
 class Article < Post
-  acts_as_defensio_article :fields => { :author => :source, :title => :header }
+  acts_as_defensio_article :fields => { :author => :source, :title => :header } if SITE_SETTINGS[:use_defensio]
   
   # We don't want to generate permalinks for imported posts
   has_permalink :header, :if => :user_id

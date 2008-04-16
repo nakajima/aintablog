@@ -1,5 +1,23 @@
-site_title: "AintaBlog"
-site_name: "AintaBlog: a blog"
-site_tagline: "When all else fails, use aintablog on the stain."
-user_email: "test@example.com"
-import_twitter_replies: false
+development:
+	site_title: "AintaBlog"
+	site_name: "AintaBlog: a blog"
+	site_tagline: "When all else fails, use aintablog on the stain."
+	user_email: "test@example.com"
+	import_twitter_replies: false
+	use_defensio: true
+
+test:
+	site_title: "AintaBlog"
+	site_name: "AintaBlog: a blog"
+	site_tagline: "When all else fails, use aintablog on the stain."
+	user_email: "test@example.com"
+	import_twitter_replies: true
+	use_defensio: true
+
+production:
+	site_title: "AintaBlog"
+	site_name: "AintaBlog: a blog"
+	site_tagline: "When all else fails, use aintablog on the stain."
+	user_email: "test@example.com"
+	import_twitter_replies: true
+	use_defensio: true
