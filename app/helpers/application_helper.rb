@@ -28,6 +28,7 @@ module ApplicationHelper
     end
     string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
     string = auto_link(string)
+    string = RubyPants.new(string).to_html
     spanify_links(string)
   end
   
