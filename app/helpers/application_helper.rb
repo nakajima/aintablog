@@ -38,4 +38,11 @@ module ApplicationHelper
     text = spanify_links(text)
   end
   
+  
+  def edit_in_place_for(record, field, options={})
+    options[:tag] ||= :div
+    options[:url] ||= url_for(record)
+    options[:id] ||= "#{dom_id(record)}_#{field}" 
+    content_tag options[:tag], record.send(field), :class => 'editable', :rel => options[:url], :id => options[:id]
+  end
 end

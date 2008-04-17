@@ -1,10 +1,11 @@
-<% cache(post.permalink) do -%>
 <div class="date">
   <span class="month"><%= post.created_at.strftime('%b') -%></span>
   <span class="day"><%= post.created_at.strftime('%e') -%></span>
 </div>
 <blockquote>
+  <% cache(post.permalink) do -%>
   <%= twitterize(post.content) %>
+  <% end -%>
 </blockquote>
 <cite>
   &#x2010; Posted via <%= link_to 'Twitter', post.permalink %> 
@@ -12,4 +13,3 @@
   <%= link_to 'Delete', post_path(post.id), :method => :delete, :confirm => "Click OK to delete this post." %>
   <%- end -%>
 </cite>
-<% end -%>
