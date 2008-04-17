@@ -1,0 +1,52 @@
+1.5.1
+
+ * Fix a bug that was breaking the parsing process for certain feeds. [reported by: Patrick Minton]
+
+1.5.0
+
+ * Add support for new fields:
+   * Atom 0.3: issued is now available through entry.date_published.
+   * RSS: feed.skip_hours, feed.skip_days, feed.ttl [joshpeek]
+   * All: entry.last_updated, this is an alias to entry.date_published for RSS.
+ * Rewrite relative links in content [joshpeek]
+ * Handle CDATA sections consistently across all formats. [sam.lown]
+ * Prevent SimpleRSS from doing its own escaping. [reported by: paul.stadig, lionel.bouton]
+ * Reparse Time classes [reported by: sam.lown]
+
+1.4.0
+
+ * Support content:encoded. Accessible via Entry#content.
+ * Support categories. Accessible via Entry#categories.
+ * Introduces a new parsing feature 'loose parsing'. Use :loose => true
+   when parsing if the required output should retain extra data, rather
+   than drop it in the interests of 'lowest common denomiator' normalization.
+   Currently affects how categories works. See the documentation in
+   FeedNormalizer#parse for more details.
+
+1.3.2
+
+ * Add support for applicable dublin core elements. (dc:date and dc:creator)
+ * Feeds can now be dumped to YAML.
+
+1.3.1
+
+ * Small changes to work with hpricot 0.6. This release depends on hpricot 0.6.
+ * Reduced the greediness of a regexp that was removing html comments.
+
+1.3.0
+
+ * Small changes to work with hpricot 0.5.
+
+1.2.0
+
+ * Added HtmlCleaner - sanitizes HTML and removes 'bad' URIs to a level suitable
+   for 'safe' display inside a web browser. Can be used as a standalone library,
+   or as part of the Feed object. See Feed.clean! for details about cleaning a
+   Feed instance. Also see HtmlCleaner and its unit tests. Uses Hpricot.
+ * Added Feed-diffing. Differences between two feeds can be displayed using
+   Feed.diff. Works nicely with YAML for a readable diff.
+ * FeedNormalizer.parse now takes a hash for its arguments.
+ * Removed FN::Content.
+ * Now uses Hoe!
+
+
