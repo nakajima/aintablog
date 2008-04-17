@@ -30,6 +30,15 @@ class PostTest < ActiveSupport::TestCase
     post = create_post
     assert_equal post.permalink, post.to_param
   end
+
+  def test_should_be_deleted_not_destroyed
+    post = posts(:one)
+    assert ! post.deleted?
+    assert_no_difference 'Post.count' do
+      post.delete!
+    end
+    assert post.deleted?
+  end
   
 protected
 

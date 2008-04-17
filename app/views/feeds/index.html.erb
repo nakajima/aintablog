@@ -8,6 +8,7 @@
   <div id="<%= dom_id(feed) %>">
     <h3><%= feed.title || '(no title)' %></h3>
     <small>
+      <%= feed.type %> 
       <%= link_to pluralize(feed.posts.length, 'post'), feed_path(feed) %>
       <%= link_to 'Edit', edit_feed_path(feed) %>
       <%= link_to 'Refresh', "#{feed_path(feed)}?refresh=true", :method => :put %>

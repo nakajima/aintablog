@@ -161,9 +161,8 @@ module Defensio
         return unless send(announce_when) && !send(announced_field)
         
         announce_article!
-        
         self.announced = true
-        save(false)
+        save(false)    
       end
       
       def announce_article!
@@ -178,7 +177,7 @@ module Defensio
         end
         
         if response
-          raise Defensio::Error, response.message unless response.success?
+          logger.warn response.message unless response.success?
         end
       end
       

@@ -74,12 +74,14 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to post_path(assigns(:post))
   end
 
-  def test_should_destroy_post
+  def test_should_delete_post
     login_as :quentin
-    assert_difference('Post.count', -1) do
-      delete :destroy, :id => posts(:one).permalink
+    post = posts(:one)
+    assert ! post.deleted?
+    assert_no_difference('Post.count') do
+      delete :destroy, :id => post.permalink
     end
-
+    assert post.reload.deleted?
     assert_redirected_to posts_path
   end
 end

@@ -15,6 +15,10 @@ class Feed < ActiveRecord::Base
     end
   end
   
+  def refresh=(res)
+    refresh! if res.to_boolean
+  end
+  
   def learn_attributes!
     self.title  = fetched_feed.title
     self.description = fetched_feed.description

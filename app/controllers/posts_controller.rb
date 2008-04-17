@@ -80,7 +80,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.xml
   def destroy
     @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
-    @post.destroy
+    @post.delete!
     expire_fragment(@post.permalink)
     respond_to do |format|
       format.html { redirect_to(posts_url) }

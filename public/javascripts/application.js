@@ -1,6 +1,6 @@
 var Validator = {
   findForms: function() {
-    Validator.forms = $$('.required').map(function(input) { return input.form; }).uniq();
+    Validator.forms = $$('.required').pluck('form').uniq();
     Validator.forms.invoke('observe', 'submit', Validator.performCheck)
   },
   
