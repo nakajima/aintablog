@@ -4,9 +4,8 @@
 </div>
 <blockquote>
   <%= spanned_link h(post.link_text), post.permalink -%>
+  <% unless post.cite.blank? -%><p><%=h post.cite %></p><% end -%>
 </blockquote>
-
-<% unless post.cite.blank? -%><p><%=h post.cite %></p><% end -%>
 
 <cite>
 <%- if post.feed -%>
