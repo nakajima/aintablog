@@ -19,7 +19,7 @@
     <%= f.hidden_field :type, :value => 'Article' if @post.new_record? %>
 
     <p>
-      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
+      <%= @post.new_record? ? f.submit("Create", :title => "Creating...") : f.submit("Update", :title => "Updating...") %>
     </p>
   <% end %>
 </div>
