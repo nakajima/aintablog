@@ -8,9 +8,12 @@
 
 <% unless post.cite.blank? -%><p><%=h post.cite %></p><% end -%>
 
-<% if logged_in? -%>
 <cite>
+<%- if post.feed -%>
+&#x2010; Posted via <%= link_to 'del.icio.us', post.feed.url %>
+<%- end -%>
+<% if logged_in? -%>
 <%= link_to 'Edit', edit_link_path(post.id) %>
 <%= link_to 'Destroy', link_path(post.id), :method => :delete, :confirm => "Click OK to delete this post forever." %>
-</cite>
 <% end -%>
+</cite>

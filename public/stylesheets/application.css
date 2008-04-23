@@ -327,11 +327,11 @@ label textarea {
   Link styles */
 
 .link {
-  padding: 2em 0;
+  padding: 1.4em 0;
 }
 
 .link blockquote {
-  font-size: 24px;
+  font-size: 22px;
   font-style: oblique;
   font-weight: bold;
   font-family: Georgia, Times, serif;

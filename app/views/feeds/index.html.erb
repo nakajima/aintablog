@@ -11,7 +11,7 @@
       <%= feed.type %> 
       <%= link_to pluralize(feed.posts.length, 'post'), feed_path(feed) %>
       <%= link_to 'Edit', edit_feed_path(feed) %>
-      <%= link_to 'Refresh', "#{feed_path(feed)}?refresh=true", :method => :put %>
+      <%= link_to 'Refresh', feed_path(feed, feed.type.downcase => { :refresh => true }), :method => :put %>
       <%= link_to 'Delete', feed_path(feed), :method => :delete, :confirm => "Click OK to delete this feed (and all of its posts)." %>
       (updated <%= distance_of_time_in_words_to_now(feed.updated_at) %> ago)
     </small>
