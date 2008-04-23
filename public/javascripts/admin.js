@@ -20,7 +20,7 @@ Event.observe(document, 'dom:loaded', function() {
   // Editable: Better in-place-editing
   // http://github.com/nakajima/nakatype/wikis/better-edit-in-place-editable-js
   var Editable = Class.create({
-    editFieldTag: 'input',
+    editFieldTag: 'textarea',
 
     initialize: function(element, options) {
       Object.extend(this, options);
@@ -86,6 +86,7 @@ Event.observe(document, 'dom:loaded', function() {
     save: function(event) {
       var form = event.element();
       var pars = form.serialize();
+      if ( window._token ) { pars += '&authenticity_token=' + window._token; };
       var url = form.readAttribute('action');
       form.disable();
       new Ajax.Request(url, {
@@ -126,7 +127,7 @@ Event.observe(document, 'dom:loaded', function() {
     }
   })
 
-  Event.observe(document, 'dom:loaded', Editable.setupAll);
+  Editable.setupAll();
   $$('#logout').invoke('observe', 'click', Logouter.click);
   $$('#admin #confirm a').invoke('observe', 'click', Logouter.confirm);
 });

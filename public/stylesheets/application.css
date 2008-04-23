@@ -38,13 +38,21 @@ a {
   padding: 0.1em 0.2em;
 }
 
+a:hover {
+  background: black;
+  color: white;
+}
+
 a.active {
   text-decoration: underline;
 }
 
-a:hover {
-  background: black;
-  color: white;
+cite a:hover, .meta a:hover {
+  text-shadow: 1px 1px 1px #171717;
+}
+
+cite a:active, .meta a:active {
+  text-shadow: none;
 }
 
 label {

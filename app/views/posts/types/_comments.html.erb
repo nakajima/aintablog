@@ -13,7 +13,7 @@
     <% end -%>
     <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... </h5>
       <% if logged_in? %>
-      <p class="editable" rel="<%= url_for([@post, comment]) %>" id='comment_body'><%=h comment.body %></p>
+      <%= edit_in_place_for comment, :body, :url => url_for([@post, comment]), :id => "post_comment_#{comment.id}_body", :tag => :p %>
       <% else -%>
       <p><%= comment.body %></p>
       <% end -%>

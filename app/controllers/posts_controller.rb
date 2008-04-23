@@ -63,14 +63,17 @@ class PostsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
+    params[:post] ||= params[@post.type.downcase]
     respond_to do |format|
-      if @post.update_attributes(params[@post.type.downcase])
+      if @post.update_attributes(params[:post])
         expire_fragment(@post.permalink)
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to post_path(@post) }
-        format.xml  { head :ok }
+        format.js   { render :json => @post }
+        format.xml  { head :ok }        
       else
         format.html { render :action => "edit" }
+        format.js   { render :text => 'fail', :status => :unprocessable_entity }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
