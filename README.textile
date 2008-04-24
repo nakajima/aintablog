@@ -4,7 +4,7 @@ h3. "aintablog.com":http://aintablog.com
 
 Aintablog is an open source blogging platform that attempts to combine the cooler parts of tumblr with more traditional blogging mainstays (commenting anyone?) It's not done. It's really not done.
 
-Still, certain things work. You can create new posts (or as we call them, “articles”), quotes, and even import your Twitter feed.
+Still, certain things work. You can create new posts (or as we call them, “articles”), quotes, and even import your Twitter/Flickr/del.icio.us feeds.
 
 This app isn't quite for beginners (yet?). You need to know your way around a Rails app to really get going. With that being said, if you know Rails, then this app should be a piece of cake.
 
@@ -22,13 +22,11 @@ If you want to run the test suite, you'll need the mocha gem.
 
 I think that's about it.
 
+You can run @rake gems:install@ to do it all in one fell swoop if you'd like.
+
 h4. Defensio Spam Protection
 
-Aintablog now has built-in Defensio Spam protection. You need to get API keys from "defensio.com":http://defensio.com, then put them into @config/defensio.yml@.
-
-h4. The tests are hurting
-
-Currently, the tests are in a state of utter disrepair while I figure out how to best integrate them with the new Defensio stuff I added. Stay tuned.
+Aintablog now has built-in Defensio Spam protection. You need to get API keys from "defensio.com":http://defensio.com, then put them into @config/defensio.yml@. If you don't want to use Defensio, you can set the "use_defensio" option to false in config/settings.yml.
 
 h3. TODO
 
