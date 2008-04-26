@@ -85,6 +85,7 @@ class PostsController < ApplicationController
     @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
     @post.delete!
     expire_fragment(@post.permalink)
+    flash[:notice] = "The #{@post.type.downcase} was successfully destroyed."
     respond_to do |format|
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }

@@ -212,24 +212,3 @@ var HistoryManager = {
     return HistoryManager.lastHash != HistoryManager.currentHash();
   }
 };
-
-// Extensions to Prototype's Form.Element class.
-Object.extend(Form.Element, {
-  changeSubmit: function(event) {
-    function submittify(testElement) {
-      var testElement = $(testElement);
-      var title = testElement.readAttribute('title');
-      if ( title != null && !title.blank() ) {
-        testElement.value = title;
-        testElement.setStyle({ color: '#777' })
-      }
-    }
-    var element = event.element();
-    var inputs = element.select('input[type=submit]');
-    inputs.each(submittify);
-  }
-});
-
-Event.observe(document, 'dom:loaded', function() {
-  $$('form').invoke('observe', 'submit', Form.Element.changeSubmit);
-});

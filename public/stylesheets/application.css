@@ -18,6 +18,21 @@ body {
 .left { float: left; }
 .right { float: right; }
 
+.flash {
+  width: 99%;
+  padding: 0.4em;
+  color: white;
+  cursor: pointer;
+}
+
+.flash.notice {
+  background: #0af;
+}
+
+.flash.error {
+  background: #FF1100;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0;
 }

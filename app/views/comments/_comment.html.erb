@@ -7,6 +7,6 @@
     <%= link_to 'Mark as OK', report_comment_path(comment, :as => :ham), :method => :put %>
     <% else -%>
     <%= link_to 'Mark as spam', report_comment_path(comment, :as => :spam), :method => :put %>
-    <% end -%>
+    <% end if SITE_SETTINGS['use_defensio'] -%>
   </small>
 <% end -%>

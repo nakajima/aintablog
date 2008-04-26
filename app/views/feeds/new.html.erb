@@ -1,6 +1,7 @@
-<% content_for :title do -%>New feed at <% end -%>
+<%- content_for :title do -%>New feed at <%- end -%>
+<%- content_for :header do -%>
 <h1>New feed</h1>
-
+<%- end -%>
 <%= error_messages_for :feed %>
 
 <% form_for(@feed) do |f| %>
