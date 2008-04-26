@@ -56,3 +56,12 @@
   font-family: Monaco, Courier, monospace;
   line-height: 1.3em;
 }
+
+.article .entry blockquote, .article .entry blockquote p {
+  font-size: 12px;
+}
+
+.article .entry blockquote {
+  padding: 0 1em;
+  border-left: 1em solid #efefef;
+}
