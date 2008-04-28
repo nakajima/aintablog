@@ -18,6 +18,21 @@ body {
 .left { float: left; }
 .right { float: right; }
 
+.flash {
+  width: 99%;
+  padding: 0.4em;
+  color: white;
+  cursor: pointer;
+}
+
+.flash.notice {
+  background: #0af;
+}
+
+.flash.error {
+  background: #FF1100;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0;
 }
@@ -331,11 +346,14 @@ label textarea {
 }
 
 .link blockquote {
+  background: transparent url(/images/link.png) no-repeat 0 0.25em;
   font-size: 22px;
   font-style: oblique;
   font-weight: bold;
   font-family: Georgia, Times, serif;
   margin-bottom: 0.5em;
+  padding: 0 1em 0 2.2em;
+  min-height: 2em;
 }
 
 .link p {
@@ -347,6 +365,12 @@ label textarea {
   text-align: right;
   font-style: normal;
   font-size: 12px;
+}
+
+.link blockquote p {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
 }
 
 .link blockquote a {
@@ -364,7 +388,7 @@ label textarea {
 }
 
 .link .date {
-  margin-top: 0;
+  margin-top: 0.3em;
 }
 
 /*------------------------------------------------------------

@@ -46,4 +46,8 @@ module ApplicationHelper
     options[:id] ||= "#{dom_id(record)}_#{field}" 
     content_tag options[:tag], record.send(field), :class => 'editable', :rel => options[:url], :id => options[:id]
   end
+  
+  def flash_message(name)
+    %(<p class="flash #{name}">#{flash[name]}</p>) if flash[name]
+  end
 end

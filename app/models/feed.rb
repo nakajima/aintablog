@@ -17,6 +17,7 @@ class Feed < ActiveRecord::Base
   
   def refresh=(res)
     refresh! if res.to_boolean
+    return true
   end
   
   def learn_attributes!

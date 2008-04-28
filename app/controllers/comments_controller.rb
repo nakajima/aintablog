@@ -19,10 +19,11 @@ class CommentsController < ApplicationController
     @comment.env = request.env if SITE_SETTINGS[:use_defensio]
     respond_to do |format|
       if @comment.save
-        flash[:notice] = 'Comment was successfully created.'
+        flash[:notice] = 'Your comment was successfully created.'
         format.html { redirect_to("#{url_for(@commentable)}#comments") }
         format.xml  { render :xml => @comment, :status => :created, :location => @commentable }
       else
+        flash[:error] = 'Your comment was unable to be created.'
         flash[:comment] = @comment
         format.html { redirect_to(@commentable) }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
@@ -48,6 +49,7 @@ class CommentsController < ApplicationController
   def report
     @comment = Comment.find(params[:id])
     @comment.send("report_as_#{params[:as]}")
+    flash[:notice] = "Comment reported as #{params[:as]}."
     redirect_to @commentable ? @commentable : comments_path 
   end
 
@@ -56,7 +58,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-
+    flash[:notice] = 'The comment was successfully destroyed.'
     respond_to do |format|
       format.html { redirect_to @commentable ? @commentable : comments_path }
       format.xml  { head :ok }

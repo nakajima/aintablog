@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=674">
 	<%= stylesheet_link_tag 'application', 'article' %>
 	<%= stylesheet_link_tag 'admin' if logged_in? %>
-	<%= javascript_include_tag 'prototype', 'extensions', 'application' %>
+	<%= javascript_include_tag 'prototype', 'effects', 'extensions', 'application', :cache => 'all' %>
 	<%= javascript_include_tag 'admin' if logged_in? %>
 	<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
 </head>
@@ -19,6 +19,8 @@
   <div <%= %{class="admin"} if params[:action].match(/new|edit/) || params[:controller].match(/comments/) %> id="all">
     <div id="header">
       <%= yield :header -%>
+      <%= flash_message(:notice) %>
+      <%= flash_message(:error) %>
     </div>
     <div id="content">
       <%= yield -%>

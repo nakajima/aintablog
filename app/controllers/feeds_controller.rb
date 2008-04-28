@@ -47,11 +47,12 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        flash[:notice] = 'Feed was successfully created.'
+        flash[:notice] = 'The new feed was successfully created.'
         format.html { redirect_to(feeds_url) }
         format.xml  { render :xml => @feed, :status => :created, :location => @feed }
       else
-        format.html { render :action => "new" }
+        flash[:error] = 'The feed was unable to be created.'
+        format.html { redirect_to(new_feed_path) }
         format.xml  { render :xml => @feed.errors, :status => :unprocessable_entity }
       end
     end
@@ -63,13 +64,14 @@ class FeedsController < ApplicationController
     feed = Feed.find(params[:id])
     @feed = feed.becomes(feed.type.constantize)
     respond_to do |format|
-      if @feed.update_attributes(params[feed.type.downcase])
+      begin
+        @feed.update_attributes(params[feed.type.downcase])
         @feed.learn_attributes! # This should go in the model.
-        flash[:notice] = 'Feed was successfully updated.'
+        flash[:notice] = "Your #{@feed.type} feed was successfully updated."
         format.html { redirect_to(feeds_url) }
         format.xml  { head :ok }
-      else
-        flash[:error] = 'Feed was unable to be updated.'
+      rescue
+        flash[:error] = "Your #{@feed.type} feed was unable to be updated."
         format.html { redirect_to(feeds_url) }
         format.xml  { render :xml => @feed.errors, :status => :unprocessable_entity }
       end
@@ -81,7 +83,7 @@ class FeedsController < ApplicationController
   def destroy
     @feed = Feed.find(params[:id])
     @feed.destroy
-
+    flash[:notice] = 'The feed has been destroyed.'
     respond_to do |format|
       format.html { redirect_to(feeds_url) }
       format.xml  { head :ok }
@@ -89,6 +91,7 @@ class FeedsController < ApplicationController
   end
   
   def refresh
+    flash[:notice] = 'Your feeds have been refreshed.'
     @feeds = Feed.find(:all)
     @feeds.each(&:refresh!)
     respond_to do |format|
