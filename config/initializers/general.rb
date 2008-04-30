@@ -5,12 +5,8 @@ unless defined?(RAILS_ROOT)
 end
 
 class Object
-  ##
-  #   @person ? @person.name : nil
-  # vs
-  #   @person.try(:name)
-  def try(method)
-    send method if respond_to? method
+  def try(method, *args, &block)
+    respond_to?(method) ? send(method, *args, &block) : nil
   end
 end
 
