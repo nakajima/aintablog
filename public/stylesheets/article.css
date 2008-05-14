@@ -7,6 +7,10 @@
   line-height: 1.5em;
 }
 
+.article .entry p {
+  margin-bottom: 0.6em;
+}
+
 .article .entry h1 {
   font-size: 20px;
 }
