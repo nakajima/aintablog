@@ -40,11 +40,20 @@ module ApplicationHelper
   end
   
   
-  def edit_in_place_for(record, field, options={})
+  def edit_in_place_for(resource, field, options={})
+    # Get record to be edited. If resource is an array, pull it out.    
+    record = resource.is_a?(Array) ? resource.last : resource
+    
+    options[:id]  ||= "#{dom_id(record)}_#{field}"
     options[:tag] ||= :div
-    options[:url] ||= url_for(record)
-    options[:id] ||= "#{dom_id(record)}_#{field}" 
-    content_tag options[:tag], record.send(field), :class => 'editable', :rel => options[:url], :id => options[:id]
+    options[:url] ||= url_for(resource)
+    options[:rel] = options.delete(:url)
+
+    classes = options[:class].try(:split, ' ') || []
+    classes << 'editable'
+    options[:class] = classes.uniq.join(' ')
+
+    content_tag(options[:tag], record.send(field), options)
   end
   
   def flash_message(name)

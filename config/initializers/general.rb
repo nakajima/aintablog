@@ -1,3 +1,18 @@
+module Aintablog
+  module ValidMarkupHelper
+    def self.included(base)
+      base.class_eval do
+        def tag_with_open(name, options={}, open=true, escape=true)
+          tag_without_open(name, options, true, escape)
+        end
+        alias_method_chain :tag, :open
+      end
+    end
+  end
+end
+ 
+ActionView::Helpers::TagHelper.send :include, Aintablog::ValidMarkupHelper
+
 unless defined?(RAILS_ROOT)
   RAILS_ROOT = File.dirname(__FILE__) + '/../../'
   RAILS_ENV = 'development'
@@ -5,12 +20,8 @@ unless defined?(RAILS_ROOT)
 end
 
 class Object
-  ##
-  #   @person ? @person.name : nil
-  # vs
-  #   @person.try(:name)
-  def try(method)
-    send method if respond_to? method
+  def try(method, *args, &block)
+    respond_to?(method) ? send(method, *args, &block) : nil
   end
 end
 

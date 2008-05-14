@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = request.path.gsub(/\/(articles|tweets|pictures)/i, '\1').classify.constantize.paginate_index(:page => params[:page])
+    @posts = request.path.gsub(/\/(articles|tweets|pictures|links)\/?/i, '\1').classify.constantize.paginate_index(:page => params[:page])
     rescue
       @posts = Post.paginate_index(:page => params[:page])
     respond_to do |format|
