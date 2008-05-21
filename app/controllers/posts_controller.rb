@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
-    redirect_to '/' and return unless @post.type.match(/Article/)
+    redirect_to '/' and return unless @post.type.match(/Article|Snippet/)
     @comment = flash[:comment] || @post.comments.build
     respond_to do |format|
       format.html # show.html.erb

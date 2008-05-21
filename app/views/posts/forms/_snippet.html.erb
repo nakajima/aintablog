@@ -11,6 +11,11 @@
       <%= f.text_area :content %>
     </label>
     
+    <label for="lang">
+      Language: 
+      <%= f.select :lang, SyntaxFu.sorted_types %>
+    </label>
+    
     <%= f.hidden_field :type, :value => 'Snippet' %>
 
     <p>

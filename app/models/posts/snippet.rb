@@ -2,8 +2,12 @@ class Snippet < Post
   
   has_many :comments, :as => :commentable
   
-  has_permalink :header
+  has_permalink :name
   
-  validates_presence_of :header, :content, :lang
+  validates_presence_of :content, :lang
+  
+  def name
+    header.blank? ? "#{SyntaxFu::TYPES.index(lang).downcase}-snippet" : header
+  end
   
 end

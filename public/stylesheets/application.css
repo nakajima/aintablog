@@ -199,7 +199,7 @@ label textarea {
 }
 
 #posts div h3.entry-title a span {
-  color: #101010;
+  color: #202020;
 }
 
 .pagination {
@@ -251,6 +251,86 @@ label textarea {
   text-align: right;
   font-style: normal;
   font-size: 12px;
+}
+
+/*------------------------------------------------------------
+  Snippet styles */
+  
+.snippet {
+  padding: 1em 0;
+}
+
+.snippet .meta {
+  font-size: 12px;
+  text-align: right;
+  margin-top: 1em;
+}
+
+.snippet cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.snippet pre {
+  font-size: 12px;
+  line-height: 1.3em;
+  background: #f0f0f0;
+  padding: 0.3em 0.7em;
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+/* These get a bit tricky */
+
+.snippet pre .Keyword {
+  font-weight: bold;
+}
+
+.snippet pre .FunctionName {
+  font-weight: bold;
+  color: #08d;
+}
+
+.snippet pre .String {
+  color: #f15;
+  font-weight: normal;
+}
+
+.snippet pre .Special {
+  color: #0af;
+}
+
+.snippet pre .String * {
+  font-weight: normal;
+}
+
+.snippet pre .String .StringInterpolation {
+  color: #373737;
+}
+
+.snippet pre .String .StringInterpolation .StringInterpolation {
+  color: #f15;
+}
+
+.snippet pre .String .StringInterpolation .StringInterpolation * {
+  color: #373737;
+}
+
+.snippet pre .Comment {
+  color: #9f9f9f;
+}
+
+.snippet pre .Number {
+  color: #0af;
+}
+
+.snippet pre .UserDefinedConstant {
+  color: #379;
 }
 
 /*------------------------------------------------------------
