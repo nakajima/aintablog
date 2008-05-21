@@ -1,13 +1,15 @@
-SyntaxFu
-========
+h1. SyntaxFu
 
-Introduction goes here.
+Syntax highlight strings using the Ultraviolet gem.
 
+h2. Example
 
-Example
-=======
+<pre>some_code = <<-CODE
+def hello(name)
+  puts "Hello, #{name}"
+end
+CODE
 
-Example goes here.
+puts some_code.syntaxify(:lang => :ruby)</pre>
 
-
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+Copyright (c) 2008 Pat Nakajima, released under the MIT license
