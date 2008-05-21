@@ -274,6 +274,7 @@ label textarea {
 }
 
 .snippet pre {
+  font-family: Courier, monospace;
   font-size: 12px;
   line-height: 1.3em;
   background: #f0f0f0;
