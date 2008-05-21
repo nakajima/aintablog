@@ -293,7 +293,7 @@ label textarea {
 
 .snippet pre .FunctionName {
   font-weight: bold;
-  color: #08d;
+  color: #08c;
 }
 
 .snippet pre .String {
@@ -302,6 +302,7 @@ label textarea {
 }
 
 .snippet pre .Special {
+  font-weight: bold;
   color: #0af;
 }
 

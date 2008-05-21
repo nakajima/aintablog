@@ -1,5 +1,5 @@
 <div id="snippet" class="panel">
-  <h1>New Snippet</h1>
+  <h1><%= @post.new_record? ? 'New' : 'Edit' %> Snippet</h1>
   <% form_for(@post) do |f| %>
     <label for="header">
       Header (optional)<br />
@@ -16,10 +16,10 @@
       <%= f.select :lang, SyntaxFu.sorted_types %>
     </label>
     
-    <%= f.hidden_field :type, :value => 'Snippet' %>
+    <%= f.hidden_field :type, :value => 'Snippet' if @post.new_record? %>
 
     <p>
-      <%= f.submit "Create" %>
+      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
     </p>
   <% end %>
 </div>

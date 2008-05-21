@@ -28,4 +28,23 @@ module SyntaxFu
   end
 end
 
-require 'syntax_fu/string_extensions'
+begin
+  require 'uv'
+  require 'syntax_fu/string_extensions'
+rescue LoadError
+  # If uv not available, tries to set things up for Dan Webb's Javascript-based
+  # code highlighter.
+  module SyntaxFu
+    module StringFallback
+      def syntaxify(options={})
+        return self unless SyntaxFu.valid_syntax?(options[:lang])
+        result = %{<pre><code class="#{SyntaxFu::TYPES.index(options[:lang])}">}
+        result += self
+        result += %{</code></pre>}
+        return result
+      end
+    end
+  end
+  
+  String.send :include, SyntaxFu::StringFallback
+end
