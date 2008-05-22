@@ -277,10 +277,10 @@ label textarea {
   font-family: Courier, monospace;
   font-size: 12px;
   line-height: 1.3em;
-  background: #f0f0f0;
+  background: #fdfdfd;
   padding: 0.3em 0.7em;
   overflow-x: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
   border-bottom: 1px solid #dfdfdf;
