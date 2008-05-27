@@ -1,6 +1,12 @@
 class Comment < ActiveRecord::Base
 
-  acts_as_defensio_comment :fields => { :content => :body, :author => :name, :author_email => :email, :author_url => :website, :article => :commentable } if SITE_SETTINGS[:use_defensio]
+  acts_as_defensio_comment :fields => {
+    :content => :body,
+    :author => :name,
+    :author_email =>:email,
+    :author_url => :website,
+    :article => :commentable
+  } if SITE_SETTINGS[:use_defensio]
 
   belongs_to :commentable, :polymorphic => true
 

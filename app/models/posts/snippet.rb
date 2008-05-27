@@ -1,4 +1,5 @@
 class Snippet < Post
+  acts_as_defensio_article :fields => { :author => :source, :title => :header } if SITE_SETTINGS[:use_defensio]
   
   has_many :comments, :as => :commentable
   
