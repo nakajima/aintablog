@@ -32,4 +32,8 @@ class Article < Post
   def source
     user || feed
   end
+  
+  def name
+    header
+  end
 end
