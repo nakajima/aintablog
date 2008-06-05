@@ -1,28 +1,37 @@
 <div id="comments">
-  <h4>Comments</h4>
+  <h2>Comments on &ldquo;<%= @post.name %>&rdquo;</h2>
   
   <%= "<p>No comments have been left yet.</p>" if @post.comments.reject(&:new_record?).blank? %>
   
   <% @post.comments.reject(&:new_record?).each do |comment| -%>
+  
     <% div_for(comment) do %>
-    <% if logged_in? -%>
-    <small class="right">
-      <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." %>
-      <%= link_to '(spam)', report_comment_path(comment, :as => :spam, :article_id => @post.id), :method => :put %>
-    </small>
+      <% if logged_in? -%>
+      <small class="right">
+        <%= link_to '(delete)', [@post, comment], :method => :delete, :confirm => "Click OK to delete this comment." %>
+        <%= link_to '(spam)', report_comment_path(comment, :as => :spam, :article_id => @post.id), :method => :put %>
+      </small>
     <% end -%>
+    
     <h5><%= comment.website.blank? ? h(comment.name) : (link_to h(comment.name), h(comment.website)) %> said... </h5>
       <% if logged_in? %>
-      <%= edit_in_place_for [@post, comment], :body, :tag => :p %>
+        <%= edit_in_place_for [@post, comment], :body, :tag => :p %>
       <% else -%>
-      <p><%= comment.body %></p>
+        <div class="comment-body">
+        <%= RedCloth.new(comment.body).to_html %>
+        </div>        
       <% end -%>
     <% end -%>
+    
   <% end -%>
   
   <% form_for([@post, @comment]) do |f| -%>
   
     <h4>Leave a comment</h4>
+    
+    <p>
+      <a href="http://hobix.com/textile/">Textile</a> is allowed. If you&rsquo;re a robot, don&rsquo;t even bother.
+    </p>
   
     <%= error_messages_for :comment, :header_message => nil %>
   

@@ -1,5 +1,5 @@
 <% div_for(comment) do -%>
-  <p><%=h comment.spam? ? truncate(comment.body, 100) : comment.body %></p>
+  <div class="comment-body"><%= comment.spam? ? truncate(h(comment.body), 100) : RedCloth.new(comment.body).to_html %></div>
   <small>
     <%= link_to comment.commentable.header, comment.commentable %>
     <%= link_to 'Delete', comment, :method => :delete, :confirm => "Click OK to delete this comment forever." %>
