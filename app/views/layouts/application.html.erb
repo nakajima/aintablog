@@ -8,7 +8,7 @@
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Pat Nakajima">
 	<meta name="viewport" content="width=674">
-	<%= stylesheet_link_tag 'application', 'article' %>
+	<%= stylesheet_link_tag 'application', 'article', 'comments', :cache => 'all' %>
 	<%= stylesheet_link_tag 'admin' if logged_in? %>
 	<%= javascript_include_tag 'prototype', 'effects', 'extensions', 'application', :cache => 'all' %>
 	<%= javascript_include_tag 'admin' if logged_in? %>

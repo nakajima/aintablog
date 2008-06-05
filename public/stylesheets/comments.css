@@ -1,0 +1,72 @@
+/*------------------------------------------------------------
+  Comment styles */
+
+#comments .new_comment, #comments {
+  margin-top: 3em;
+}
+
+#comments label, #comments label input[type="text"] {
+  width: 100%;
+  font-weight: normal;
+  padding: 0.2em;
+}
+
+#comments label textarea {
+  height: 150px;
+  font-size: 12px;
+  padding: 0.2em;
+}
+
+#comments .fieldWithErrors input[type="text"], #comments .fieldWithErrors textarea {
+  width: 100%;
+  outline: 3px solid #f94;
+}
+
+#comments .comment h5 {
+  margin-top: 0;
+}
+
+#comments .comment h5 a {
+  padding: 0;
+}
+
+#comments .comment {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  background: #eee;
+}
+
+.comment-body h1 {
+  font-size: 20px;
+}
+
+.comment-body h2 {
+  font-size: 16px;
+}
+
+#comments .comment .comment-body h3 {
+  font-size: 14px;
+}
+
+.comment-body h4 {
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.comment-body h5 {
+  font-size: 12px;
+}
+
+.comment-body h6 {
+  font-size: 12px;
+  color: #4f4f4f;
+}
+
+.comment-body blockquote {
+  padding: 0 0.6em;
+  border-left: 1em solid #dfdfdf;
+}
+
+.comment-body blockquote * {
+  font-size: 12px;
+}
