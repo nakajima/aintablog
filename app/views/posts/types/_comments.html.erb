@@ -1,5 +1,5 @@
 <div id="comments">
-  <h2>Comments on &ldquo;<%= @post.name %>&rdquo;</h2>
+  <h3>Comments on &ldquo;<%= @post.name %>&rdquo;</h3>
   
   <%= "<p>No comments have been left yet.</p>" if @post.comments.reject(&:new_record?).blank? %>
   
