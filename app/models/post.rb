@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  
   named_scope :active, :conditions => 'deleted_at IS NULL'
 
   belongs_to :user
@@ -18,6 +17,10 @@ class Post < ActiveRecord::Base
   end
   
   def self.per_page; 10; end
+
+  def name
+    header
+  end
   
   def type
     attributes['type']

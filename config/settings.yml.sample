@@ -4,7 +4,7 @@ development:
   site_tagline: "When all else fails, use aintablog on the stain."
   user_email: "test@example.com"
   import_twitter_replies: false
-  use_defensio: true
+  use_defensio: false
 
 test:
   site_title: "AintaBlog"
@@ -12,7 +12,7 @@ test:
   site_tagline: "When all else fails, use aintablog on the stain."
   user_email: "test@example.com"
   import_twitter_replies: true
-  use_defensio: true
+  use_defensio: false
 
 production:
   site_title: "AintaBlog"

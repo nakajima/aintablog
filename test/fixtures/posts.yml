@@ -19,3 +19,11 @@ two:
   user_id: 1
   lang: MyString
   comment_counter: 1
+
+imported_article:
+  feed: blog
+  permalink: http://daringfireball.net/2008/06/new_linked_list_permalinks
+  header: This one is imported
+  content: Nuff Said
+  cite: None
+  type: Article

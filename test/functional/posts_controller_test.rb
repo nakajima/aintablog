@@ -79,7 +79,18 @@ class PostsControllerTest < ActionController::TestCase
     post = posts(:one)
     assert ! post.deleted?
     assert_no_difference('Post.count') do
-      delete :destroy, :id => post.permalink
+      delete :destroy, :id => post.to_param
+    end
+    assert post.reload.deleted?
+    assert_redirected_to posts_path
+  end
+  
+  def test_should_delete_imported_post
+    login_as :quentin
+    post = posts(:imported_article)
+    assert post.from_feed?
+    assert_no_difference('Post.count') do
+      delete :destroy, :id => post.to_param
     end
     assert post.reload.deleted?
     assert_redirected_to posts_path

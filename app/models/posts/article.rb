@@ -36,4 +36,8 @@ class Article < Post
   def name
     header
   end
+  
+  def to_param
+    from_feed? ? id : permalink
+  end
 end
