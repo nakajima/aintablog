@@ -32,4 +32,8 @@ class Article < Post
   def source
     user || feed
   end
+  
+  def to_param
+    from_feed? ? id : permalink
+  end
 end
