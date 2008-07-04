@@ -59,4 +59,12 @@ module ApplicationHelper
   def flash_message(name)
     %(<p class="flash #{name}">#{flash[name]}</p>) if flash[name]
   end
+  
+  def host_helper
+    if RAILS_ENV == 'development'
+      request.host_with_port
+    else
+      request.host
+    end
+  end
 end

@@ -13,6 +13,11 @@
 	<%= javascript_include_tag 'prototype', 'effects', 'extensions', 'application', :cache => 'all' %>
 	<%= javascript_include_tag 'admin' if logged_in? %>
 	<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+	
+	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/posts.rss", :title => "All posts (RSS)" %>
+	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/articles.rss", :title => "Articles only (RSS)" %>
+	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/snippets.rss", :title => "Snippets only (RSS)" %>
+	
 </head>
 <body>
   <%= render :partial => "shared/admin" if logged_in? %>

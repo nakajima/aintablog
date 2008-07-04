@@ -4,12 +4,19 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = request.path.gsub(/\/(articles|tweets|pictures|links)\/?/i, '\1').classify.constantize.paginate_index(:page => params[:page])
-    rescue
+    @post_type = request.path.gsub(/\/(articles|tweets|pictures|links|snippets)(\.rss)?\/?/i, '\1')
+    @posts = @post_type \
+      .classify \
+      .constantize \
+      .paginate_index(:page => params[:page])
+    rescue => e
+      logger.info(e)
+      @post_type = 'All Posts'
       @posts = Post.paginate_index(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @posts }
+      format.rss { render :action => 'index.rss.builder' }
+      format.xml { render :xml => @posts }
     end
   end
 
