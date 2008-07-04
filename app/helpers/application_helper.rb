@@ -67,4 +67,17 @@ module ApplicationHelper
       request.host
     end
   end
+  
+  def feed_url_for(post)
+    case post
+    when Article
+      post.from_feed? ? post.permalink : url_for(post)
+    when Tweet
+      post.permalink
+    when Link
+    else
+      url_for(post)
+    end
+  end
+  
 end

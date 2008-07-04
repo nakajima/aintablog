@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @post_type = request.path.gsub(/\/(articles|tweets|pictures|links|snippets)(\.rss)?\/?/i, '\1')
+    @post_type = request.path.gsub(/\/(articles|tweets|quotes|pictures|links|snippets)(\.rss)?\/?/i, '\1')
     @posts = @post_type \
       .classify \
       .constantize \

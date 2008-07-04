@@ -17,7 +17,7 @@
 	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/posts.rss", :title => "All posts (RSS)" %>
 	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/articles.rss", :title => "Articles only (RSS)" %>
 	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/snippets.rss", :title => "Snippets only (RSS)" %>
-	
+	<%= auto_discovery_link_tag :rss, "http://#{host_helper}/links.rss", :title => "Links only (RSS)" %>
 </head>
 <body>
   <%= render :partial => "shared/admin" if logged_in? %>
