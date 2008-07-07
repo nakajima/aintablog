@@ -80,4 +80,12 @@ module ApplicationHelper
     end
   end
   
+  def feed_tag(name, options={})
+    name_str = name.to_s
+    options[:format] ||= :rss
+    options[:title] ||= "#{name_str.titleize} Only (#{options[:format].to_s.titleize})"
+    options[:url] ||= SITE_SETTINGS[:feedburner][name] || "http://#{host_helper}/#{name_str}.rss"
+    auto_discovery_link_tag options[:format], options[:url], :title => options[:title]
+  end
+  
 end

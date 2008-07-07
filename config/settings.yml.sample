@@ -5,6 +5,11 @@ development:
   user_email: "test@example.com"
   import_twitter_replies: false
   use_defensio: false
+  feedburner:
+    all: # http://feeds.feedburner.com/your-feed-all-posts
+    links: # http://feeds.feedburner.com/your-feed-links
+    articles: # http://feeds.feedburner.com/your-feed-articles
+    snippets: # http://feeds.feedburner.com/your-feed-snippets
 
 test:
   site_title: "AintaBlog"
@@ -13,6 +18,11 @@ test:
   user_email: "test@example.com"
   import_twitter_replies: true
   use_defensio: false
+  feedburner:
+    all: # http://feeds.feedburner.com/your-feed-all-posts
+    links: # http://feeds.feedburner.com/your-feed-links
+    articles: # http://feeds.feedburner.com/your-feed-articles
+    snippets: # http://feeds.feedburner.com/your-feed-snippets
 
 production:
   site_title: "AintaBlog"
@@ -21,3 +31,8 @@ production:
   user_email: "test@example.com"
   import_twitter_replies: true
   use_defensio: true
+  feedburner:
+    all: # http://feeds.feedburner.com/your-feed-all-posts
+    links: # http://feeds.feedburner.com/your-feed-links
+    articles: # http://feeds.feedburner.com/your-feed-articles
+    snippets: # http://feeds.feedburner.com/your-feed-snippets
