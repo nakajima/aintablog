@@ -10,4 +10,4 @@
 
 <%= '<p>There were no posts found.</p>' if @posts.empty? %>
 
-<%= will_paginate(@posts) %>
+<%= will_paginate(@posts, :posts_type => @post_type) %>

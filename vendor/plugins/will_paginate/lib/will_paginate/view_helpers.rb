@@ -263,28 +263,28 @@ module WillPaginate
 
     # Returns URL params for +page_link_or_span+, taking the current GET params
     # and <tt>:params</tt> option into account.
-    def url_for(page)
-      unless @url_string
-        @url_params = { :escape => false }
-        # page links should preserve GET parameters
-        stringified_merge @url_params, @template.params if @template.request.get?
-        stringified_merge @url_params, @options[:params] if @options[:params]
-        
-        if param_name.index(/[^\w-]/)
-          page_param = (defined?(CGIMethods) ? CGIMethods : ActionController::AbstractRequest).
-            parse_query_parameters("#{param_name}=#{page}")
-          
-          stringified_merge @url_params, page_param
-        else
-          @url_params[param_name] = page
-        end
-
-        url = @template.url_for(@url_params)
-        @url_string = url.sub(%r!([?&/]#{CGI.escape param_name}[=/])#{page}!, '\1@')
-        return url
-      end
-      @url_string.sub '@', page.to_s
-    end
+    # def url_for(page)
+    #   unless @url_string
+    #     @url_params = { :escape => false }
+    #     # page links should preserve GET parameters
+    #     stringified_merge @url_params, @template.params if @template.request.get?
+    #     stringified_merge @url_params, @options[:params] if @options[:params]
+    #     
+    #     if param_name.index(/[^\w-]/)
+    #       page_param = (defined?(CGIMethods) ? CGIMethods : ActionController::AbstractRequest).
+    #         parse_query_parameters("#{param_name}=#{page}")
+    #       
+    #       stringified_merge @url_params, page_param
+    #     else
+    #       @url_params[param_name] = page
+    #     end
+    # 
+    #     url = @template.url_for(@url_params)
+    #     @url_string = url.sub(%r!([?&/]#{CGI.escape param_name}[=/])#{page}!, '\1@')
+    #     return url
+    #   end
+    #   @url_string.sub '@', page.to_s
+    # end
 
   private
 
@@ -308,21 +308,21 @@ module WillPaginate
       @param_name ||= @options[:param_name].to_s
     end
 
-    def stringified_merge(target, other)
-      other.each do |key, value|
-        key = key.to_s
-        existing = target[key]
-
-        if value.is_a?(Hash)
-          target[key] = existing = {} if existing.nil?
-          if existing.is_a?(Hash)
-            stringified_merge(existing, value)
-            return
-          end
-        end
-        
-        target[key] = value
-      end
-    end
+    # def stringified_merge(target, other)
+    #       other.each do |key, value|
+    #         key = key.to_s
+    #         existing = target[key]
+    # 
+    #         if value.is_a?(Hash)
+    #           target[key] = existing = {} if existing.nil?
+    #           if existing.is_a?(Hash)
+    #             stringified_merge(existing, value)
+    #             return
+    #           end
+    #         end
+    #         
+    #         target[key] = value
+    #       end
+    #     end
   end
 end

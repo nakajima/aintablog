@@ -10,6 +10,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :links, :controller => 'posts'
   map.resources :snippets, :controller => 'posts', :has_many => :comments
   map.resources :comments, :member => { :report => :put }
+  
+  # allow for page links like "/posts/page/2"
+  map.connect '/:posts_type/page/:page', :controller => 'posts'
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'

@@ -1,18 +1,14 @@
 class PostsController < ApplicationController
+  POST_TYPE_PATTERN = /\/(articles|tweets|quotes|pictures|links|snippets|posts)(\.rss)?\/?/i
+  
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+  
   before_filter :login_required, :except => [:index, :show]
   
   # GET /posts
   # GET /posts.xml
   def index
-    @post_type = request.path.gsub(/\/(articles|tweets|quotes|pictures|links|snippets)(\.rss)?\/?/i, '\1')
-    @posts = @post_type \
-      .classify \
-      .constantize \
-      .paginate_index(:page => params[:page])
-    rescue => e
-      logger.info(e)
-      @post_type = 'All Posts'
-      @posts = Post.paginate_index(:page => params[:page])
+    @posts = post_repo.paginate_index(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.rss { render :action => 'index.rss.builder' }
@@ -98,4 +94,19 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def post_repo
+      @post_type = params[:posts_type] || request.path.gsub(POST_TYPE_PATTERN, '\1')
+      return @post_type.classify.constantize        
+      rescue => e
+        logger.info(e)
+        @post_type = 'posts'
+        return @post_type.classify.constantize
+    end
+    
+    def not_found
+      flash[:error] = "Sorry but that post could not be found."
+      redirect_to '/' and return
+    end
 end
