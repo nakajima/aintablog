@@ -2,11 +2,6 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   
-  # controller_class.perform_caching = false
-  def setup
-    ActionController::Base.perform_caching = false
-  end
-  
   # Custom tests
   
   def test_should_create_article

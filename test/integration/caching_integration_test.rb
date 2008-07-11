@@ -2,16 +2,12 @@
 
 require "#{File.dirname(__FILE__)}/../test_helper"
 
-ActionController::Base.perform_caching = true
-
-class PostCachingIntegrationTest < ActionController::IntegrationTest
+class CachingIntegrationTest < ActionController::IntegrationTest
   fixtures :posts, :feeds
   
-  ActionController::Base.perform_caching = true # This is excessive
-  
   def setup
-    ActionController::Base.perform_caching = true # This is excessive
     wipe_cache!
+    ActionController::Base.perform_caching = true
   end
   
   def test_should_page_cache_posts_index
@@ -133,6 +129,7 @@ class PostCachingIntegrationTest < ActionController::IntegrationTest
   
   def teardown
     wipe_cache!
+    ActionController::Base.perform_caching = false
   end
 
 private
