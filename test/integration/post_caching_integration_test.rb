@@ -126,17 +126,4 @@ class PostCachingIntegrationTest < ActionController::IntegrationTest
       FileUtils.rm_rf(file) if File.exists?(file)
     end
   end
-
-  # def test_login
-  #   # get the login page
-  #   get "/login"
-  #   assert_equal 200, status
-  # 
-  #   # post the login and follow through to the home page
-  #   post "/login", :username => people(:jamis).username,
-  #     :password => people(:jamis).password
-  #   follow_redirect!
-  #   assert_equal 200, status
-  #   assert_equal "/home", path
-  # end
 end
