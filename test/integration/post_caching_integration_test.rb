@@ -105,7 +105,7 @@ class PostCachingIntegrationTest < ActionController::IntegrationTest
   end
   
   def teardown
-    # wipe_cache!
+    wipe_cache!
   end
 
   private
