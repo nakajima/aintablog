@@ -4,6 +4,9 @@ class PostsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   before_filter :login_required, :except => [:index, :show]
+    
+  caches_page :index
+  caches_page :show
   
   # GET /posts
   # GET /posts.xml
@@ -51,6 +54,7 @@ class PostsController < ApplicationController
     @post = current_user.send(post_type).build(params[:post])
     respond_to do |format|
       if @post.save
+        expire_index!
         flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to posts_path }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
@@ -70,6 +74,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         expire_fragment(@post.permalink)
+        expire_index!
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to post_path(@post) }
         format.js   { render :json => @post }
@@ -87,6 +92,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
     @post.delete!
+    expire_index!
     expire_fragment(@post.permalink)
     flash[:notice] = "The #{@post.type.downcase} was successfully destroyed."
     respond_to do |format|
@@ -95,7 +101,7 @@ class PostsController < ApplicationController
     end
   end
   
-  private
+  # private
     def post_repo
       @post_type = params[:posts_type] || request.path.gsub(POST_TYPE_PATTERN, '\1')
       return @post_type.classify.constantize        
@@ -108,5 +114,13 @@ class PostsController < ApplicationController
     def not_found
       flash[:error] = "Sorry but that post could not be found."
       redirect_to '/' and return
+    end
+    
+    def expire_index!
+      expire_path('/index.html')
+      expire_path('/posts.html')
+      expire_path('/posts')
+      expire_path("/#{@post.type.tableize}.html")
+      expire_path("/#{@post.type.tableize}")
     end
 end

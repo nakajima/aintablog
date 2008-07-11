@@ -22,7 +22,7 @@ class Article < Post
   end
   
   def link(root='')
-    from_feed? ? permalink : "#{root}/posts/#{permalink}"
+    from_feed? ? permalink : super
   end
   
   def author_email

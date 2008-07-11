@@ -19,6 +19,13 @@ two:
   user_id: 1
   lang: MyString
   comment_counter: 1
+  
+article:
+  permalink: something-good
+  header: It really is
+  content: That's what they say.
+  type: Article
+  user: quentin
 
 imported_article:
   feed: blog
@@ -27,3 +34,11 @@ imported_article:
   content: Nuff Said
   cite: None
   type: Article
+
+snippet:
+  header: JavaScript Snippet
+  permalink: javascript-snippet
+  content: console.info('duh')
+  lang: Javascript
+  type: Snippet
+  user: quentin

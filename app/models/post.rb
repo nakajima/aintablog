@@ -37,4 +37,8 @@ class Post < ActiveRecord::Base
   def deleted?
     !!deleted_at
   end
+  
+  def link(root='')
+    "#{root}/#{type.tableize}/#{to_param}"
+  end
 end
