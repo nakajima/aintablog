@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class PostsControllerTest < ActionController::TestCase
+class AdminPostsControllerTest < ActionController::TestCase
+  
+  tests Admin::PostsController
   
   # controller_class.perform_caching = false
   def setup
@@ -15,7 +17,7 @@ class PostsControllerTest < ActionController::TestCase
       post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to "/admin/articles/#{assigns(:post).to_param}"
   end
   
   def test_should_create_snippet
@@ -24,7 +26,7 @@ class PostsControllerTest < ActionController::TestCase
       post :create, :post => { :type => 'Snippet', :header => 'Something', :content => 'Something else', :lang => 'Ruby' }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to "/admin/snippets/#{assigns(:post).to_param}"
   end
   
   # Generated tests
@@ -102,7 +104,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_difference('Post.count') do
       post :create, :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
       assert assigns(:post)
-      assert_redirected_to post_path(assigns(:post))
+      assert_redirected_to "/admin/articles/#{assigns(:post).to_param}"
     end
   end
   
@@ -120,7 +122,11 @@ class PostsControllerTest < ActionController::TestCase
   
   def test_should_redirect_to_index_from_show_unless_article
     get :show, :id => posts(:two).id
-    assert_redirected_to '/'
+    assert_redirected_to admin_posts_path
+    
+    get :show, :id => posts(:one).id
+    assert_response :success
+    assert_template 'admin/posts/show'
   end
 
   def test_should_get_edit
@@ -132,7 +138,7 @@ class PostsControllerTest < ActionController::TestCase
   def test_should_update_post
     login_as :quentin
     put :update, :id => posts(:one).permalink, :post => { }
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to "/admin/articles/#{posts(:one).to_param}"
   end
 
   def test_should_delete_post
@@ -143,7 +149,7 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, :id => post.to_param
     end
     assert post.reload.deleted?
-    assert_redirected_to posts_path
+    assert_redirected_to admin_posts_path
   end
   
   def test_should_delete_imported_post
@@ -154,7 +160,7 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, :id => post.to_param
     end
     assert post.reload.deleted?
-    assert_redirected_to posts_path
+    assert_redirected_to admin_posts_path
   end
   
   private

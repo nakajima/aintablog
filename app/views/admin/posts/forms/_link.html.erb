@@ -1,0 +1,25 @@
+<div id="link" class="panel">
+  <h1><%= @post.new_record? ? "New Link" : "Edit Link" %></h1>
+  <% form_for(@post) do |f| %>
+    <label for="header">
+      Link Text<br />
+      <%= f.text_field :header, :class => "required" %>
+    </label>
+    
+    <label for="content">
+      Link Href<br>
+      <%= f.text_field :permalink, :class => "required" %>
+    </label>
+
+    <label for="cite">
+      About (optional)<br>
+      <%= f.text_field :cite %>
+    </label>
+    
+    <%= f.hidden_field :type, :value => 'Link' %>
+
+    <p>
+      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<% content_for :title do -%>Welcome to <% end -%>
+<% content_for :header do -%>
+<h1><a href="/"><span><%= SITE_SETTINGS['site_name'] -%></span></a></h1>
+<h2><%= SITE_SETTINGS['site_tagline'] -%></h2>
+<% end -%>
+
+<div id="posts">
+  <%= render :partial => "post", :collection => @posts %>
+</div>
+
+<%= '<p>There were no posts found.</p>' if @posts.empty? %>
+
+<%= will_paginate(@posts, :posts_type => @post_type) %>

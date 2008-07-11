@@ -88,4 +88,8 @@ module ApplicationHelper
     auto_discovery_link_tag options[:format], options[:url], :title => options[:title]
   end
   
+  def admin?
+    @admin = true
+  end
+  
 end

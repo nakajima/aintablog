@@ -1,0 +1,14 @@
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') -%></span>
+  <span class="day"><%= post.created_at.strftime('%e') -%></span>
+</div>
+<%= image_tag post.permalink %>
+<% if post.header -%>
+<%= edit_in_place_for post, :header, :tag => :small, :url => "/posts/#{post.id}", :id => "post_#{post.id}_header" %>
+<% end -%>
+<cite>
+  &#x2010; Posted from <%= link_to 'flickr', post.cite %> 
+  <%- if logged_in? -%>
+  <%= link_to 'Delete', post_path(post.id), :method => :delete, :confirm => "Click OK to delete this post." %>
+  <%- end -%>
+</cite>

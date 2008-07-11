@@ -8,19 +8,15 @@
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Pat Nakajima">
 	<meta name="viewport" content="width=674">
-	<%= stylesheet_link_tag 'application', 'article', 'comments', :cache => 'all' %>
-	<%= stylesheet_link_tag 'admin' if logged_in? %>
-	<%= javascript_include_tag 'prototype', 'effects', 'extensions', 'application', :cache => 'all' %>
-	<%= javascript_include_tag 'admin' if logged_in? %>
+	<%= stylesheet_link_tag 'application', 'article', 'comments', 'admin', :cache => 'all' %>
+	<%= javascript_include_tag 'prototype', 'effects', 'extensions', 'application', 'admin', :cache => 'all' %>
 	<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
-	
 	<%= feed_tag nil, :title => "All Posts (RSS)" %>
 	<%= feed_tag :articles %>
 	<%= feed_tag :snippets %>
 	<%= feed_tag :links %>
 </head>
 <body>
-  <%= render :partial => "shared/admin" if logged_in? %>
   <div <%= %{class="admin"} if params[:action].match(/new|edit/) || params[:controller].match(/comments/) %> id="all">
     <div id="header">
       <%= yield :header -%>
@@ -34,6 +30,6 @@
       <%= yield :footer -%>
     </div>
     <small id="credits">Powered by <a href="http://aintablog.com">aintablog</a></small>
-  </div>  
+  </div>
 </body>
 </html>

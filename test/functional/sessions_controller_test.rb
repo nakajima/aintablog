@@ -14,7 +14,7 @@ class SessionsControllerTest < Test::Unit::TestCase
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
-
+  
   def test_should_login_and_redirect
     post :create, :email => 'quentin@example.com', :password => 'test'
     assert session[:user_id]

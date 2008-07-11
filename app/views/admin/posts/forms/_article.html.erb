@@ -1,0 +1,25 @@
+<div id="article" class="panel">
+  <h1><%= @post.new_record? ? "New Article" : "Edit Article" %></h1>
+  
+  <% form_for(@post) do |f| %>
+    <label for="header">
+      Title<br />
+      <%= f.text_field :header, :class => "required" %>
+    </label>
+
+    <label for="content">
+      Body<br />
+      <%= f.text_area :content, :class => "required" %>
+    </label>
+    
+    <label for="allow_comments">
+      <%= f.check_box :allow_comments, :checked => true %> Allow Comments
+    </label>
+
+    <%= f.hidden_field :type, :value => 'Article' if @post.new_record? %>
+
+    <p>
+      <%= @post.new_record? ? f.submit("Create", :title => "Creating...") : f.submit("Update", :title => "Updating...") %>
+    </p>
+  <% end %>
+</div>

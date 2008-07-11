@@ -42,6 +42,7 @@ class Test::Unit::TestCase
   def assert_paths_cached(*urls)
     raise "You must pass a block" unless block_given?
     urls.each { |url| assert ! cache_exists_for?(url), "cache should not exist yet. remove public#{url}" }
+    ActionController::Base.perform_caching = true
     yield
     urls.each { |url| assert cache_exists_for?(url), "cache not generated for #{url}" }
   end

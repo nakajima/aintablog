@@ -1,0 +1,32 @@
+<%- unless post.header.blank? -%>
+<h3 class="entry-title"><%= spanned_link post.header, "/snippets/#{post.permalink}" %></h3>
+<%- end -%>
+
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') %></span>
+  <span class="day"><%= post.created_at.strftime('%e') %></span>
+</div>
+
+<div class="entry entry-content">
+<%- cache(post.permalink) do -%>
+  <%= post.content.syntaxify(:lang => post.lang) %>  
+<%- end -%>
+</div>
+
+<%- if params[:action] == 'index' -%>
+
+  <div class="meta"> 
+    <%= comments_link_for(post) %>
+    <%- if logged_in? -%>
+    <%= link_to 'Edit', edit_article_path(post.permalink) %>
+    <%= link_to 'Destroy', article_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+    <%- end %>
+  </div>
+
+<%- else -%>
+
+<%= render :partial => "/posts/types/comments.html.erb" %>
+
+<small><%= link_to 'Click here to go home', '/' %></small>
+
+<%- end -%>

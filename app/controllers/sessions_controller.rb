@@ -4,6 +4,14 @@ class SessionsController < ApplicationController
   # render new.rhtml
   def new
   end
+  
+  def show
+    if logged_in?
+      render :text => (logged_in? ? 'success' : 'fail')
+    else
+      render :status => :forbidden
+    end
+  end
 
   def create
     self.current_user = User.authenticate(params[:email], params[:password])

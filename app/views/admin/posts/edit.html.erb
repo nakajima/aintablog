@@ -1,0 +1,10 @@
+<% content_for :title do -%>Editing “<%=h @post.header %>” at <% end -%>
+<%= render :partial => "/posts/forms/#{@post.type.to_s.downcase}.html.erb" %>
+
+<%= link_to 'Go Back Home', '/' %>
+
+<script type="text/javascript" charset="utf-8">
+  Event.observe(document, 'dom:loaded', function() {
+    ProtoPanel.setup({'default':'article'});
+  })
+</script>

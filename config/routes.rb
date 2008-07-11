@@ -11,6 +11,17 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :snippets, :controller => 'posts', :has_many => :comments
   map.resources :comments, :member => { :report => :put }
   
+  map.namespace(:admin) do |admin|
+    admin.resources :posts
+    admin.resources :articles, :controller => 'posts', :has_many => :comments
+    admin.resources :quotes, :controller => 'posts'
+    admin.resources :pictures, :controller => 'posts'
+    admin.resources :tweets, :controller => 'posts'
+    admin.resources :links, :controller => 'posts'
+    admin.resources :snippets, :controller => 'posts', :has_many => :comments
+    admin.resources :comments, :member => { :report => :put }
+  end
+  
   # allow for page links like "/posts/page/2"
   map.connect '/:posts_type/page/:page', :controller => 'posts'
 

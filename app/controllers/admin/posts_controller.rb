@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Admin::PostsController < ApplicationController
   POST_TYPE_PATTERN = /\/(articles|tweets|quotes|pictures|links|snippets|posts)(\.rss)?\/?/i
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
@@ -95,7 +95,7 @@ class PostsController < ApplicationController
     expire_fragment(@post.permalink)
     flash[:notice] = "The #{@post.type.downcase} was successfully destroyed."
     respond_to do |format|
-      format.html { redirect_to(posts_url) }
+      format.html { redirect_to(admin_posts_url) }
       format.xml  { head :ok }
     end
   end

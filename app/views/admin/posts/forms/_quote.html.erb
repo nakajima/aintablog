@@ -1,0 +1,25 @@
+<div id="quote" class="panel">
+  <h1><%= @post.new_record? ? "New Quote" : "Edit Quote" %></h1>
+  <% form_for(@post) do |f| %>
+    <label for="content">
+      Quote<br>
+      <%= f.text_area :content, :class => "required" %>
+    </label>
+
+    <label for="cite">
+      Who said it? (optional)<br>
+      <%= f.text_field :cite %>
+    </label>
+    
+    <label for="header">
+      Where was it said? (optional)<br>
+      <%= f.text_field :header %>
+    </label>
+    
+    <%= f.hidden_field :type, :value => 'Quote' %>
+
+    <p>
+      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
+    </p>
+  <% end %>
+</div>

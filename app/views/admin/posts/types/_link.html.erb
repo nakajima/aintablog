@@ -1,0 +1,18 @@
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') -%></span>
+  <span class="day"><%= post.created_at.strftime('%e') -%></span>
+</div>
+<blockquote>
+  <%= spanned_link h(post.link_text), post.permalink -%>
+  <%= content_tag :p, post.content unless post.content.blank? %>
+</blockquote>
+
+<cite>
+<%- if post.feed -%>
+&#x2010; Posted via <%= link_to 'del.icio.us', post.feed.url %>
+<%- end -%>
+<% if logged_in? -%>
+<%= link_to 'Edit', edit_link_path(post.id) %>
+<%= link_to 'Destroy', link_path(post.id), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+<% end -%>
+</cite>

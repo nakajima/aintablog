@@ -1,0 +1,18 @@
+<% content_for :title do -%>New Post at <% end -%>
+<div id="types">
+  <a href="#article">Article</a>
+  <a href="#quote">Quote</a>
+  <a href="#link">Link</a>
+  <a href="#snippet">Snippet</a>
+</div>
+
+<%= render :partial => "/posts/forms/quote.html.erb" %>
+<%= render :partial => "/posts/forms/link.html.erb" %>
+<%= render :partial => "/posts/forms/snippet.html.erb" %>
+<%= render :partial => "/posts/forms/article.html.erb" %>
+
+<%= link_to 'Go Back Home', '/' %>
+
+<script type="text/javascript" charset="utf-8">
+  Event.observe(document, 'dom:loaded', function() { ProtoPanel.setup(); })
+</script>

@@ -1,0 +1,12 @@
+<% content_for :title do -%>“<%=h @post.header %>” at <% end -%>
+<% content_for :header do %>
+<h1><a href="/"><span><%= SITE_SETTINGS['site_name'] -%></span></a></h1>
+<h2><%= SITE_SETTINGS['site_tagline'] -%></h2>
+<% end %>
+
+<div id="posts">
+  <div id="post_<%= @post.id %>" class="<%= @post.type.to_s.downcase %>">
+    <%= partial_for(@post) %>
+  </div>
+</div>
+

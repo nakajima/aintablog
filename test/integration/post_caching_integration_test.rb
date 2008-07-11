@@ -1,3 +1,5 @@
+# TODO make this test more consistent.
+
 require "#{File.dirname(__FILE__)}/../test_helper"
 
 ActionController::Base.perform_caching = true
@@ -5,7 +7,10 @@ ActionController::Base.perform_caching = true
 class PostCachingIntegrationTest < ActionController::IntegrationTest
   fixtures :posts, :feeds
   
+  ActionController::Base.perform_caching = true # This is excessive
+  
   def setup
+    ActionController::Base.perform_caching = true # This is excessive
     wipe_cache!
   end
   

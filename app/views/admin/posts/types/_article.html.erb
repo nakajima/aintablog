@@ -1,0 +1,34 @@
+<h3 class="entry-title"><%= spanned_link post.header, post.link %></h3>
+
+<div class="date">
+  <span class="month"><%= post.created_at.strftime('%b') %></span>
+  <span class="day"><%= post.created_at.strftime('%e') %></span>
+</div>
+
+<div class="entry entry-content">
+<% cache(post.permalink) do -%>
+  <%= clean_content_for(post) %>
+<% end -%>
+</div>
+
+<% if params[:action] == 'index' -%>
+
+  <div class="meta"> 
+    <%= comments_link_for(post) if post.allow_comments? %>
+    <% if logged_in? -%>
+    <%= link_to 'Edit', edit_article_path(post) unless post.from_feed? %>
+    <%= link_to 'Destroy', article_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+    <% end %>
+  </div>
+  
+  <% if post.from_feed? -%>
+  <cite>&#x2010; Posted via <%= link_to post.feed.title, post.feed.url %></cite>
+  <% end -%>
+
+<% else -%>
+
+<%= render :partial => "/posts/types/comments.html.erb" if post.allow_comments? %>
+
+<small><%= link_to 'Click here to go home', '/' %></small>
+
+<% end -%>
