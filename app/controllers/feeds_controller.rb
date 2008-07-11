@@ -2,6 +2,8 @@ class FeedsController < ApplicationController
   
   before_filter :login_required
   
+  after_filter :expire_index!, :only => [:create, :update, :destroy, :refresh]
+  
   # GET /feeds
   # GET /feeds.xml
   def index
@@ -97,6 +99,22 @@ class FeedsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(feeds_url) }
       format.xml  { head :ok }
+    end
+  end
+
+private
+  def expire_index!
+    expire_path('/index.html')
+    expire_path('/posts.html')
+    expire_path('/posts')
+    if request.symbolized_path_parameters[:action] != 'refresh'
+      expire_path("/#{@feed.class.entry_type}.html")
+      expire_path("/#{@feed.class.entry_type}")
+    else
+      %w(articles links pictures quotes snippets tweets).each do |entry_type|
+        expire_path("/#{entry_type}.html")
+        expire_path("/#{entry_type}")
+      end
     end
   end
 end

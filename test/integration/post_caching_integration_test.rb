@@ -3,7 +3,7 @@ require "#{File.dirname(__FILE__)}/../test_helper"
 ActionController::Base.perform_caching = true
 
 class PostCachingIntegrationTest < ActionController::IntegrationTest
-  fixtures :posts
+  fixtures :posts, :feeds
   
   def setup
     wipe_cache!
@@ -104,11 +104,29 @@ class PostCachingIntegrationTest < ActionController::IntegrationTest
     end
   end
   
+  def test_should_expire_home_page_on_single_feed_refresh
+    feed = feeds(:blog)
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+      login_as :quentin
+      put feed_path(feed, :refresh => true)
+    end
+  end
+  
+  def test_should_expire_home_page_on_all_feeds_refresh
+    feed = feeds(:blog)
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/tweets', '/tweets/page/1'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'tweets/', 'tweets.html') do
+      login_as :quentin
+      post refresh_feeds_path
+    end
+  end
+  
   def teardown
     wipe_cache!
   end
 
-  private
+private
   
   def get_paths(*urls)
     urls.each { |url| get url }
@@ -116,23 +134,6 @@ class PostCachingIntegrationTest < ActionController::IntegrationTest
   
   def login_as(name)
     post session_path, :email => users(name).email, :password => 'test'
-  end
-  
-  def assert_paths_cached(*urls)
-    raise "You must pass a block" unless block_given?
-    urls.each { |url| assert ! cache_exists_for?(url), "cache should not exist yet. remove public#{url}" }
-    yield
-    urls.each { |url| assert cache_exists_for?(url), "cache not generated for #{url}" }
-  end
-  
-  def assert_cache_expired(*urls)
-    urls.each { |url| assert cache_exists_for?(url), "cache should already exist. missing: public#{url}" }
-    block_given? ? yield : urls.each { |url| get url }
-    urls.each { |url| assert ! cache_exists_for?(url), "cache not expired for #{url}" }
-  end
-  
-  def cache_exists_for?(file)
-    File.exists?(RAILS_ROOT + '/public/' + file)
   end
   
   def wipe_cache!

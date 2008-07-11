@@ -1,6 +1,6 @@
 class Delicious < Feed
   
-  has_many :links, :foreign_key => :feed_id, :dependent => :destroy
+  entries_become :links
   
   def refresh!
     entries.each do |entry|

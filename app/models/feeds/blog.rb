@@ -1,6 +1,6 @@
 class Blog < Feed
   
-  has_many :articles, :foreign_key => :feed_id, :dependent => :destroy
+  entries_become :articles
   
   def refresh!
     entries.each do |entry|

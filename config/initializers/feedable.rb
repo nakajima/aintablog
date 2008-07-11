@@ -10,10 +10,18 @@ module Aintablog
     module ActMethods
       def acts_as_feed
         unless included_modules.include? InstanceMethods 
-          class_inheritable_accessor :target_class # What do entries become 
+          class_inheritable_accessor :entry_type # What do entries become 
           include(InstanceMethods)
+          extend(ClassMethods)
         end
       end      
+    end
+    
+    module ClassMethods
+      def entries_become(post_type)
+        self.entry_type = post_type
+        has_many post_type.to_sym, :foreign_key => :feed_id, :dependent => :destroy
+      end
     end
     
     module InstanceMethods

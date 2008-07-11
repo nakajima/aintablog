@@ -1,5 +1,5 @@
 class Flickr < Feed
-  has_many :pictures, :foreign_key => :feed_id, :dependent => :destroy
+  entries_become :pictures
   
   def refresh!
     entries.each do |entry|

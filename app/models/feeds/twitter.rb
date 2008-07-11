@@ -1,6 +1,6 @@
 class Twitter < Feed
   
-  has_many :tweets, :foreign_key => :feed_id, :dependent => :destroy
+  entries_become :tweets
   
   def refresh!
     entries.each do |entry|
