@@ -9,3 +9,5 @@ config/defensio.yml
 Capfile
 public/cache
 public/cache/**
+public/javascripts/all.js
+public/stylesheets/all.css
