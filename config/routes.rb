@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # allow for page links like "/posts/page/2"
   map.connect '/:posts_type/page/:page', :controller => 'posts'
+  map.connect '/admin/:posts_type/page/:page', :controller => 'admin/posts'
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
