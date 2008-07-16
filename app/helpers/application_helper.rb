@@ -12,7 +12,8 @@ module ApplicationHelper
   end
   
   def partial_for(post)
-    render :partial => "/posts/types/#{post.type.downcase}.html.erb", :locals => { :post => post }
+    partial_path = logged_in? ? "/admin/posts/types/#{post.type.downcase}.html.erb" : "/posts/types/#{post.type.downcase}.html.erb"
+    render :partial => partial_path, :locals => { :post => post }
   end
   
   def comments_link_for(post)
