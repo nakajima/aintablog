@@ -18,7 +18,7 @@ class SessionsControllerTest < Test::Unit::TestCase
   def test_should_login_and_redirect
     post :create, :email => 'quentin@example.com', :password => 'test'
     assert session[:user_id]
-    assert_response :redirect
+    assert_redirected_to '/admin'
   end
 
   def test_should_fail_login_and_not_redirect

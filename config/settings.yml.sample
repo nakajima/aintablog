@@ -1,4 +1,4 @@
-development:
+development: &dev
   site_title: "AintaBlog"
   site_name: "AintaBlog: a blog"
   site_tagline: "When all else fails, use aintablog on the stain."
@@ -10,6 +10,9 @@ development:
     links: # http://feeds.feedburner.com/your-feed-links
     articles: # http://feeds.feedburner.com/your-feed-articles
     snippets: # http://feeds.feedburner.com/your-feed-snippets
+
+dev_cached:
+  <<: *dev
 
 test:
   site_title: "AintaBlog"

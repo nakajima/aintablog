@@ -1,9 +1,12 @@
 # SQLite version 3.x
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
-development:
+development: &development
   adapter: sqlite3
   database: db/development.sqlite3
   timeout: 5000
+
+dev_cached:
+  <<-development
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.

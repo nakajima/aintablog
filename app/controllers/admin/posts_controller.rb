@@ -6,9 +6,7 @@ class Admin::PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   
   after_filter :expire_index!, :only => [:create, :update, :destroy]
-    
-  caches_page :index
-  caches_page :show
+  after_filter :expire_post!, :only => [:update, :destroy]
   
   # GET /posts
   # GET /posts.xml
@@ -102,17 +100,21 @@ class Admin::PostsController < ApplicationController
   
   private
     def post_repo
-      @post_type = params[:posts_type] || request.path.gsub(POST_TYPE_PATTERN, '\1')
+      @post_type = params[:posts_type] || request.path.split('/admin').last.gsub(POST_TYPE_PATTERN, '\1')
       return @post_type.classify.constantize        
       rescue => e
         logger.info(e)
         @post_type = 'posts'
-        return @post_type.classify.constantize
+        @post_type.classify.constantize
     end
     
     def not_found
       flash[:error] = "Sorry but that post could not be found."
       redirect_to '/' and return
+    end
+    
+    def expire_post!
+      expire_path("#{@post.link}.html")
     end
     
     def expire_index!

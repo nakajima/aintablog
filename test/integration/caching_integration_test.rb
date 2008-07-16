@@ -69,7 +69,7 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   end
   
   def test_should_expire_index
-    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/admin/articles'
     assert_cache_expired('/index.html', '/posts', '/articles', '/articles.html') do
       @controller.instance_variable_set("@post", posts(:article))
       @controller.send :expire_index!
@@ -82,7 +82,7 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
     assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
       login_as :quentin
-      post '/posts', :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
+      post '/admin/posts', :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
     end
   end
   
@@ -91,8 +91,8 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
     assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
       login_as :quentin
-      put "/articles/#{article.permalink}", :article => { :content => 'well this is different' }
-      assert_redirected_to post_path(article)
+      put "/admin/articles/#{article.permalink}", :article => { :content => 'well this is different' }
+      assert_redirected_to admin_post_path(article)
     end
   end
   
@@ -101,7 +101,7 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
     assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
       login_as :quentin
-      delete "/articles/#{article.permalink}"
+      delete "/admin/articles/#{article.permalink}"
     end
   end
   
@@ -157,7 +157,7 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     article = posts(:article)
     assert_post_expired(article) do
       login_as :quentin
-      put article.link, :article => { :content => 'this is new' }
+      put "#{article.link('/admin')}", :article => { :content => 'this is new' }
     end
   end
   

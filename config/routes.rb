@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments, :member => { :report => :put }
   
   map.namespace(:admin) do |admin|
+    admin.root :controller => 'posts'
     admin.resources :posts
     admin.resources :articles, :controller => 'posts', :has_many => :comments
     admin.resources :quotes, :controller => 'posts'
