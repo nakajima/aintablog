@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   def expire_path(file)
     file = RAILS_ROOT + '/public' + file
     FileUtils.rm_rf(file) if File.exists?(file)
-    logger.info("Expired fragment: #{file}")
+    logger.info("Expired cache: #{file}")
   end
 end

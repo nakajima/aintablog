@@ -3,6 +3,11 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 require 'mocha'
+begin
+  require 'redgreen'
+rescue LoadError
+  
+end
 
 class Test::Unit::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -38,22 +43,4 @@ class Test::Unit::TestCase
   
   # Add more helper methods to be used by all tests here...
   include AuthenticatedTestHelper
-  
-  def assert_paths_cached(*urls)
-    raise "You must pass a block" unless block_given?
-    ActionController::Base.perform_caching = true
-    urls.each { |url| assert ! cache_exists_for?(url), "cache should not exist yet. remove public#{url}" }
-    yield
-    urls.each { |url| assert cache_exists_for?(url), "cache not generated for #{url}" }
-  end
-  
-  def assert_cache_expired(*urls)
-    urls.each { |url| assert cache_exists_for?(url), "cache should already exist. missing: public#{url}" }
-    block_given? ? yield : urls.each { |url| get url }
-    urls.each { |url| assert ! cache_exists_for?(url), "cache not expired for #{url}" }
-  end
-  
-  def cache_exists_for?(file)
-    File.exists?(RAILS_ROOT + '/public/' + file)
-  end
 end

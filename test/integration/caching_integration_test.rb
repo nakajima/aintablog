@@ -123,7 +123,51 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     end
   end
   
+  def test_should_expire_home_page_on_comment_create
+    article = posts(:article)
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+      post "/articles/#{article.permalink}/comments", :comment => { :name => 'Pat', :email => 'pat@example.com', :body => "Totally." }
+    end
+  end
+  
+  def test_should_expire_home_page_on_comment_update
+    article = posts(:article)
+    comment = comments(:one)
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+      login_as :quentin
+      put comment_path(comment), :comment => { :name => 'Pat!', :email => 'pat@example.com', :body => "Totally." }
+    end
+  end
+  
+  def test_should_expire_home_page_on_comment_destroy
+    article = posts(:article)
+    comment = comments(:one)
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+      login_as :quentin
+      delete comment_path(comment)
+    end
+  end
+  
   # Expiring show pages
+  
+  def test_should_expire_show_page_on_update
+    article = posts(:article)
+    assert_post_expired(article) do
+      login_as :quentin
+      put article.link, :article => { :content => 'this is new' }
+    end
+  end
+  
+  def test_should_expire_show_page_on_comment_create
+    article = posts(:article)
+    get article.link
+    assert_cache_expired("#{article.link}.html") do
+      post "#{article.link}/comments", :comment => { :name => 'Pat', :email => 'pat@example.com', :body => "Totally." }
+    end
+  end
   
   # TODO
   
@@ -147,5 +191,32 @@ private
       file = RAILS_ROOT + '/public' + file
       FileUtils.rm_rf(file) if File.exists?(file)
     end
+  end
+  
+  def assert_post_cached(resource)
+    assert_paths_cached("#{resource.link}.html") { yield }
+  end
+  
+  def assert_post_expired(resource)
+    get_paths(resource.link)
+    assert_cache_expired("#{resource.link}.html") { yield }
+  end
+  
+  def assert_paths_cached(*urls)
+    raise "You must pass a block" unless block_given?
+    ActionController::Base.perform_caching = true
+    urls.each { |url| assert ! cache_exists_for?(url), "cache should not exist yet. remove public#{url}" }
+    yield
+    urls.each { |url| assert cache_exists_for?(url), "cache not generated for #{url}" }
+  end
+  
+  def assert_cache_expired(*urls)
+    urls.each { |url| assert cache_exists_for?(url), "cache should already exist. missing: public#{url}" }
+    block_given? ? yield : urls.each { |url| get url }
+    urls.each { |url| assert ! cache_exists_for?(url), "cache not expired for #{url}" }
+  end
+  
+  def cache_exists_for?(file)
+    File.exists?(RAILS_ROOT + '/public/' + file)
   end
 end

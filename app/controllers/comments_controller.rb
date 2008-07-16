@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   before_filter :login_required, :only => [:update, :destroy]
   before_filter :get_commentable
   skip_before_filter :verify_authenticity_token, :only => :update
+  after_filter :expire_index!, :only => [:create, :update, :destroy]
+  
   
   # GET /comments
   # GET /comments.xml
@@ -66,6 +68,13 @@ class CommentsController < ApplicationController
   end
   
 protected
+  def expire_index!
+    expire_path('/index.html')
+    expire_path('/posts.html')
+    expire_path('/posts')
+    expire_path("/#{@comment.commentable.type.tableize}.html")
+    expire_path("/#{@comment.commentable.type.tableize}")
+  end
   
   def get_commentable
     id = params[:article_id] || params[:snippet_id]

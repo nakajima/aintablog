@@ -48,6 +48,11 @@ class ArticleTest < ActiveSupport::TestCase
     assert ! article.allow_comments?, "Allowed comments"
   end
   
+  def test_should_provide_proper_link
+    article = posts(:article).becomes(Article)
+    assert_equal "/articles/#{article.permalink}", article.link
+  end
+  
 protected
 
   def create_article(options={})

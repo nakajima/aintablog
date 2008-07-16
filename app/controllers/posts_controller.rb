@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   
   after_filter :expire_index!, :only => [:create, :update, :destroy]
-    
+  after_filter :expire_post!, :only => [:update, :destroy]
+  
   caches_page :index
   caches_page :show
   
@@ -113,6 +114,10 @@ class PostsController < ApplicationController
     def not_found
       flash[:error] = "Sorry but that post could not be found."
       redirect_to '/' and return
+    end
+    
+    def expire_post!
+      expire_path("#{@post.link}.html")
     end
     
     def expire_index!
