@@ -1,6 +1,6 @@
 <div id="snippet" class="panel">
   <h1><%= @post.new_record? ? 'New' : 'Edit' %> Snippet</h1>
-  <% form_for(@post) do |f| %>
+  <% form_for([:admin, @post]) do |f| %>
     <label for="header">
       Header (optional)<br />
       <%= f.text_field :header %>

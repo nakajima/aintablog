@@ -17,11 +17,10 @@
 	<%= feed_tag :links %>
 </head>
 <body>
+  <%= render :partial => 'shared/admin' if logged_in? %>
   <div <%= %{class="admin"} if params[:action].match(/new|edit/) || params[:controller].match(/comments/) %> id="all">
     <div id="header">
       <%= yield :header -%>
-      <%= flash_message(:notice) %>
-      <%= flash_message(:error) %>
     </div>
     <div id="content">
       <%= yield -%>

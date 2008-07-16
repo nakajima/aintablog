@@ -3,7 +3,7 @@ class Admin::PostsController < ApplicationController
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required
   
   after_filter :expire_index!, :only => [:create, :update, :destroy]
   after_filter :expire_post!, :only => [:update, :destroy]

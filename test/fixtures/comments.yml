@@ -4,7 +4,7 @@ one:
   commentable: one (Post)
   body: MyText
   email: MyString
-  website: MyString
+  website:
   name: MyString
   user_id: 1
 
@@ -12,6 +12,6 @@ two:
   commentable: one (Post)
   body: MyText
   email: MyString
-  website: MyString
+  website:
   name: MyString
   user_id: 1

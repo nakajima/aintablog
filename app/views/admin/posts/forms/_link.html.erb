@@ -1,6 +1,6 @@
 <div id="link" class="panel">
   <h1><%= @post.new_record? ? "New Link" : "Edit Link" %></h1>
-  <% form_for(@post) do |f| %>
+  <% form_for([:admin, @post]) do |f| %>
     <label for="header">
       Link Text<br />
       <%= f.text_field :header, :class => "required" %>

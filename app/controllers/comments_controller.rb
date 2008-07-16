@@ -21,11 +21,11 @@ class CommentsController < ApplicationController
     @comment.env = request.env if SITE_SETTINGS[:use_defensio]
     respond_to do |format|
       if @comment.save
-        flash[:notice] = 'Your comment was successfully created.'
+        cookies[:notice] = 'Your comment was successfully created.'
         format.html { redirect_to("#{url_for(@commentable)}#comments") }
         format.xml  { render :xml => @comment, :status => :created, :location => @commentable }
       else
-        flash[:error] = 'Your comment was unable to be created.'
+        cookies[:error] = 'Your comment was unable to be created.'
         flash[:comment] = @comment
         format.html { redirect_to(@commentable) }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }

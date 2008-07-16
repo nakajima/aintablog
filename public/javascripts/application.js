@@ -1,15 +1,26 @@
 Event.observe(document, 'dom:loaded', function() {
-  
-  var FlashHider = {
-    click: function(event) {
+
+  var Flash = {
+    show: function(name) {
+      var addElement = function(message, name) {
+        var p = new Element('p').update(decodeURI(message).gsub(/\+/, ' '));
+        p.addClassName('flash');
+        p.addClassName(name);
+        $('header').insert(p);
+      }
+
+      var s = Cookie.get(name);
+      if (s && !s.blank()) { addElement(s, name); }
+      Cookie.unset(name);
+    },
+    
+    hide: function(event) {
       var element = event.element();
       var wrapper = element.wrap('div');
       wrapper.fade({ duration: 0.7 });
       event.stop();
     }
-  };
-  
-  $$('.flash').invoke('observe', 'click', FlashHider.click);
+  }
 
   var Validator = {
     findForms: function() {
@@ -44,4 +55,10 @@ Event.observe(document, 'dom:loaded', function() {
   };
  
   Validator.findForms();
-})
+  
+  Flash.show('notice');
+  Flash.show('error');
+  
+  $$('.flash').invoke('observe', 'click', Flash.hide);
+});
+

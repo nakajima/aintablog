@@ -2,19 +2,18 @@
 
 one:
   permalink: my-string
-  header: MyString
-  content: MyText
-  cite: MyString
+  header: A short article
+  content: My Text
+  cite: My String
   type: Article
   user_id: 1
-  lang: MyString
   comment_counter: 1
 
 two:
-  permalink: MyString2
-  header: MyString
+  permalink: http://daringfireball.net/2008/06/new_linked_list_permalinks
+  header: A link to df
   content: MyText
-  cite: MyString
+  cite: A link
   type: Link
   user_id: 1
   lang: MyString
