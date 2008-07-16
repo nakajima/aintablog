@@ -15,10 +15,6 @@
 
   <div class="meta"> 
     <%= comments_link_for(post) if post.allow_comments? %>
-    <% if logged_in? -%>
-    <%= link_to 'Edit', edit_article_path(post) unless post.from_feed? %>
-    <%= link_to 'Destroy', article_path(post), :method => :delete, :confirm => "Click OK to delete this post forever." %>
-    <% end %>
   </div>
   
   <% if post.from_feed? -%>
