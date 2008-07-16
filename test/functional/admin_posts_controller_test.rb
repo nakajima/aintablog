@@ -7,6 +7,7 @@ class AdminPostsControllerTest < ActionController::TestCase
   # controller_class.perform_caching = false
   def setup
     ActionController::Base.perform_caching = false
+    login_as :quentin
   end
   
   # Custom tests
