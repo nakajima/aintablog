@@ -10,7 +10,16 @@ class CommentsControllerTest < ActionController::TestCase
     assert_redirected_to "#{article_path(posts(:one))}#comments"
   end
 
-  def test_should_destroy_comment
+  def test_should_destroy_comment_without_post_id
+    login_as :quentin
+    assert_difference('Comment.count', -1) do
+      delete :destroy, :id => comments(:one).id
+    end
+
+    assert_redirected_to comments_path
+  end
+  
+  def test_should_destroy_comment_with_post_id
     login_as :quentin
     assert_difference('Comment.count', -1) do
       delete :destroy, :id => comments(:one).id, :article_id => posts(:one).permalink
