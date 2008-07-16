@@ -13,6 +13,6 @@
 <%- end -%>
 <% if logged_in? -%>
 <%= link_to 'Edit', edit_link_path(post.id) %>
-<%= link_to 'Destroy', link_path(post.id), :method => :delete, :confirm => "Click OK to delete this post forever." %>
+<%= link_to 'Destroy', admin_post_path(post.id), :method => :delete, :confirm => "Click OK to delete this post forever." %>
 <% end -%>
 </cite>
