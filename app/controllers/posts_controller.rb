@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     end
     
     def not_found
-      flash[:error] = "Sorry but that post could not be found."
+      cookies[:error] = "Sorry but that post could not be found."
       redirect_to '/' and return
     end
     
