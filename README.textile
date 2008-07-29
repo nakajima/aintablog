@@ -32,5 +32,5 @@ h3. TODO
 
 * Put together a better regex for the spanify_links helper
 * -Page titles!-
-* Page caching
+* -Page caching-
 * More control over posts (publish_at, -commentable?-)
