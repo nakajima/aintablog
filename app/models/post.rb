@@ -22,6 +22,10 @@ class Post < ActiveRecord::Base
     header
   end
   
+  def from_feed?
+    !!feed_id && (feed_id != 0)
+  end
+  
   def type
     attributes['type']
   end

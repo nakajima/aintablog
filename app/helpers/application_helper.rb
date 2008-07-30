@@ -71,13 +71,10 @@ module ApplicationHelper
   
   def feed_url_for(post)
     case post
-    when Article
-      post.from_feed? ? post.permalink : url_for(post)
-    when Tweet
+    when Tweet, Link
       post.permalink
-    when Link
     else
-      url_for(post)
+      post.from_feed? ? post.permalink : "http://#{host_helper}#{url_for(post)}"
     end
   end
   

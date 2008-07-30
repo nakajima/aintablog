@@ -17,10 +17,6 @@ class Article < Post
     feed_id.nil?
   end
   
-  def from_feed?
-    !!feed_id && (feed_id != 0)
-  end
-  
   def link(root='')
     from_feed? ? permalink : super
   end
