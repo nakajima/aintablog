@@ -106,13 +106,16 @@ private
   def expire_index!
     expire_path('/index.html')
     expire_path('/posts.html')
+    expire_path('/posts.rss')
     expire_path('/posts')
     if request.symbolized_path_parameters[:action] != 'refresh'
       expire_path("/#{@feed.class.entry_type}.html")
+      expire_path("/#{@feed.class.entry_type}.rss")
       expire_path("/#{@feed.class.entry_type}")
     else
       %w(articles links pictures quotes snippets tweets).each do |entry_type|
         expire_path("/#{entry_type}.html")
+        expire_path("/#{entry_type}.rss")
         expire_path("/#{entry_type}")
       end
     end

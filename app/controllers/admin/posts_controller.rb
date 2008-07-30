@@ -120,8 +120,10 @@ class Admin::PostsController < ApplicationController
     def expire_index!
       expire_path('/index.html')
       expire_path('/posts.html')
+      expire_path('/posts.rss')
       expire_path('/posts')
       expire_path("/#{@post.type.tableize}.html")
+      expire_path("/#{@post.type.tableize}.rss")
       expire_path("/#{@post.type.tableize}")
     end
 end

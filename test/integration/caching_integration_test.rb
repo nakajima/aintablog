@@ -28,6 +28,12 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     end
   end
   
+  def test_should_cache_posts_rss
+    assert_paths_cached('/posts.rss') do
+      get '/posts.rss'
+    end
+  end
+  
   # Show Caches
   
   def test_should_page_cache_article_show_page
@@ -79,8 +85,8 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   # Expiring main index
   
   def test_should_expire_home_page_on_post_create
-    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
-    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/posts.rss', '/articles.rss'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'posts.rss', 'articles.rss') do
       login_as :quentin
       post '/admin/posts', :post => { :type => 'Article', :header => 'Something', :content => 'Something else' }
     end
@@ -88,8 +94,8 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   
   def test_should_expire_home_page_on_post_update
     article = posts(:article)
-    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
-    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/posts.rss', '/articles.rss'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'posts.rss', 'articles.rss') do
       login_as :quentin
       put "/admin/articles/#{article.permalink}", :article => { :content => 'well this is different' }
       assert_redirected_to admin_post_path(article)
@@ -98,8 +104,8 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   
   def test_should_expire_home_page_on_post_destroy
     article = posts(:article)
-    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
-    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/posts.rss', '/articles.rss'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'posts.rss', 'articles.rss') do
       login_as :quentin
       delete "/admin/articles/#{article.permalink}"
     end
@@ -107,8 +113,8 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   
   def test_should_expire_home_page_on_single_feed_refresh
     feed = feeds(:blog)
-    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
-    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html') do
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/posts.rss', '/articles.rss'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'posts.rss', 'articles.rss') do
       login_as :quentin
       put feed_path(feed, :refresh => true)
     end
@@ -116,8 +122,8 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   
   def test_should_expire_home_page_on_all_feeds_refresh
     feed = feeds(:blog)
-    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/tweets', '/tweets/page/1'
-    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'tweets/', 'tweets.html') do
+    get_paths '/', '/posts/page/1', '/articles', '/articles/page/1', '/tweets', '/tweets/page/1', '/posts.rss', '/articles.rss'
+    assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'tweets/', 'tweets.html', 'posts.rss', 'articles.rss') do
       login_as :quentin
       post refresh_feeds_path
     end
@@ -168,7 +174,7 @@ class CachingIntegrationTest < ActionController::IntegrationTest
       post "#{article.link}/comments", :comment => { :name => 'Pat', :email => 'pat@example.com', :body => "Totally." }
     end
   end
-  
+
   # TODO
   
   def teardown
@@ -187,7 +193,7 @@ private
   end
   
   def wipe_cache!
-    %w(/index.html /posts.html /posts /articles.html /articles /snippets.html /snippets).each do |file|
+    %w(/index.html /posts.html /posts /articles.html /articles /snippets.html /snippets /posts.rss /articles.rss /snippets.rss).each do |file|
       file = RAILS_ROOT + '/public' + file
       FileUtils.rm_rf(file) if File.exists?(file)
     end
