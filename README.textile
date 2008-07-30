@@ -10,6 +10,10 @@ This app isn't quite for beginners (yet?). You need to know your way around a Ra
 
 So fork away, and let me know if you add anything cool.
 
+h3. Feature Requests/Bugs
+
+I've set up a Lighthouse project for Aintablog here: "http://nakajima.lighthouseapp.com/projects/14585-aintablog":http://nakajima.lighthouseapp.com/projects/14585-aintablog
+
 h3. REQUIREMENTS
 
 You're going to need the feed-normalizer and hpricot gems.
@@ -32,5 +36,5 @@ h3. TODO
 
 * Put together a better regex for the spanify_links helper
 * -Page titles!-
-* Page caching
+* -Page caching-
 * More control over posts (publish_at, -commentable?-)
