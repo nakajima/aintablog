@@ -28,8 +28,6 @@ If you want to run the test suite, you'll need the mocha gem.
 
   sudo gem install mocha
 
-I think that's about it.
-
 h4. Defensio Spam Protection
 
 Aintablog now has built-in Defensio Spam protection. You need to get API keys from "defensio.com":http://defensio.com, then put them into @config/defensio.yml@. If you don't want to use Defensio, you can set the "use_defensio" option to false in config/settings.yml.
