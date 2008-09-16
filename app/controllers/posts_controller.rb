@@ -34,7 +34,11 @@ class PostsController < ApplicationController
   private
     def post_repo
       @post_type = params[:posts_type] || request.path.gsub(POST_TYPE_PATTERN, '\1')
-      return @post_type.classify.constantize        
+
+      # for some reason '/' this gets classified as '::', which is an Object. Adding a check for that.
+      throw NameError if @post_type.eql?('/')
+      
+      return @post_type.classify.constantize  
       rescue => e
         logger.info(e)
         @post_type = 'posts'
