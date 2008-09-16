@@ -25,6 +25,7 @@ Rails::Initializer.run do |config|
   config.gem 'feed-normalizer'
   config.gem 'hpricot'
   config.gem 'rubypants'
+  config.gem 'RedCloth'
 end
 
 require 'authenticated_model'

@@ -38,6 +38,7 @@ rdoc_options:
 - --exclude
 - test_rubypants.rb
 require_paths: 
+- bin
 - .
 required_ruby_version: !ruby/object:Gem::Requirement 
   requirements: 
@@ -54,7 +55,7 @@ required_rubygems_version: !ruby/object:Gem::Requirement
 requirements: []
 
 rubyforge_project: 
-rubygems_version: 1.1.0
+rubygems_version: 1.2.0
 signing_key: 
 specification_version: 1
 summary: RubyPants is a Ruby port of the smart-quotes library SmartyPants.

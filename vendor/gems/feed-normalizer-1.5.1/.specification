@@ -13,6 +13,7 @@ default_executable:
 dependencies: 
 - !ruby/object:Gem::Dependency 
   name: simple-rss
+  type: :runtime
   version_requirement: 
   version_requirements: !ruby/object:Gem::Requirement 
     requirements: 
@@ -22,6 +23,7 @@ dependencies:
     version: 
 - !ruby/object:Gem::Dependency 
   name: hpricot
+  type: :runtime
   version_requirement: 
   version_requirements: !ruby/object:Gem::Requirement 
     requirements: 
@@ -31,6 +33,7 @@ dependencies:
     version: 
 - !ruby/object:Gem::Dependency 
   name: hoe
+  type: :runtime
   version_requirement: 
   version_requirements: !ruby/object:Gem::Requirement 
     requirements: 
@@ -76,6 +79,7 @@ rdoc_options:
 - --main
 - README.txt
 require_paths: 
+- bin
 - lib
 required_ruby_version: !ruby/object:Gem::Requirement 
   requirements: 
@@ -92,7 +96,7 @@ required_rubygems_version: !ruby/object:Gem::Requirement
 requirements: []
 
 rubyforge_project: feed-normalizer
-rubygems_version: 1.1.0
+rubygems_version: 1.2.0
 signing_key: 
 specification_version: 1
 summary: Extensible Ruby wrapper for Atom and RSS parsers
