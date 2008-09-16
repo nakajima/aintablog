@@ -1,6 +1,4 @@
 class Admin::PostsController < ApplicationController
-  POST_TYPE_PATTERN = /\/(articles|tweets|quotes|pictures|links|snippets|posts)(\.rss)?\/?/i
-  
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   before_filter :login_required
@@ -99,20 +97,6 @@ class Admin::PostsController < ApplicationController
   end
   
   private
-    def post_repo
-      @post_type = params[:posts_type] || request.path.split('/admin').last.gsub(POST_TYPE_PATTERN, '\1')
-      return @post_type.classify.constantize        
-      rescue => e
-        logger.info(e)
-        @post_type = 'posts'
-        @post_type.classify.constantize
-    end
-    
-    def not_found
-      flash[:error] = "Sorry but that post could not be found."
-      redirect_to '/' and return
-    end
-    
     def expire_post!
       expire_path("#{@post.link}.html")
     end

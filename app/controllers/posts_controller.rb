@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  POST_TYPE_PATTERN = /\/(articles|tweets|quotes|pictures|links|snippets|posts)(\.rss)?\/?/i
-  
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   before_filter :redirect_to_admin, :if => :logged_in?
@@ -32,24 +30,6 @@ class PostsController < ApplicationController
   end
   
   private
-    def post_repo
-      @post_type = params[:posts_type] || request.path.gsub(POST_TYPE_PATTERN, '\1')
-
-      # for some reason '/' this gets classified as '::', which is an Object. Adding a check for that.
-      throw NameError if @post_type.eql?('/')
-      
-      return @post_type.classify.constantize  
-      rescue => e
-        logger.info(e)
-        @post_type = 'posts'
-        return @post_type.classify.constantize
-    end
-    
-    def not_found
-      cookies[:error] = "Sorry but that post could not be found."
-      redirect_to '/' and return
-    end
-    
     def redirect_to_admin
       redirect_to "/admin" + request.path
     end
