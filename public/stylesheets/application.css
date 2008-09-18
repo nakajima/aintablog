@@ -514,3 +514,45 @@ label textarea {
 #quote textarea {
   height: 100px;
 }
+
+
+/*------------------------------------------------------------
+  Gist styles */
+
+.gist {
+  padding: 1.4em 0;
+}
+
+.gist blockquote {
+  background: transparent url(/images/gist.png) no-repeat;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Georgia, Times, serif;
+  padding: 0 1em 0 2.3em;
+  margin-bottom: 0.5em;
+}
+
+.gist cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.gist blockquote a {
+  color: #373737;
+  padding: 0;
+}
+
+.gist blockquote a:hover {
+  text-decoration: underline;
+  background: white;
+}
+
+.gist blockquote a span {
+  color: #0af;
+}
+
+.gist .date {
+  margin-top: 0;
+}

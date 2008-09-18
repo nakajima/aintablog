@@ -14,11 +14,11 @@ class Github < Feed
   
   def refresh!
     entries.each do |entry|
-      article = articles.build :content => entry.content, :header => entry.title
-      article.permalink  = entry.urls.first
-      article.created_at = entry.try(:date_published)
-      article.updated_at = entry.try(:last_updated)
-      article.save
+      gist = gists.build :content => entry.content, :header => entry.title
+      gist.permalink  = entry.urls.first
+      gist.created_at = entry.try(:date_published)
+      gist.updated_at = entry.try(:last_updated)
+      gist.save
     end
     update_attribute :updated_at, Time.now
   end

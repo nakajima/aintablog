@@ -16,7 +16,7 @@ class Feed < ActiveRecord::Base
     
     def types
       # Loading all of the subclasses so we can have a list of the various types.
-      Dir["#{RAILS_ROOT}/app/models/feeds/*.rb"].each { |f| require f }
+      Dir["#{RAILS_ROOT}/app/models/feeds/*.rb"].each { |f| require_dependency f }
       
       self.subclasses.collect(&:to_s)
     end
@@ -50,6 +50,5 @@ class Feed < ActiveRecord::Base
   def fetched_feed
     @fetched_feed ||= fetch_feed
   end
-  
   
 end
