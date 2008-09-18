@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   
   skip_before_filter :verify_authenticity_token # Page caching screws up forgery protection stuff
   
-  POST_TYPE_PATTERN = /\/(articles|tweets|quotes|pictures|links|snippets|posts)(\.rss)?\/?/i
+  POST_TYPES = %w(articles links pictures quotes snippets tweets gists)
+  POST_TYPE_PATTERN = /\/(#{POST_TYPES.join('|')})(\.rss)?\/?/i
   
   def expire_path(file)
     file = RAILS_ROOT + '/public' + file

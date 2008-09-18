@@ -1,0 +1,3 @@
+class Gist < Post
+
+end

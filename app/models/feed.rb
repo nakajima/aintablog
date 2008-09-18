@@ -13,6 +13,13 @@ class Feed < ActiveRecord::Base
     def refresh_all!
       find(:all).each(&:refresh!)
     end
+    
+    def types
+      # Loading all of the subclasses so we can have a list of the various types.
+      Dir["#{RAILS_ROOT}/app/models/feeds/*.rb"].each { |f| require f }
+      
+      self.subclasses.collect(&:to_s)
+    end
   end
   
   def refresh=(res)
@@ -43,5 +50,6 @@ class Feed < ActiveRecord::Base
   def fetched_feed
     @fetched_feed ||= fetch_feed
   end
+  
   
 end
