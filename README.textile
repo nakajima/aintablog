@@ -14,19 +14,19 @@ h3. Feature Requests/Bugs
 
 I've set up a Lighthouse project for Aintablog here: "http://nakajima.lighthouseapp.com/projects/14585-aintablog":http://nakajima.lighthouseapp.com/projects/14585-aintablog
 
-h3. REQUIREMENTS
+h3. Requirements
 
-You're going to need the feed-normalizer and hpricot gems.
+You're going to need a few gems to start things off.
 
-  sudo gem install feed-normalizer hpricot
+  sudo gem install feed-normalizer hpricot RedCloth
+
+or
+
+  sudo rake gems:install
 
 If you want to run the test suite, you'll need the mocha gem.
 
   sudo gem install mocha
-
-I think that's about it.
-
-You can run @rake gems:install@ to do it all in one fell swoop if you'd like.
 
 h4. Defensio Spam Protection
 
