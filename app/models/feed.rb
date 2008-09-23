@@ -19,7 +19,7 @@ class Feed < ActiveRecord::Base
       has_many entry_type, :foreign_key => :feed_id, :dependent => :destroy
       define_method(:refresh!) do
         logger.debug "=> creating #{entry_type} from #{uri}"
-        entries.each(&block.bind(self))
+        entries.each { |entry| block.call(send(entry_type).build, entry) }
         self.updated_at = Time.now
         self.save
       end
