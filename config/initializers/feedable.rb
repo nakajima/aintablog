@@ -18,9 +18,14 @@ module Aintablog
     end
     
     module ClassMethods
-      def entries_become(post_type)
+      def entries_become(post_type, &block)
         self.entry_type = post_type
         has_many post_type.to_sym, :foreign_key => :feed_id, :dependent => :destroy
+        define_method(:refresh!) do
+          entries.each(&block.bind(self))
+          self.updated_at = Time.now
+          self.save
+        end
       end
     end
     
