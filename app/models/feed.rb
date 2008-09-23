@@ -14,11 +14,11 @@ class Feed < ActiveRecord::Base
       find(:all).each(&:refresh!)
     end
     
-    def entries_become(post_type, &block)
-      self.entry_type = post_type
-      has_many post_type, :foreign_key => :feed_id, :dependent => :destroy
+    def entries_become(entry_type, &block)
+      self.entry_type = entry_type
+      has_many entry_type, :foreign_key => :feed_id, :dependent => :destroy
       define_method(:refresh!) do
-        logger.debug "=> creating #{post_type} from #{uri}"
+        logger.debug "=> creating #{entry_type} from #{uri}"
         entries.each(&block.bind(self))
         self.updated_at = Time.now
         self.save
