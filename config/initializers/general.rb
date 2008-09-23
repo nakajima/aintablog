@@ -1,6 +1,8 @@
-require 'feedable.rb'
+require 'feed-normalizer'
+require 'hpricot'
 require 'will_paginate_hacks.rb'
 require 'markup_helper.rb'
+require 'core-ext/kernel.rb'
 require 'core-ext/object.rb'
 require 'core-ext/string.rb'
 
