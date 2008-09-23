@@ -22,6 +22,7 @@ module Aintablog
         self.entry_type = post_type
         has_many post_type.to_sym, :foreign_key => :feed_id, :dependent => :destroy
         define_method(:refresh!) do
+          logger.debug "=> creating #{post_type} from #{uri}"
           entries.each(&block.bind(self))
           self.updated_at = Time.now
           self.save
@@ -31,12 +32,12 @@ module Aintablog
     
     module InstanceMethods
       # Yields to the URI or file
-      def with_indifferent_io(&block)
+      def with_indifferent_io
         begin
-          f = uri.match(/file:/) ? File.open(uri.gsub(%r{^file://}, '')) : open(uri)
-          return yield(f)
+          oi = uri.match(/file:/) ? File.open(uri.gsub(%r{^file://}, '')) : open(uri)
+          yield oi
         ensure
-          f.close if f
+          oi.close if oi
         end
       end
       
