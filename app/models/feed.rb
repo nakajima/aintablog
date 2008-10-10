@@ -18,7 +18,7 @@ class Feed < ActiveRecord::Base
       # Loading all of the subclasses so we can have a list of the various types.
       Dir["#{RAILS_ROOT}/app/models/feeds/*.rb"].each { |f| require_dependency f }
       
-      self.subclasses.collect(&:to_s)
+      self.subclasses.collect(&:to_s).sort
     end
     
     def entries_become(entry_type, &block)

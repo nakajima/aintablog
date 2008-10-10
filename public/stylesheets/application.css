@@ -530,6 +530,7 @@ label textarea {
   font-family: Georgia, Times, serif;
   padding: 0 1em 0 2.3em;
   margin-bottom: 0.5em;
+  min-height: 50px;
 }
 
 .gist cite {
