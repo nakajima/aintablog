@@ -3,10 +3,10 @@
   <span class="day"><%= post.created_at.strftime('%e') -%></span>
 </div>
 <blockquote>
-  <% cache(post.permalink) do -%>
-  <%= post.content %>
-  <% end -%>
+  <%= spanned_link h(post.header), post.permalink -%>
+  <%= content_tag :p, post.content unless post.content.blank? %>
 </blockquote>
+
 <cite>
-  &#x2010; Posted via <%= link_to 'GitHub', post.permalink %> 
+&#x2010; Posted via <%= link_to 'GitHub', post.permalink %>
 </cite>
