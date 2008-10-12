@@ -41,7 +41,7 @@ class Feed < ActiveRecord::Base
     self.title  = fetched_feed.title
     self.description = fetched_feed.description
     self.url = fetched_feed.urls.first
-    self.update_timestamp
+    self.update_timestamp!
     self.save
   end
   
@@ -49,7 +49,7 @@ class Feed < ActiveRecord::Base
     attributes['type']
   end
   
-  def update_timestamp
+  def update_timestamp!
     self.last_updated_at = fetched_feed.last_updated || fetched_feed.entries.sort_by(&:date_published).last.date_published
   end
   
