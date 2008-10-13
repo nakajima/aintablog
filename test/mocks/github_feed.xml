@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+  <id>tag:github.com,2008:/qrush</id>
+  <link type="text/html" rel="alternate" href="http://github.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://github.com/qrush.atom"/>
+  <title>qrush's Activity</title>
+  <updated>2008-10-07T15:27:34-07:00</updated>
+  <entry>
+    <id>tag:github.com,2008:WatchEvent/15170498</id>
+    <published>2008-10-07T15:27:34-07:00</published>
+    <updated>2008-10-07T15:27:34-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started watching auto_complete_jquery</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    auto_complete_jquery is at &lt;a href="http://github.com/chris/auto_complete_jquery/tree"&gt;chris/auto_complete_jquery&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:WatchEvent/14832915</id>
+    <published>2008-10-05T07:10:43-07:00</published>
+    <updated>2008-10-05T07:10:43-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started watching jrails</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    jrails is at &lt;a href="http://github.com/aaronchi/jrails/tree"&gt;aaronchi/jrails&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:WatchEvent/14282676</id>
+    <published>2008-09-30T15:18:34-07:00</published>
+    <updated>2008-09-30T15:18:34-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started watching object_daddy</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    object_daddy is at &lt;a href="http://github.com/flogic/object_daddy/tree"&gt;flogic/object_daddy&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:GistEvent/14282215</id>
+    <published>2008-09-30T15:12:12-07:00</published>
+    <updated>2008-09-30T15:12:33-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://gist.github.com/13975"/>
+    <title>qrush updated gist: 13975 2 times, most recently</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:GistEvent/14282201</id>
+    <published>2008-09-30T15:11:48-07:00</published>
+    <updated>2008-09-30T15:11:48-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://gist.github.com/13975"/>
+    <title>qrush created gist: 13975</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    Spec::Runner.configure do |config|
+  include AuthenticatedTestHelper
+  include Populate
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:FollowEvent/14239272</id>
+    <published>2008-09-30T09:55:04-07:00</published>
+    <updated>2008-09-30T09:55:04-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started following farski</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+    
+  
+  &lt;div class="message"&gt;
+    farski has 
+    4 
+    public repos 
+    and 1
+   follower.
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:WatchEvent/14239227</id>
+    <published>2008-09-30T09:54:57-07:00</published>
+    <updated>2008-09-30T09:54:57-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started watching calendar_for</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    calendar_for is at &lt;a href="http://github.com/farski/calendar_for/tree"&gt;farski/calendar_for&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:FollowEvent/13987410</id>
+    <published>2008-09-27T22:33:28-07:00</published>
+    <updated>2008-09-27T22:33:28-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started following aslakhellesoy</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+    
+  
+  &lt;div class="message"&gt;
+    aslakhellesoy has 
+    12 
+    public repos 
+    and 30
+   followers.
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:WatchEvent/13987408</id>
+    <published>2008-09-27T22:33:24-07:00</published>
+    <updated>2008-09-27T22:33:24-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started watching cucumber</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+  &lt;div class="message"&gt;
+    cucumber is at &lt;a href="http://github.com/aslakhellesoy/cucumber/tree"&gt;aslakhellesoy/cucumber&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:FollowEvent/13983413</id>
+    <published>2008-09-27T22:19:10-07:00</published>
+    <updated>2008-09-27T22:19:10-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/qrush"/>
+    <title>qrush started following chneukirchen</title>
+    <content type="html">
+
+&lt;div class="details"&gt;
+  
+    
+  
+  &lt;div class="message"&gt;
+    chneukirchen has 
+    11 
+    public repos 
+    and 44
+   followers.
+  &lt;/div&gt;
+&lt;/div&gt;
+</content>
+    <author>
+      <name>qrush</name>
+      <email>nick@quaran.to</email>
+    </author>
+  </entry>
+</feed>
+
+

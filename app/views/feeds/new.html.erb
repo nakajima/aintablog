@@ -12,7 +12,7 @@
   </label>
   
   <label for="type">
-    Type of Feed:  <%= f.select :type, ['Twitter', 'Flickr', 'Blog', 'Delicious'] %>
+    Type of Feed:  <%= f.select :type, Feed.types %>
   </label>
 
   <%= f.hidden_field :type, :value => 'Twitter' %>

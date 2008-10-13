@@ -14,6 +14,13 @@ class Feed < ActiveRecord::Base
       find(:all).each(&:refresh!)
     end
     
+    def types
+      # Loading all of the subclasses so we can have a list of the various types.
+      Dir["#{RAILS_ROOT}/app/models/feeds/*.rb"].each { |f| require_dependency f }
+      
+      self.subclasses.collect(&:to_s).sort
+    end
+    
     def entries_become(entry_type, &block)
       self.entry_type = entry_type
       has_many entry_type, :foreign_key => :feed_id, :dependent => :destroy
@@ -38,7 +45,7 @@ class Feed < ActiveRecord::Base
   end
   
   def learn_attributes!
-    self.title  = fetched_feed.title
+    self.title = fetched_feed.title
     self.description = fetched_feed.description
     self.url = fetched_feed.urls.first
     self.update_timestamp!

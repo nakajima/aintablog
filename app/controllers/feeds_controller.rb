@@ -113,7 +113,7 @@ private
       expire_path("/#{@feed.class.entry_type}.rss")
       expire_path("/#{@feed.class.entry_type}")
     else
-      %w(articles links pictures quotes snippets tweets).each do |entry_type|
+      POST_TYPES.each do |entry_type|
         expire_path("/#{entry_type}.html")
         expire_path("/#{entry_type}.rss")
         expire_path("/#{entry_type}")
