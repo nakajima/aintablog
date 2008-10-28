@@ -40,6 +40,18 @@ class PostTest < ActiveSupport::TestCase
     assert post.deleted?
   end
   
+  def test_format_html
+    content = <<-EOF
+<h1>line break trouble?</h1>
+this is a <a href='#'>problem
+that I found</a> or is it
+really a problem?
+    EOF
+    assert post = create_post(:content => content)
+    assert h = Hpricot.parse(post.to_html)
+    assert_equal 0, h.search('br').size # when we try to redclothify html, this fails.
+  end
+
 protected
 
   def create_post(options={})
