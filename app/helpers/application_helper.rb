@@ -34,9 +34,8 @@ module ApplicationHelper
   end
   
   def clean_content_for(post)
-    text = post.content
+    text = post.to_html
     text.gsub!(/<(script|noscript|object|embed|style|frameset|frame|iframe)[>\s\S]*<\/\1>/, '') if post.from_feed?
-    text = RedCloth.new(text, [:filter_styles, :no_span_caps]).to_html
     text = spanify_links(text)
   end
   

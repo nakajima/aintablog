@@ -45,4 +45,10 @@ class Post < ActiveRecord::Base
   def link(root='')
     "#{root}/#{type.tableize}/#{to_param}"
   end
+
+  def to_html
+    text = content
+    text = RedCloth.new(text, [:filter_styles, :no_span_caps]).to_html
+  end
+
 end
