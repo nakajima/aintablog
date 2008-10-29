@@ -47,8 +47,10 @@ class Post < ActiveRecord::Base
   end
 
   def to_html
-    text = content
-    text = RedCloth.new(text, [:filter_styles, :no_span_caps]).to_html
+    text = case format
+           when 'HTML' then content
+           else RedCloth.new(content, [:filter_styles, :no_span_caps]).to_html
+           end
   end
 
 end
