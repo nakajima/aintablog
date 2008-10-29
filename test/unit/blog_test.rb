@@ -18,6 +18,12 @@ class BlogTest < ActiveSupport::TestCase
       blog = create_blog
       blog.refresh!
     end
+
+    blog_articles = Article.find(:all, :conditions => 'feed_id NOT NULL')
+    assert blog_articles.size >= 9
+    blog_articles.each do |j|
+      assert_equal "HTML", j.format
+    end
   end
 
   def test_should_not_create_posts_twice
