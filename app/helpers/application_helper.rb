@@ -68,6 +68,10 @@ module ApplicationHelper
     end
   end
   
+  def relative_url_helper
+    ActionController::Base.respond_to?('relative_url_root=') ? ActionController::Base.relative_url_root : ActionController::AbstractRequest.relative_url_root
+  end
+
   def feed_url_for(post)
     case post
     when Tweet, Link
@@ -78,10 +82,10 @@ module ApplicationHelper
   end
   
   def feed_tag(name, options={})
-    name_str = (name || @post_type).to_s
+    name_str = (name || @post_type).to_s.gsub('/','')
     options[:format] ||= :rss
-    options[:title] ||= "#{name_str.titleize} Only (#{options[:format].to_s.titleize})"
-    options[:url] ||= SITE_SETTINGS[:feedburner][(name || 'all')] || "http://#{host_helper}/#{name_str}.rss"
+    options[:title] ||= "#{name_str.titleize} Only (#{options[:format].to_s.upcase})"
+    options[:url] ||= SITE_SETTINGS[:feedburner][(name || 'all')] || "http://#{host_helper}#{relative_url_helper}/#{name_str}.rss"
     auto_discovery_link_tag options[:format], options[:url], :title => options[:title]
   end
   

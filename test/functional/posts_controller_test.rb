@@ -128,6 +128,28 @@ class PostsControllerTest < ActionController::TestCase
     end
   end
 
+  def test_feed_tag
+    get :index
+    assert(h = Hpricot.parse(@response.body))
+    links = h.search("link[@type='application/rss+xml']")
+    assert_equal 4, links.size
+    links.each do |j|
+      assert_match %r{^http://test.host/[^/]+.rss$}, j['href']
+    end
+  end
+
+  def test_feed_tag_with_relative_urls
+    set_relative_url do
+      get :index
+      assert(h = Hpricot.parse(@response.body))
+      links = h.search("link[@type='application/rss+xml']")
+      assert_equal 4, links.size
+      links.each do |j|
+        assert_match %r{^http://test.host/relative/[^/]+.rss$}, j['href']
+      end
+    end
+  end
+
   private
   
   def posts_stub
