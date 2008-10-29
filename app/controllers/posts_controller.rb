@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
-    redirect_to '/' and return unless @post.type.match(/Article|Snippet/)
+    redirect_to root_path and return unless @post.type.match(/Article|Snippet/)
     @comment = flash[:comment] || @post.comments.build
     respond_to do |format|
       format.html # show.html.erb
@@ -31,6 +31,6 @@ class PostsController < ApplicationController
   
   private
     def redirect_to_admin
-      redirect_to "/admin" + request.path
+      redirect_to admin_root_path + request.path
     end
 end

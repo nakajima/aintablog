@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   
     def not_found
       cookies[:error] = "Sorry but that post could not be found."
-      redirect_to '/' and return
+      redirect_to root_path and return
     end
 
 end
