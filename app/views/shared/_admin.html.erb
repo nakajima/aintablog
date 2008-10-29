@@ -3,12 +3,12 @@
     <a href="#" id="logout">Logout</a>
     <span id="confirm" style="display:none">
       Are you sure: 
-      <a href="/logout">Yes</a>
+      <a href="<%= logout_path %>">Yes</a>
       <a href="#">No</a>
     </span>
   </span>    
   <strong>Admin Links: </strong>
-  <%= link_to 'View Site', '/admin' %>
+  <%= link_to 'View Site', admin_root_path %>
   <%= link_to "Create a Post", new_post_path %>
   <%= link_to 'Comments', comments_path %>
   <strong>Feeds: </strong>
