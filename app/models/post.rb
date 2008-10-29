@@ -43,7 +43,8 @@ class Post < ActiveRecord::Base
   end
   
   def link(root='')
-    "#{root}/#{type.tableize}/#{to_param}"
+    relative_url = ActionController::Base.respond_to?('relative_url_root=') ? ActionController::Base.relative_url_root : ActionController::AbstractRequest.relative_url_root
+    "#{relative_url}#{root}/#{type.tableize}/#{to_param}"
   end
 
   def to_html

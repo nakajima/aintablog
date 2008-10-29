@@ -1,5 +1,5 @@
 <%- unless post.header.blank? -%>
-<h3 class="entry-title"><%= spanned_link post.header, "/snippets/#{post.permalink}" %></h3>
+<h3 class="entry-title"><%= spanned_link post.header, snippet_path(post.permalink) %></h3>
 <%- end -%>
 
 <div class="date">
