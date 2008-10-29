@@ -52,6 +52,20 @@ really a problem?
     assert_equal 0, h.search('br').size # when we try to redclothify html, this fails.
   end
 
+  def test_format_redcloth
+    content = <<-EOF
+h1. redcloth
+
+this is a redcloth document.
+
+really a problem?
+    EOF
+    assert post = create_post(:content => content)
+    assert h = Hpricot.parse(post.to_html)
+    assert_equal 1, h.search('h1').size
+    assert_equal 2, h.search('p').size
+  end
+
 protected
 
   def create_post(options={})
