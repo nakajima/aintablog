@@ -3,7 +3,7 @@
 one:
   permalink: my-string
   header: A short article
-  content: My Text
+  content: My _Italic_ Text
   cite: My String
   type: Article
   user_id: 1
@@ -22,7 +22,7 @@ two:
 article:
   permalink: something-good
   header: It really is
-  content: That's what they say.
+  content: "That's what _they_ say."
   type: Article
   user: quentin
 
@@ -30,9 +30,10 @@ imported_article:
   feed: blog
   permalink: http://daringfireball.net/2008/06/new_linked_list_permalinks
   header: This one is imported
-  content: Nuff Said
+  content: Nuff _Said_?
   cite: None
   type: Article
+  format: HTML
 
 snippet:
   header: JavaScript Snippet
