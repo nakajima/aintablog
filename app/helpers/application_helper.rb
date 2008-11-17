@@ -15,7 +15,7 @@ module ApplicationHelper
     end
     doc.search("a/text()").wrap("<span></span>")
     unless text.is_a?(Nokogiri::HTML::Document)
-      text = doc.inner_html
+      text = doc.at("body").inner_html
     end
   end
   
@@ -42,7 +42,7 @@ module ApplicationHelper
     doc = Nokogiri::HTML(text)
     doc.search("script","noscript","object","embed","style","frameset","frame","iframe").unlink if post.from_feed?
     spanify_links(doc)
-    text = doc.inner_html
+    text = doc.at("body").inner_html
   end
   
   
