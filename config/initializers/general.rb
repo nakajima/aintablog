@@ -1,5 +1,6 @@
 require 'feed-normalizer'
 require 'hpricot'
+require 'nokogiri'
 require 'will_paginate_hacks.rb'
 require 'markup_helper.rb'
 require 'core-ext/kernel.rb'

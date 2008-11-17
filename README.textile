@@ -34,7 +34,6 @@ Aintablog now has built-in Defensio Spam protection. You need to get API keys fr
 
 h3. TODO
 
-* Put together a better regex for the spanify_links helper
 * -Page titles!-
 * -Page caching-
 * More control over posts (publish_at, -commentable?-)

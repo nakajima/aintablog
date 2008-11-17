@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
   config.gem 'hpricot'
   config.gem 'rubypants'
   config.gem 'RedCloth'
+  config.gem 'nokogiri'
 end
 
 require 'authenticated_model'

@@ -8,7 +8,15 @@ module ApplicationHelper
   end
   
   def spanify_links(text)
-    text.gsub(/<a\s+(.*)>(.*)<\/a>/i, '<a \1><span>\2</span></a>')
+    if text.is_a?(Nokogiri::HTML::Document)
+      doc = text
+    else
+      doc = Nokogiri::HTML(text)
+    end
+    doc.search("a/text()").wrap("<span></span>")
+    unless text.is_a?(Nokogiri::HTML::Document)
+      text = doc.inner_html
+    end
   end
   
   def partial_for(post)
@@ -22,12 +30,8 @@ module ApplicationHelper
     link_to text, "#{path}#comments"
   end
   
-  # TODO This method sucks. Learn about regex and fix it.
   def twitterize(string)
-    string.gsub!(/\b(((http:|https:|file:)\/\/)?([a-z]+\.)?(\w+\.com|net|org)(\/.*)?)\b/) do
-      "<a href='#{"http://" unless $1.include?('http://')}#{$1}'><span>#{$1}</span></a>"
-    end
-    string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
+    string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1">\1</a>')
     string = auto_link(string)
     string = RubyPants.new(string).to_html
     spanify_links(string)
@@ -35,8 +39,10 @@ module ApplicationHelper
   
   def clean_content_for(post)
     text = post.to_html
-    text.gsub!(/<(script|noscript|object|embed|style|frameset|frame|iframe)[>\s\S]*<\/\1>/, '') if post.from_feed?
-    text = spanify_links(text)
+    doc = Nokogiri::HTML(text)
+    doc.search("script","noscript","object","embed","style","frameset","frame","iframe").unlink if post.from_feed?
+    spanify_links(doc)
+    text = doc.inner_html
   end
   
   
