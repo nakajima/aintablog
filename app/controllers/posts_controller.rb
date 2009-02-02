@@ -39,16 +39,6 @@ class PostsController < Application
     end
   end
   
-  def default_template_name(action_name = self.action_name)
-    if action_name
-      action_name = action_name.to_s
-      if action_name.include?('/') && template_path_includes_controller?(action_name)
-        action_name = strip_out_controller(action_name)
-      end
-    end
-    "#{self.controller_path}/#{action_name}"
-  end
-  
   private
   
   def post_type
