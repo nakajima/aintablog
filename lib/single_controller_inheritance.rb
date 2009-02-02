@@ -4,18 +4,13 @@ module SingleControllerInheritance
   end
   
   module ClassMethods
-    def expose_as(*types, &block)
-      options = types.extract_options!
+    def expose_as(*children, &block)
+      options = children.extract_options!
       namespace = options[:namespace]
-      
-      types.each do |child|
+      children.each do |child|
         class_name = namespace.to_s + child.to_s.titleize + 'Controller'
-        controller = Class.new(self) do
-          block[child] if block_given?
-        end
-      
+        controller = Class.new(self) { block[child] if block_given? }
         logger.info "=> Generating new %s subclass: %s" % [child, class_name]
-      
         scope = namespace ? namespace.constantize : Object
         scope.const_set(class_name, controller)
       end
