@@ -11,10 +11,8 @@ class Application < ActionController::Base
   
   filter_parameter_logging :password, :password_confirmation
   
-  def expire_path(file)
-    file = File.join(Rails.root.to_str, 'public', file)
-    FileUtils.rm_rf(file) if File.exists?(file)
-    logger.info("Expired cache: #{file}")
+  def current_post
+    @current_post ||= Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
   end
   
   protected 
@@ -34,5 +32,12 @@ class Application < ActionController::Base
     cookies[:error] = "Sorry but that post could not be found."
     redirect_to root_path and return
   end
-
+  
+  private
+  
+  def expire_path(file)
+    file = File.join(Rails.root.to_str, 'public', file)
+    FileUtils.rm_rf(file) if File.exists?(file)
+    logger.info("Expired cache: #{file}")
+  end
 end

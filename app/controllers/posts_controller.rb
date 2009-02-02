@@ -22,24 +22,28 @@ class PostsController < Application
     @posts = post_repo.paginate_index(:page => params[:page])
     respond_to do |format|
       format.html { render :template => 'posts/index.html.erb' }
-      format.rss { render :template => 'posts/index.rss.builder' }
-      format.xml { render :xml => @posts }
+      format.rss  { render :template => 'posts/index.rss.builder' }
+      format.xml  { render :xml => @posts }
     end
   end
 
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
-    redirect_to root_path and return unless @post.type.match(/Article|Snippet/)
-    @comment = flash[:comment] || @post.comments.build
+    redirect_to root_path and return unless current_post.type.match(/Article|Snippet/)
+    
+    @comment = flash[:comment] || current_post.comments.build
     respond_to do |format|
       format.html { render :template => 'posts/show.html.erb' }
-      format.xml  { render :xml => @post }
+      format.xml  { render :xml => current_post }
     end
   end
   
   private
+  
+  def current_post
+    @current_post ||= Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
+  end
   
   def post_type
     :posts
