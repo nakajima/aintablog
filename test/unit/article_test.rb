@@ -52,6 +52,13 @@ class ArticleTest < ActiveSupport::TestCase
     article = posts(:article).becomes(Article)
     assert_equal "/articles/#{article.permalink}", article.link
   end
+
+  def test_should_provide_proper_link_even_for_relative_urls
+    set_relative_url do
+      article = posts(:article).becomes(Article)
+      assert_equal "/relative/articles/#{article.permalink}", article.link
+    end
+  end
   
 protected
 

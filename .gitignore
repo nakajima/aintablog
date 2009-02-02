@@ -1,3 +1,4 @@
+*~
 log/*
 tmp/*
 db/*.sqlite3
@@ -7,6 +8,7 @@ config/defensio.yml
 .DS_Store
 ./**/.DS_Store
 Capfile
+*.tmproj
 public/cache
 public/cache/**
 public/javascripts/all.js

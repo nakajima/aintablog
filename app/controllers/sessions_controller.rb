@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
 
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
         self.current_user.remember_me
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default('/admin')
+      redirect_back_or_default(admin_root_path)
       cookies[:notice] = "You’ve logged in successfully."
     else
       render :action => 'new'
@@ -32,6 +33,6 @@ class SessionsController < ApplicationController
     cookies.delete :auth_token
     reset_session
     cookies[:notice] = "You have been logged out."
-    redirect_back_or_default('/')
+    redirect_back_or_default(root_path)
   end
 end

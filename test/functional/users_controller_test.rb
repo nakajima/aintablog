@@ -21,13 +21,31 @@ class UsersControllerTest < Test::Unit::TestCase
   
   def test_should_not_get_new_if_users_exist
     get :new
-    assert_redirected_to '/'
+    assert_redirected_to root_path
+  end
+
+  def test_should_not_get_new_if_users_exist_even_for_relative_url
+    set_relative_url do
+      get :new
+      assert_redirected_to root_path
+    end
   end
 
   def test_should_allow_signup
     assert_difference 'User.count' do
       create_user
       assert_response :redirect
+      assert_redirected_to root_path
+    end
+  end
+
+  def test_should_allow_signup_when_relative_url
+    set_relative_url do
+      assert_difference 'User.count' do
+        create_user
+        assert_response :redirect
+        assert_redirected_to root_path
+      end
     end
   end
 

@@ -43,4 +43,30 @@ class Test::Unit::TestCase
   
   # Add more helper methods to be used by all tests here...
   include AuthenticatedTestHelper
+
+  #
+  #  for testing when aintablog is hosted under a relative url,
+  #  e.g., "http://my.domain.com/aintablog/"
+  #
+  def set_relative_url &block
+    old = nil
+    new = "/relative"
+    if ActionController::Base.respond_to?('relative_url_root=')
+      old = ActionController::Base.relative_url_root
+      ActionController::Base.relative_url_root = new
+    else
+      old = ActionController::AbstractRequest.relative_url_root
+      ActionController::AbstractRequest.relative_url_root = new
+    end
+    begin
+      block.call
+    ensure
+      if ActionController::Base.respond_to?('relative_url_root=')
+        ActionController::Base.relative_url_root = old
+      else
+        ActionController::AbstractRequest.relative_url_root = old
+      end
+    end
+  end
+
 end

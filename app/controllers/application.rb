@@ -12,9 +12,34 @@ class ApplicationController < ActionController::Base
   
   skip_before_filter :verify_authenticity_token # Page caching screws up forgery protection stuff
   
+  POST_TYPES = %w(articles links pictures quotes snippets tweets gists)
+  POST_TYPE_PATTERN = /\/(#{POST_TYPES.join('|')})(\.rss)?\/?/i
+  
   def expire_path(file)
     file = RAILS_ROOT + '/public' + file
     FileUtils.rm_rf(file) if File.exists?(file)
     logger.info("Expired cache: #{file}")
   end
+  
+  protected 
+    def post_repo
+      
+      # two replaces, but it's better than duped code.
+      @post_type = params[:posts_type] || request.path.gsub(/^\/admin/, '/').gsub(POST_TYPE_PATTERN, '\1')
+
+      # for some reason '/' this gets classified as '::', which is an Object. Adding a check for that.
+      throw NameError if @post_type.eql?('/')
+    
+      return @post_type.classify.constantize  
+      rescue => e
+        logger.info(e)
+        @post_type = 'posts'
+        return @post_type.classify.constantize
+    end
+  
+    def not_found
+      cookies[:error] = "Sorry but that post could not be found."
+      redirect_to root_path and return
+    end
+
 end

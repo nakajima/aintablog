@@ -8,7 +8,15 @@ module ApplicationHelper
   end
   
   def spanify_links(text)
-    text.gsub(/<a\s+(.*)>(.*)<\/a>/i, '<a \1><span>\2</span></a>')
+    if text.is_a?(Nokogiri::HTML::Document)
+      doc = text
+    else
+      doc = Nokogiri::HTML(text)
+    end
+    doc.search("a/text()").wrap("<span></span>")
+    unless text.is_a?(Nokogiri::HTML::Document)
+      text = doc.at("body").inner_html
+    end
   end
   
   def partial_for(post)
@@ -22,22 +30,19 @@ module ApplicationHelper
     link_to text, "#{path}#comments"
   end
   
-  # TODO This method sucks. Learn about regex and fix it.
   def twitterize(string)
-    string.gsub!(/\b(((http:|https:|file:)\/\/)?([a-z]+\.)?(\w+\.com|net|org)(\/.*)?)\b/) do
-      "<a href='#{"http://" unless $1.include?('http://')}#{$1}'><span>#{$1}</span></a>"
-    end
-    string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1"><span>\1</span></a>')
+    string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1">\1</a>')
     string = auto_link(string)
     string = RubyPants.new(string).to_html
     spanify_links(string)
   end
   
   def clean_content_for(post)
-    text = post.content
-    text.gsub!(/<(script|noscript|object|embed|style|frameset|frame|iframe)[>\s\S]*<\/\1>/, '') if post.from_feed?
-    text = RedCloth.new(text, [:filter_styles, :no_span_caps]).to_html
-    text = spanify_links(text)
+    text = post.to_html
+    doc = Nokogiri::HTML(text)
+    doc.search("script","noscript","object","embed","style","frameset","frame","iframe").unlink if post.from_feed?
+    spanify_links(doc)
+    text = doc.at("body").inner_html
   end
   
   
@@ -69,6 +74,10 @@ module ApplicationHelper
     end
   end
   
+  def relative_url_helper
+    ActionController::Base.respond_to?('relative_url_root=') ? ActionController::Base.relative_url_root : ActionController::AbstractRequest.relative_url_root
+  end
+
   def feed_url_for(post)
     case post
     when Tweet, Link
@@ -79,10 +88,10 @@ module ApplicationHelper
   end
   
   def feed_tag(name, options={})
-    name_str = (name || @post_type).to_s
+    name_str = (name || @post_type).to_s.gsub('/','')
     options[:format] ||= :rss
-    options[:title] ||= "#{name_str.titleize} Only (#{options[:format].to_s.titleize})"
-    options[:url] ||= SITE_SETTINGS[:feedburner][(name || 'all')] || "http://#{host_helper}/#{name_str}.rss"
+    options[:title] ||= "#{name_str.titleize} Only (#{options[:format].to_s.upcase})"
+    options[:url] ||= SITE_SETTINGS[:feedburner][(name || 'all')] || "http://#{host_helper}#{relative_url_helper}/#{name_str}.rss"
     auto_discovery_link_tag options[:format], options[:url], :title => options[:title]
   end
   

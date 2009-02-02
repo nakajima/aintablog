@@ -20,11 +20,27 @@ class PostsControllerTest < ActionController::TestCase
     get :index
     assert_redirected_to admin_posts_path
   end
+
+  def test_should_redirect_to_admin_index_if_logged_in_even_for_relative_urls
+    set_relative_url do
+      login_as :quentin
+      get :index
+      assert_redirected_to admin_posts_path
+    end
+  end
   
   def test_should_redirect_to_admin_show_if_logged_in
     login_as :quentin
     get :show, :id => posts(:one).permalink
     assert_redirected_to admin_post_path(posts(:one))
+  end
+
+  def test_should_redirect_to_admin_show_if_logged_in_even_for_relative_urls
+    set_relative_url do
+      login_as :quentin
+      get :show, :id => posts(:one).permalink
+      assert_redirected_to admin_post_path(posts(:one))
+    end
   end
   
   # Post types
@@ -90,9 +106,50 @@ class PostsControllerTest < ActionController::TestCase
   
   def test_should_redirect_to_index_from_show_unless_article
     get :show, :id => posts(:two).id
-    assert_redirected_to '/'
+    assert_redirected_to root_path
+  end
+
+  def test_should_redirect_to_index_from_show_unless_article_even_for_relative_urls
+    set_relative_url do
+      get :show, :id => posts(:two).id
+      assert_redirected_to root_path
+    end
   end
   
+  def test_should_redirect_to_root_when_post_not_found
+    get :show, :id => 999999
+    assert_redirected_to root_path
+  end
+
+  def test_should_redirect_to_root_when_post_not_found_even_for_relative_urls
+    set_relative_url do
+      get :show, :id => 999999
+      assert_redirected_to root_path
+    end
+  end
+
+  def test_feed_tag
+    get :index
+    assert(h = Hpricot.parse(@response.body))
+    links = h.search("link[@type='application/rss+xml']")
+    assert_equal 4, links.size
+    links.each do |j|
+      assert_match %r{^http://test.host/[^/]+.rss$}, j['href']
+    end
+  end
+
+  def test_feed_tag_with_relative_urls
+    set_relative_url do
+      get :index
+      assert(h = Hpricot.parse(@response.body))
+      links = h.search("link[@type='application/rss+xml']")
+      assert_equal 4, links.size
+      links.each do |j|
+        assert_match %r{^http://test.host/relative/[^/]+.rss$}, j['href']
+      end
+    end
+  end
+
   private
   
   def posts_stub

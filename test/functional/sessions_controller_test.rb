@@ -18,7 +18,15 @@ class SessionsControllerTest < Test::Unit::TestCase
   def test_should_login_and_redirect
     post :create, :email => 'quentin@example.com', :password => 'test'
     assert session[:user_id]
-    assert_redirected_to '/admin'
+    assert_redirected_to admin_root_path
+  end
+
+  def test_should_login_and_redirect_even_for_relative_urls
+    set_relative_url do
+      post :create, :email => 'quentin@example.com', :password => 'test'
+      assert session[:user_id]
+      assert_redirected_to admin_root_path
+    end
   end
 
   def test_should_fail_login_and_not_redirect
@@ -32,6 +40,17 @@ class SessionsControllerTest < Test::Unit::TestCase
     get :destroy
     assert_nil session[:user_id]
     assert_response :redirect
+    assert_redirected_to root_path
+  end
+
+  def test_should_logout_when_relative_url
+    set_relative_url do
+      login_as :quentin
+      get :destroy
+      assert_nil session[:user_id]
+      assert_response :redirect
+      assert_redirected_to root_path
+    end
   end
 
   def test_should_remember_me

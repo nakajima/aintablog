@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # render new.rhtml
   def new
-    redirect_to '/' if (User.count >= 1) && !logged_in?
+    redirect_to root_path if (User.count >= 1) && !logged_in?
     @user = User.new
   end
 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user.save
     if @user.errors.empty?
       self.current_user = @user
-      redirect_back_or_default('/')
+      redirect_back_or_default(root_path)
       cookies[:notice] = "Thanks for signing up! Choose one of the links at the top to do something interesting."
     else
       render :action => 'new'
