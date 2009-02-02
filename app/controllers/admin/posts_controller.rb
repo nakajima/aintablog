@@ -1,19 +1,4 @@
 class Admin::PostsController < Application
-  def self.expose_as(*types)
-    types.each do |name|
-      controller_title = name.to_s.tableize.titleize + 'Controller'
-      controller_class = Class.new(PostsController) do
-        define_method(:post_type) { name }
-      end
-      
-      logger.info "=> Generating new PostsController subclass"
-      logger.info "   Class name: #{controller_title}"
-      logger.info "   Class: #{controller_class.inspect}"
-      
-      Admin.const_set(controller_title, controller_class)
-    end
-  end
-  
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   before_filter :login_required

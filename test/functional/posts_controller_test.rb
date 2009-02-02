@@ -44,6 +44,9 @@ class PostsControllerTest < ActionController::TestCase
   end
   
   # # Post types
+  #
+  # NOTE Since these are all now handled by dynamically created controllers,
+  #      we'll need a different way of testing them.
   # 
   # def test_should_retrieve_links_only
   #   @request.stubs(:path).returns('/links')

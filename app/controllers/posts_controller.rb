@@ -2,23 +2,7 @@ class PostsController < Application
   @@subtypes = []
   cattr_reader :subtypes
   
-  def self.expose_as(*types)
-    options = types.extract_options!
-    types.each do |name|
-      PostsController.subtypes << name.to_s
-      controller_title = options[:namespace].to_s + name.to_s.tableize.titleize + 'Controller'
-      controller_class = Class.new(PostsController) do
-        prepend_view_path File.join(Rails.root, *%w[app views posts])
-        prepend_view_path File.join(Rails.root, *%w[app views posts types])
-        prepend_view_path File.join(Rails.root, *%w[app views posts forms])
-        define_method(:post_type) { name }
-      end
-      
-      logger.info "=> Generating new #{options[:namespace]}PostsController subclass: #{controller_title}"
-      
-      Object.const_set(controller_title, controller_class)
-    end
-  end
+  include SingleControllerInheritance
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
@@ -27,7 +11,10 @@ class PostsController < Application
   caches_page :index
   caches_page :show
   
-  expose_as :articles, :links, :pictures, :quotes, :snippets, :tweets, :gists
+  expose_as :articles, :links, :pictures, :quotes, :snippets, :tweets, :gists do |name|
+    subtypes << name
+    define_method(:post_type) { name }
+  end
   
   # GET /posts
   # GET /posts.xml
