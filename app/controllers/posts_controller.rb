@@ -52,7 +52,7 @@ class PostsController < Application
   private
   
   def post_type
-    :post
+    :posts
   end
   
   def redirect_to_admin

@@ -25,7 +25,7 @@ class Application < ActionController::Base
       @post_type.classify.constantize
     rescue => e
       logger.info(e)
-      @post_type = :post
+      @post_type = :posts
       retry
     end
   end
