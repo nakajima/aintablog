@@ -3,12 +3,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   map.resources :users
   map.resource  :session
-  map.resources :articles, :controller => 'posts', :has_many => :comments
-  map.resources :quotes, :controller => 'posts'
-  map.resources :pictures, :controller => 'posts'
-  map.resources :tweets, :controller => 'posts'
-  map.resources :links, :controller => 'posts'
-  map.resources :snippets, :controller => 'posts', :has_many => :comments
+  map.resources :articles, :has_many => :comments
+  map.resources :quotes
+  map.resources :pictures
+  map.resources :tweets
+  map.resources :links
+  map.resources :snippets, :has_many => :comments
   map.resources :comments, :member => { :report => :put }
   
   map.namespace(:admin) do |admin|

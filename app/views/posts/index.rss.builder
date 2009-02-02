@@ -3,7 +3,7 @@ xml.rss :version => "2.0" do
   xml.channel do
     xml.title "#{SITE_SETTINGS['site_title']}: #{@post_type.pluralize.titleize}"
     xml.description SITE_SETTINGS['site_tagline']
-    xml.link formatted_posts_url(:rss)
+    xml.link posts_url(:format => :rss)
     @posts.each do |post|
       xml.item do
         xml.title post.name

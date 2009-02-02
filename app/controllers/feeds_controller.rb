@@ -1,4 +1,4 @@
-class FeedsController < ApplicationController
+class FeedsController < Application
   
   before_filter :login_required
   
@@ -113,7 +113,7 @@ private
       expire_path("/#{@feed.class.entry_type}.rss")
       expire_path("/#{@feed.class.entry_type}")
     else
-      POST_TYPES.each do |entry_type|
+      PostsController.subtypes.each do |entry_type|
         expire_path("/#{entry_type}.html")
         expire_path("/#{entry_type}.rss")
         expire_path("/#{entry_type}")

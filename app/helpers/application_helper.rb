@@ -33,7 +33,7 @@ module ApplicationHelper
   def twitterize(string)
     string.gsub!(/@(\w*)/, '@<a href="http://twitter.com/\1">\1</a>')
     string = auto_link(string)
-    string = RubyPants.new(string).to_html
+    # string = RubyPants.new(string).to_html
     spanify_links(string)
   end
   
@@ -88,7 +88,7 @@ module ApplicationHelper
   end
   
   def feed_tag(name, options={})
-    name_str = (name || @post_type).to_s.gsub('/','')
+    name_str = (name || @post_type).to_s.pluralize.gsub('/','')
     options[:format] ||= :rss
     options[:title] ||= "#{name_str.titleize} Only (#{options[:format].to_s.upcase})"
     options[:url] ||= SITE_SETTINGS[:feedburner][(name || 'all')] || "http://#{host_helper}#{relative_url_helper}/#{name_str}.rss"

@@ -1,4 +1,19 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < Application
+  def self.expose_as(*types)
+    types.each do |name|
+      controller_title = name.to_s.tableize.titleize + 'Controller'
+      controller_class = Class.new(PostsController) do
+        define_method(:post_type) { name }
+      end
+      
+      logger.info "=> Generating new PostsController subclass"
+      logger.info "   Class name: #{controller_title}"
+      logger.info "   Class: #{controller_class.inspect}"
+      
+      Admin.const_set(controller_title, controller_class)
+    end
+  end
+  
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   before_filter :login_required
@@ -10,6 +25,7 @@ class Admin::PostsController < ApplicationController
   # GET /posts.xml
   def index
     @posts = post_repo.paginate_index(:page => params[:page])
+    
     respond_to do |format|
       format.html # index.html.erb
       format.rss { render :action => 'index.rss.builder' }
@@ -53,7 +69,7 @@ class Admin::PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to admin_post_path(@post) }
+        format.html { redirect_to [:admin, @post] }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         flash[:error] = @post.errors.full_messages
@@ -72,7 +88,7 @@ class Admin::PostsController < ApplicationController
       if @post.update_attributes(params[:post])
         expire_fragment(@post.permalink)
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to admin_post_path(@post) }
+        format.html { redirect_to [:admin, @post] }
         format.js   { render :json => @post }
         format.xml  { head :ok }        
       else
@@ -97,17 +113,22 @@ class Admin::PostsController < ApplicationController
   end
   
   private
-    def expire_post!
-      expire_path("#{@post.link}.html")
-    end
-    
-    def expire_index!
-      expire_path('/index.html')
-      expire_path('/posts.html')
-      expire_path('/posts.rss')
-      expire_path('/posts')
-      expire_path("/#{@post.type.tableize}.html")
-      expire_path("/#{@post.type.tableize}.rss")
-      expire_path("/#{@post.type.tableize}")
-    end
+  
+  def post_type
+    :post
+  end
+  
+  def expire_post!
+    expire_path("#{@post.link}.html")
+  end
+  
+  def expire_index!
+    expire_path('/index.html')
+    expire_path('/posts.html')
+    expire_path('/posts.rss')
+    expire_path('/posts')
+    expire_path("/#{@post.type.tableize}.html")
+    expire_path("/#{@post.type.tableize}.rss")
+    expire_path("/#{@post.type.tableize}")
+  end
 end

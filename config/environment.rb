@@ -10,25 +10,25 @@
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+require 'authenticated_model'
+
 Rails::Initializer.run do |config|
   config.load_paths += %W[
       #{RAILS_ROOT}/app/models/posts
       #{RAILS_ROOT}/app/models/feeds
     ]
 
+  config.action_controller.cache_store = :file_store, "#{RAILS_ROOT}/public/cache"
+  config.action_controller.session_store = :cookie_store
   config.action_controller.session = {
-    :session_key => '_aintablog_session',
-    :secret      => '181d7e70eb790ceff32f283c373e39ca512ff461d86210571efb2ab49e29fe5763a6e4e27f618efbdbe93b4ac3a0a4339cf7033c18f9ddaf2ec845d44fc32bea'
+    :session_key => "_myapp_session",
+    :secret => (s = ""; 31.times { s << rand(10).to_s }; s)
   }
 
   # These gems are totally required
   config.gem 'feed-normalizer'
-  config.gem 'hpricot'
-  config.gem 'rubypants'
   config.gem 'RedCloth'
   config.gem 'nokogiri'
 end
 
-require 'authenticated_model'
 
-ActionController::Base.cache_store = :file_store, "#{RAILS_ROOT}/public/cache"

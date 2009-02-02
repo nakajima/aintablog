@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # This controller handles the login/logout function of the site.  
-class SessionsController < ApplicationController
+class SessionsController < Application
 
   # render new.rhtml
   def new

@@ -5,9 +5,9 @@
 <% end -%>
 
 <div id="posts">
-  <%= render :partial => "post", :collection => @posts %>
+  <%= render :partial => "posts/post.html.erb", :collection => @posts %>
 </div>
 
 <%= '<p>There were no posts found.</p>' if @posts.empty? %>
 
-<%= will_paginate(@posts, :posts_type => @post_type) %>
+<%= will_paginate(@posts, :posts_type => @post_type.to_s.tableize) %>

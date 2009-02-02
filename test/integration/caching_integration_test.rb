@@ -10,6 +10,15 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     ActionController::Base.perform_caching = true
   end
   
+  def teardown
+    wipe_cache!
+    ActionController::Base.perform_caching = false
+  end
+  
+  def test_should_perform_caching_for_these_tests
+    assert ActionController::Base.cache_configured?
+  end
+  
   def test_should_page_cache_posts_index
     assert_paths_cached('/index.html') do
       get '/'
@@ -98,7 +107,7 @@ class CachingIntegrationTest < ActionController::IntegrationTest
     assert_cache_expired('index.html', 'posts/', 'articles/', 'articles.html', 'posts.rss', 'articles.rss') do
       login_as :quentin
       put "/admin/articles/#{article.permalink}", :article => { :content => 'well this is different' }
-      assert_redirected_to admin_post_path(article)
+      assert_redirected_to [:admin, article]
     end
   end
   
@@ -177,11 +186,6 @@ class CachingIntegrationTest < ActionController::IntegrationTest
 
   # TODO
   
-  def teardown
-    wipe_cache!
-    ActionController::Base.perform_caching = false
-  end
-
 private
   
   def get_paths(*urls)
@@ -194,7 +198,7 @@ private
   
   def wipe_cache!
     %w(/index.html /posts.html /posts /articles.html /articles /snippets.html /snippets /posts.rss /articles.rss /snippets.rss).each do |file|
-      file = RAILS_ROOT + '/public' + file
+      file = File.join(Rails.root.to_str, 'public', file)
       FileUtils.rm_rf(file) if File.exists?(file)
     end
   end
@@ -213,16 +217,20 @@ private
     ActionController::Base.perform_caching = true
     urls.each { |url| assert ! cache_exists_for?(url), "cache should not exist yet. remove public#{url}" }
     yield
-    urls.each { |url| assert cache_exists_for?(url), "cache not generated for #{url}" }
+    urls.each { |url| assert cache_exists_for?(url), "cache not generated for #{cache_path(url)}" }
   end
   
   def assert_cache_expired(*urls)
     urls.each { |url| assert cache_exists_for?(url), "cache should already exist. missing: public#{url}" }
     block_given? ? yield : urls.each { |url| get url }
-    urls.each { |url| assert ! cache_exists_for?(url), "cache not expired for #{url}" }
+    urls.each { |url| assert ! cache_exists_for?(url), "cache not expired for #{cache_path(url)}" }
   end
   
   def cache_exists_for?(file)
-    File.exists?(RAILS_ROOT + '/public/' + file)
+    File.exists? cache_path(file)
+  end
+  
+  def cache_path(file)
+    File.expand_path(File.join(Rails.root.to_str, 'public', file))
   end
 end

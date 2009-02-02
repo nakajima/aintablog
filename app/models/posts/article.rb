@@ -34,6 +34,6 @@ class Article < Post
   end
   
   def to_param
-    from_feed? ? id : permalink
+    from_feed? ? id.to_s : permalink
   end
 end

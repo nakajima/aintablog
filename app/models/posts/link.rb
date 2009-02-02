@@ -9,6 +9,6 @@ class Link < Post
   end
   
   def to_param
-    attributes['id']
+    attributes['id'].to_s
   end
 end
