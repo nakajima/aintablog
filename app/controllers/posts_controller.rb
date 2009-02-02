@@ -1,16 +1,16 @@
 class PostsController < Application
-  @@subtypes = []
-  cattr_reader :subtypes
-  
   include SingleControllerInheritance
   
-  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+  @@subtypes = []
+  cattr_reader :subtypes # Used by feeds_controller to calculate cache expirations.
   
   before_filter :redirect_to_admin, :if => :logged_in?
   
   caches_page :index
   caches_page :show
   
+  # Generates a new controller for each of these resources that will inherit
+  # from PostsController, with the block being called for each.
   expose_as :articles, :links, :pictures, :quotes, :snippets, :tweets, :gists do |name|
     subtypes << name
     define_method(:post_type) { name }
