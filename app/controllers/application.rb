@@ -5,6 +5,7 @@ class Application < ActionController::Base
   include AuthenticatedSystem
   
   protect_from_forgery
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   helper :all # include all helpers, all the time
   
