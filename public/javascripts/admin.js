@@ -33,7 +33,8 @@ Event.observe(document, 'dom:loaded', function() {
 
     parseField: function() {
       var params = new Array; var values = new Array;
-      var levels = this.element.readAttribute('rel').replace(/(http:|https:|file:)\/\/[^\/]+/, '').split('/').without('');
+      var levels = this.element.readAttribute('rel').replace(/admin/, '');
+      levels = levels.replace(/(http:|https:|file:)\/\/[^\/]+/, '').split('/').without('');
       levels.each(function(level, i) {
         if ( i % 2 == 0 ) { params.push(level.gsub(/s$/, '')) }
         else { values.push(level); }

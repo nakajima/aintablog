@@ -4,7 +4,7 @@
 </div>
 <%= image_tag post.permalink %>
 <% if post.header -%>
-<%= edit_in_place_for post, :header, :tag => :small, :url => "/posts/#{post.id}", :id => "post_#{post.id}_header" %>
+<%= edit_in_place_for [:admin, post], :header, :tag => :small, :id => "#{dom_id(post)}_header" %>
 <% end -%>
 <cite>
   &#x2010; Posted from <%= link_to 'flickr', post.cite %> 

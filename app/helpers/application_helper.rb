@@ -51,9 +51,8 @@ module ApplicationHelper
     record = resource.is_a?(Array) ? resource.last : resource
     
     options[:id]  ||= "#{dom_id(record)}_#{field}"
+    options[:url] ||= options[:rel] = polymorphic_path(resource)
     options[:tag] ||= :div
-    options[:url] ||= url_for(resource)
-    options[:rel] = options.delete(:url)
 
     classes = options[:class].try(:split, ' ') || []
     classes << 'editable'

@@ -14,12 +14,12 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.root :controller => 'posts'
     admin.resources :posts
-    admin.resources :articles, :controller => 'posts', :has_many => :comments
-    admin.resources :quotes, :controller => 'posts'
-    admin.resources :pictures, :controller => 'posts'
-    admin.resources :tweets, :controller => 'posts'
-    admin.resources :links, :controller => 'posts'
-    admin.resources :snippets, :controller => 'posts', :has_many => :comments
+    admin.resources :articles, :has_many => :comments
+    admin.resources :quotes
+    admin.resources :pictures
+    admin.resources :tweets
+    admin.resources :links
+    admin.resources :snippets, :has_many => :comments
     admin.resources :comments, :member => { :report => :put }
   end
   

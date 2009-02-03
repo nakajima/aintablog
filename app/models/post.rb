@@ -31,7 +31,7 @@ class Post < ActiveRecord::Base
   end
   
   def to_param
-    permalink
+    from_feed? ? id.to_s : permalink
   end
   
   def delete!

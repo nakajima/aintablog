@@ -3,9 +3,7 @@
   <span class="day"><%= post.created_at.strftime('%e') -%></span>
 </div>
 <%= image_tag post.permalink %>
-<% if post.header -%>
-<%= edit_in_place_for post, :header, :tag => :small, :url => "/posts/#{post.id}", :id => "post_#{post.id}_header" %>
-<% end -%>
+<small><%= post.header %></small>
 <cite>
   &#x2010; Posted from <%= link_to 'flickr', post.cite %> 
 </cite>

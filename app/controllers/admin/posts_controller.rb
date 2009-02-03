@@ -12,9 +12,7 @@ class Admin::PostsController < Application
     @posts = post_repo.paginate_index(:page => params[:page])
     
     respond_to do |format|
-      format.html # index.html.erb
-      format.rss { render :action => 'index.rss.builder' }
-      format.xml { render :xml => @posts }
+      format.html { render :template => 'admin/posts/index.html.erb' }
     end
   end
 
@@ -25,7 +23,7 @@ class Admin::PostsController < Application
     redirect_to admin_posts_path and return unless @post.type.match(/Article|Snippet/)
     @comment = flash[:comment] || @post.comments.build
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :template => 'admin/posts/show.html.erb' }
       format.xml  { render :xml => @post }
     end
   end
