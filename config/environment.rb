@@ -11,7 +11,6 @@ RAILS_GEM_VERSION = '2.3.0' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 require 'authenticated_model'
-require 'single_controller_inheritance'
 
 Rails::Initializer.run do |config|
   config.load_paths += %W[

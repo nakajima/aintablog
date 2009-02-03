@@ -1,0 +1,2 @@
+class ArticlesController < PostsController
+end

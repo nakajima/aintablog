@@ -1,0 +1,2 @@
+class SnippetsController < PostsController
+end
