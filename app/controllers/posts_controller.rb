@@ -42,7 +42,7 @@ class PostsController < Application
   private
   
   def current_post
-    @current_post ||= Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
+    @post ||= Post.find_by_permalink(params[:id], :include => :comments) || Post.find(params[:id])
   end
   
   def post_type

@@ -76,10 +76,10 @@ class CachingIntegrationTest < ActionController::IntegrationTest
   def test_should_be_able_to_expire_by_path
     get_paths '/', '/posts/page/1', '/articles', '/articles/page/1'
     assert_cache_expired('/index.html', '/posts/', '/articles/', '/articles') do
-      @controller.expire_path('/index.html')
-      @controller.expire_path('/posts')
-      @controller.expire_path('/articles.html')
-      @controller.expire_path('/articles')
+      @controller.send :expire_path, '/index.html'
+      @controller.send :expire_path, '/posts'
+      @controller.send :expire_path, '/articles.html'
+      @controller.send :expire_path, '/articles'
     end
   end
   
