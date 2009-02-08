@@ -26,9 +26,14 @@ class PostTest < ActiveSupport::TestCase
     end
   end
   
-  def test_should_override_to_param
-    post = create_post
+  def test_should_override_to_param_as_permalink_for_non_feeds
+    post = create_post :feed_id => nil
     assert_equal post.permalink, post.to_param
+  end
+  
+  def test_should_override_to_param_as_id_for_feeds
+    post = create_post :feed_id => 1
+    assert_equal post.id.to_s, post.to_param
   end
 
   def test_should_be_deleted_not_destroyed
