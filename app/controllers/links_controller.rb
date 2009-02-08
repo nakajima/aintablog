@@ -1,0 +1,2 @@
+class LinksController < PostsController
+end

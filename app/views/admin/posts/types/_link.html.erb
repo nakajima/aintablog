@@ -2,10 +2,18 @@
   <span class="month"><%= post.created_at.strftime('%b') -%></span>
   <span class="day"><%= post.created_at.strftime('%e') -%></span>
 </div>
-<blockquote>
+
+<div class="entry">
   <%= spanned_link h(post.link_text), post.permalink -%>
-  <%= content_tag :p, post.content unless post.content.blank? %>
-</blockquote>
+
+  <% if post.content? %>
+  <div class="article">
+    <div class="entry">
+      <%= markup_for(post.content) %>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <cite>
 <%- if post.feed -%>

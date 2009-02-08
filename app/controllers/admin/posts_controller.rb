@@ -34,7 +34,7 @@ class Admin::PostsController < Application
     @post = Post.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :template => 'admin/posts/new.html.erb' }
       format.xml  { render :xml => @post }
     end
   end
@@ -42,6 +42,7 @@ class Admin::PostsController < Application
   # GET /posts/1/edit
   def edit
     @post = Post.find_by_permalink(params[:id]) || Post.find(params[:id])
+    render :template => 'admin/posts/edit.html.erb'
   end
 
   # POST /posts

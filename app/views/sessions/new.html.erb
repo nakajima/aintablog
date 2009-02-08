@@ -5,10 +5,10 @@
 <label for="password">Password<br/>
 <%= password_field_tag 'password' %></label>
 
-<!-- Uncomment this if you want this functionality
-<p><label for="remember_me">Remember me:</label>
-<%= check_box_tag 'remember_me' %></p>
--->
+<label for="remember_me">
+  <%= check_box_tag 'remember_me' %> Remember me
+</label>
+
 
 <p><%= submit_tag 'Log in', :title => "Logging in..." %></p>
 <% end -%>

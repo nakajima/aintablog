@@ -1,5 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  # Extracted a method here to open the door to custom formatters.
+  def markup_for(str)
+    RedCloth.new(str).to_html
+  end
   
   def spanned_link(*args)
     text = '<span>' + args.shift + '</span>'

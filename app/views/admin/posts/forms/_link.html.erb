@@ -13,13 +13,13 @@
 
     <label for="cite">
       About (optional)<br>
-      <%= f.text_field :cite %>
+      <%= f.text_area :content %>
     </label>
     
     <%= f.hidden_field :type, :value => 'Link' %>
 
     <p>
-      <%= @post.new_record? ? f.submit("Create") : f.submit("Update") %>
+      <%= @post.new_record? ? f.submit("Create Link") : f.submit("Update Link") %>
     </p>
   <% end %>
 </div>
