@@ -32,7 +32,9 @@ class PostsController < ApplicationController
   def show
     redirect_to root_path and return unless current_post.type.match(/Article|Snippet/)
     
-    fresh_when(:etag => current_post)
+    if fresh_when(:etag => current_post.updated_at.to_s.hash, :last_modified => current_post.updated_at.utc)
+      return
+    end
     
     @comment = flash[:comment] || current_post.comments.build
     respond_to do |format|
