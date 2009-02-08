@@ -5,7 +5,7 @@ class Article < Post
   has_permalink :header, :unless => :from_feed?
 
   validates_presence_of :header, :content
-  validates_uniqueness_of :permalink
+  validates_uniqueness_of :permalink, :allow_blank => true
   
   attr_accessible :content, :header, :permalink, :allow_comments
   

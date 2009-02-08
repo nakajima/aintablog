@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   
   has_many :comments, :as => :commentable, :conditions => ['comments.spam = ?', false]
 
-  validates_uniqueness_of :permalink, :scope => :type
+  validates_uniqueness_of :permalink, :scope => :type, :allow_nil => true
   validates_presence_of :source
   
   before_save :mark_uncommentable, :if => :from_feed?

@@ -14,7 +14,7 @@ Fixjour :verify => true do
   define_builder(User) do |klass, overrides|
     klass.new \
       :name => 'quire',
-      :email => 'quire@example.com',
+      :email => Faker::Internet.email,
       :password => 'quire',
       :password_confirmation => 'quire'
   end
