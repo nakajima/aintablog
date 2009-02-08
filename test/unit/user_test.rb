@@ -3,10 +3,9 @@ require File.dirname(__FILE__) + '/../test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def test_should_require_name
-    assert_no_difference 'User.count' do
-      u = create_user(:name => nil)
-      assert u.errors.on(:name)
-    end
+    user = new_user(:name => nil)
+    assert ! user.valid?
+    assert_not_nil user.errors.on(:name)
   end
 
   # Plugin tests
@@ -19,24 +18,21 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_should_require_password
-    assert_no_difference 'User.count' do
-      u = create_user(:password => nil)
-      assert u.errors.on(:password)
-    end
+    user = new_user(:password => nil)
+    assert ! user.valid?
+    assert_not_nil user.errors.on(:password)
   end
 
   def test_should_require_password_confirmation
-    assert_no_difference 'User.count' do
-      u = create_user(:password_confirmation => nil)
-      assert u.errors.on(:password_confirmation)
-    end
+    user = new_user(:password_confirmation => nil)
+    assert ! user.valid?
+    assert_not_nil user.errors.on(:password_confirmation)
   end
 
   def test_should_require_email
-    assert_no_difference 'User.count' do
-      u = create_user(:email => nil)
-      assert u.errors.on(:email)
-    end
+    user = new_user(:email => nil)
+    assert ! user.valid?
+    assert_not_nil user.errors.on(:email)
   end
 
   def test_should_reset_password
@@ -90,10 +86,5 @@ class UserTest < ActiveSupport::TestCase
     assert_not_nil users(:quentin).remember_token
     assert_not_nil users(:quentin).remember_token_expires_at
     assert users(:quentin).remember_token_expires_at.between?(before, after)
-  end
-
-protected
-  def create_user(options = {})
-    User.create({ :name => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
   end
 end

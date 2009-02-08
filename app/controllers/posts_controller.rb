@@ -12,7 +12,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
+    if fresh_when \
+      :etag => (post_repo.etag || 'empty'),
+      :last_modified => post_repo.last_modified.utc
+      return
+    end
+    
     @posts = post_repo.paginate_index(:page => params[:page])
+    
     respond_to do |format|
       format.html { render :template => 'posts/index.html.erb' }
       format.rss  { render :template => 'posts/index.rss.builder' }

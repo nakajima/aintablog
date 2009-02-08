@@ -2,7 +2,7 @@ class Article < Post
   acts_as_defensio_article :fields => { :author => :source, :title => :header } if SITE_SETTINGS[:use_defensio]
   
   # We don't want to generate permalinks for imported posts
-  has_permalink :header, :if => :user_id
+  has_permalink :header, :unless => :from_feed?
 
   validates_presence_of :header, :content
   validates_uniqueness_of :permalink
@@ -15,10 +15,6 @@ class Article < Post
   
   def author_email
     source.try(:email) || SITE_SETTINGS['user_email']
-  end
-  
-  def source
-    user || feed
   end
   
   def name

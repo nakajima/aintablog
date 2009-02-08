@@ -7,8 +7,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable, :conditions => ['comments.spam = ?', false]
 
   validates_uniqueness_of :permalink, :scope => :type
-  validates_presence_of :user_id, :unless => :feed_id
-  validates_presence_of :feed_id, :unless => :user_id
+  validates_presence_of :source
   
   before_save :mark_uncommentable, :if => :from_feed?
   
@@ -19,13 +18,25 @@ class Post < ActiveRecord::Base
   end
   
   def self.per_page; 10; end
+  
+  def source
+    @source ||= user || feed
+  end
+  
+  def source=(new_source)
+    self.user = self.feed = nil
+    @source = case new_source
+    when User then self.user = new_source
+    when Feed then self.feed = new_source
+    end
+  end
 
   def name
     header
   end
   
   def from_feed?
-    !!feed_id && (feed_id != 0)
+    !feed.nil?
   end
   
   def type
@@ -55,7 +66,11 @@ class Post < ActiveRecord::Base
     else RedCloth.new(content, [:filter_styles, :no_span_caps]).to_html
     end
   end
-  
+
+  def has_user?
+    !!user
+  end
+
   private
   
   def mark_uncommentable

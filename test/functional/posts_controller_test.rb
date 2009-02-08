@@ -10,12 +10,23 @@ class PostsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:posts)
   end
   
+  test "should provide etag for index" do
+    get :index
+    assert_not_nil @response.etag
+  end
+  
+  test "should provide last_modified for index" do
+    @newest = create_article
+    get :index
+    assert_equal @newest.updated_at.to_s, @response.last_modified.to_s
+  end
+  
   test "should_get_show" do
     get :show, :id => posts(:one).permalink
     assert_response :success
   end
   
-  test "should provide etag" do
+  test "should provide etag for show" do
     get :show, :id => posts(:one).permalink
     assert_not_nil @response.etag
   end

@@ -1,5 +1,4 @@
 quentin:
-  id: 1
   name: quentin
   email: quentin@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
@@ -9,7 +8,6 @@ quentin:
 
 
 aaron:
-  id: 2
   name: aaron
   email: aaron@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd

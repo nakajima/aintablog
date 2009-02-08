@@ -6,7 +6,7 @@ one:
   content: My _Italic_ Text
   cite: My String
   type: Article
-  user_id: 1
+  user: quentin
   comment_counter: 1
 
 two:
@@ -15,7 +15,7 @@ two:
   content: MyText
   cite: A link
   type: Link
-  user_id: 1
+  user: quentin
   lang: MyString
   comment_counter: 1
   

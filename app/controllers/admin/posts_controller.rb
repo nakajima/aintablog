@@ -76,7 +76,7 @@ class Admin::PostsController < ApplicationController
         format.js   { render :json => @post }
         format.xml  { head :ok }        
       else
-        format.html { render :action => "edit" }
+        format.html { render :template => 'admin/posts/edit.html.erb' }
         format.js   { render :text => 'fail', :status => :unprocessable_entity }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end

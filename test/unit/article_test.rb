@@ -9,35 +9,21 @@ class ArticleTest < ActiveSupport::TestCase
   end
   
   def test_should_require_header
-    assert_no_difference 'Article.count' do
-      article = create_article( :header => nil )
-      assert ! article.valid?, article.to_yaml
-    end
+    article = new_article(:header => nil)
+    assert ! article.valid?
+    assert_not_nil article.errors.on(:header)
   end
   
   def test_should_require_content
-    assert_no_difference 'Article.count' do
-      article = create_article( :content => nil )
-      assert ! article.valid?, article.to_yaml
-    end
+    article = new_article(:content => nil)
+    assert ! article.valid?
+    assert_not_nil article.errors.on(:content)
   end
   
   def test_should_generate_permalink
-    article = create_article
+    article = new_article(:source => new_user)
+    assert article.valid?
     assert_not_nil article.permalink
-  end
-  
-  def test_should_have_from_feed_boolean_helper
-    article = create_article
-    assert ! article.from_feed?
-    article.user_id = nil
-    article.feed_id = feeds(:one).id
-    assert article.from_feed?
-  end
-  
-  def test_should_disallow_comments
-    article = create_article :allow_comments => '0'
-    assert ! article.allow_comments?, "Allowed comments"
   end
   
   def test_should_provide_proper_link
@@ -50,11 +36,5 @@ class ArticleTest < ActiveSupport::TestCase
       article = posts(:article).becomes(Article)
       assert_equal "/relative/articles/#{article.permalink}", article.link
     end
-  end
-  
-protected
-
-  def create_article(options={})
-    users(:quentin).articles.create({ :header => 'A Title', :content => 'Some content' }.merge(options))
   end
 end

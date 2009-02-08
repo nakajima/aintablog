@@ -9,15 +9,15 @@ class FeedTest < ActiveSupport::TestCase
   end
   
   def test_should_require_uri
-    assert_no_difference 'Feed.count' do
-      feed = create_feed( :uri => nil )
-    end
+    feed = new_feed(:uri => nil)
+    assert ! feed.valid?
+    assert_not_nil feed.errors.on(:uri)
   end
   
   def test_should_require_valid_uri
-    assert_no_difference 'Feed.count' do
-      feed = create_feed( :uri => 'well this cant work' )
-    end
+    feed = new_feed(:uri => 'bliggety')
+    assert ! feed.valid?
+    assert_not_nil feed.errors.on(:uri)
   end
   
   def test_should_learn_title
@@ -51,10 +51,6 @@ class FeedTest < ActiveSupport::TestCase
   end
 
 protected
-
-  def create_feed(options={})
-    Feed.create({ :uri => "file://#{MOCK_ROOT}/daringfireball.xml" }.merge(options))
-  end
   
   def teach_feed(feed)
     feed.learn_attributes!

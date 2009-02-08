@@ -8,36 +8,32 @@ class PostTest < ActiveSupport::TestCase
     end
   end
   
-  def test_should_require_user_id_sans_feed_id
-    assert_no_difference 'Post.count' do
-      post = create_post({ :user_id => nil, :feed_id => nil })
-    end
+  def test_should_require_source
+    post = new_post(:user => nil, :feed => nil)
+    assert ! post.valid?
+    assert_not_nil post.errors.on(:source)
   end
   
-  def test_should_create_with_only_user_id
-    assert_difference 'Post.count' do
-      post = create_post( :feed_id => nil )
-    end
+  def test_should_create_with_only_user
+    assert new_post(:user => new_user).valid?
   end
   
   def test_should_create_with_only_feed_id
-    assert_difference 'Post.count' do
-      post = create_post( :user_id => nil )
-    end
+    assert new_post(:feed => new_feed).valid?
   end
   
   def test_should_override_to_param_as_permalink_for_non_feeds
-    post = create_post :feed_id => nil
+    post = create_post :feed => nil, :user => new_user
     assert_equal post.permalink, post.to_param
   end
   
   def test_should_override_to_param_as_id_for_feeds
-    post = create_post :feed_id => 1
+    post = create_post :feed => new_feed
     assert_equal post.id.to_s, post.to_param
   end
   
   def test_not_allow_comments_if_from_feed
-    post = create_post :feed_id => 1
+    post = create_post :feed => new_feed
     assert ! post.allow_comments?
   end
 
@@ -75,15 +71,9 @@ really a problem?
     assert_equal 1, h.search('h1').size
     assert_equal 2, h.search('p').size
 
-    assert post = create_post(:content => content, :format => 'RedCloth')
+    assert post = create_article(:content => content, :format => 'RedCloth')
     assert h = Hpricot.parse(post.to_html)
     assert_equal 1, h.search('h1').size
     assert_equal 2, h.search('p').size
-  end
-
-protected
-
-  def create_post(options={})
-    Post.create({ :header => 'A name', :content => 'Some content', :user_id => users(:quentin).id, :feed_id => feeds(:one).id, :permalink => 'ok' }.merge(options))
   end
 end
