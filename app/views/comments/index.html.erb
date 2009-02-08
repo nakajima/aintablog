@@ -1,10 +1,20 @@
 <% content_for :title do -%>Comments for <% end -%>
 <% content_for :header do -%><h1>Listing comments</h1><% end -%>
 
-<h3>Good Comments</h3>
-<%= render :partial => "comment", :collection => @hams %>
-<%= "<p>No good comments found.</p>" if @hams.empty? %>
+<div>
+  <h3>Good Comments</h3>
+  <%= render :partial => "comment", :collection => @hams %>
+  <%= "<p>No good comments found.</p>" if @hams.empty? %>
+</div>
 
-<h3>Spammy Comments</h3>
-<%= render :partial => "comment", :collection => @spams %>
-<%= "<p>No spammy comments found.</p>" if @spams.empty? %>
+<div>
+  <small class="right">
+    <%= link_to 'Delete All',spammy_comments_path,
+      :method => :delete,
+      :confirm => "Deleting all spammy comments. Ok?" %>
+  </small>
+  <h3>Spammy Comments</h3>
+  <%= render :partial => "comment", :collection => @spams %>
+  <%= "<p>No spammy comments found.</p>" if @spams.empty? %>  
+</div>
+

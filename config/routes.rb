@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tweets
   map.resources :links
   map.resources :snippets, :has_many => :comments
-  map.resources :comments, :member => { :report => :put }
+  map.resources :comments, :member => { :report => :put }, :collection => { :spammy => :delete }
   
   map.namespace(:admin) do |admin|
     admin.root :controller => 'posts'

@@ -27,4 +27,12 @@ class CommentsControllerTest < ActionController::TestCase
 
     assert_redirected_to article_path(posts(:one))
   end
+  
+  def test_should_clear_spammy_comments
+    login_as :quentin
+    Comment.update_all(['spam = ?', true])
+    assert_difference('Comment.count', -2) do
+      delete :spammy
+    end
+  end
 end
