@@ -39,6 +39,10 @@ class Post < ActiveRecord::Base
     !feed.nil?
   end
   
+  def has_user?
+    !!user
+  end
+  
   def type
     self[:type]
   end
@@ -52,7 +56,7 @@ class Post < ActiveRecord::Base
   end
   
   def deleted?
-    !!deleted_at
+    deleted_at?
   end
   
   def link(root='')
@@ -65,10 +69,6 @@ class Post < ActiveRecord::Base
     when 'HTML' then content
     else RedCloth.new(content, [:filter_styles, :no_span_caps]).to_html
     end
-  end
-
-  def has_user?
-    !!user
   end
 
   private
