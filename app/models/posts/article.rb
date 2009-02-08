@@ -9,14 +9,6 @@ class Article < Post
   
   attr_accessible :content, :header, :permalink, :allow_comments
   
-  def allow_comments=(status)
-    self.feed_id = (status == '0') ? 0 : nil
-  end
-  
-  def allow_comments?
-    feed_id.nil?
-  end
-  
   def link(root='')
     from_feed? ? permalink : super
   end

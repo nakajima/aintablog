@@ -30,7 +30,7 @@ class CommentsControllerTest < ActionController::TestCase
   
   def test_should_clear_spammy_comments
     login_as :quentin
-    Comment.update_all(['spam = ?', true])
+    Comment.update_all(['spam = ?', 1])
     assert_difference('Comment.count', -2) do
       delete :spammy
     end

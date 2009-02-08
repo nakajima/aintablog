@@ -4,7 +4,7 @@ class PostTest < ActiveSupport::TestCase
   
   def test_should_create_post
     assert_difference 'Post.count' do
-      post = create_post
+      create_post
     end
   end
   
@@ -34,6 +34,11 @@ class PostTest < ActiveSupport::TestCase
   def test_should_override_to_param_as_id_for_feeds
     post = create_post :feed_id => 1
     assert_equal post.id.to_s, post.to_param
+  end
+  
+  def test_not_allow_comments_if_from_feed
+    post = create_post :feed_id => 1
+    assert ! post.allow_comments?
   end
 
   def test_should_be_deleted_not_destroyed

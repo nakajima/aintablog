@@ -27,14 +27,6 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not_nil article.permalink
   end
   
-  def test_should_have_allow_comments_boolean_helper
-    article = create_article
-    assert article.allow_comments?
-    article.user_id = nil
-    article.feed_id = feeds(:one).id
-    assert ! article.allow_comments?
-  end
-  
   def test_should_have_from_feed_boolean_helper
     article = create_article
     assert ! article.from_feed?

@@ -21,7 +21,7 @@
 
 <%- else -%>
 
-<%= render :partial => "/posts/types/comments.html.erb" %>
+<%= render :partial => "/posts/types/comments.html.erb" if post.allow_comments? %>
 
 <small><%= link_to 'Click here to go home', root_path %></small>
 

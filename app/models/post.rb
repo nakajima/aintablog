@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
   validates_presence_of :user_id, :unless => :feed_id
   validates_presence_of :feed_id, :unless => :user_id
   
+  before_save :mark_uncommentable, :if => :from_feed?
+  
   class << self
     def paginate_index(options={})
       active.paginate({:order => 'posts.created_at DESC', :include => [:comments, :feed]}.merge(options))
@@ -27,7 +29,7 @@ class Post < ActiveRecord::Base
   end
   
   def type
-    attributes['type']
+    self[:type]
   end
   
   def to_param
@@ -49,9 +51,16 @@ class Post < ActiveRecord::Base
 
   def to_html
     text = case format
-           when 'HTML' then content
-           else RedCloth.new(content, [:filter_styles, :no_span_caps]).to_html
-           end
+    when 'HTML' then content
+    else RedCloth.new(content, [:filter_styles, :no_span_caps]).to_html
+    end
+  end
+  
+  private
+  
+  def mark_uncommentable
+    self.allow_comments = false
+    self # otherwise this returns false and we can't save
   end
 
 end
