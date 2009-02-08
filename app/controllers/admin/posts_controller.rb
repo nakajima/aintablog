@@ -1,4 +1,4 @@
-class Admin::PostsController < Application
+class Admin::PostsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   before_filter :login_required

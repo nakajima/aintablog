@@ -1,4 +1,4 @@
-class UsersController < Application
+class UsersController < ApplicationController
   # render new.rhtml
   def new
     redirect_to root_path if (User.count >= 1) && !logged_in?

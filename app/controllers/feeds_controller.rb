@@ -1,4 +1,4 @@
-class FeedsController < Application
+class FeedsController < ApplicationController
   
   before_filter :login_required
   
