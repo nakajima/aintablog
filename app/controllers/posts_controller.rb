@@ -25,6 +25,8 @@ class PostsController < ApplicationController
   def show
     redirect_to root_path and return unless current_post.type.match(/Article|Snippet/)
     
+    fresh_when(:etag => current_post)
+    
     @comment = flash[:comment] || current_post.comments.build
     respond_to do |format|
       format.html { render :template => 'posts/show.html.erb' }
