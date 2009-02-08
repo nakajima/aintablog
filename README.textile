@@ -20,9 +20,9 @@ You're going to need a few gems to start things off.
 
   gem install feed-normalizer nokogiri RedCloth
 
-If you want to run the test suite, you'll need the mocha gem.
+If you want to run the test suite, you'll need the Fixjour, faker, and mocha gems.
 
-  sudo gem install mocha
+  gem install mocha fixjour faker
 
 h4. Defensio Spam Protection
 
