@@ -7,3 +7,4 @@ config.action_mailer.delivery_method = :test
 
 # smooth
 config.gem 'mocha'
+config.gem 'fixjour', :version => '0.1.0'

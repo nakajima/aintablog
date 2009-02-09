@@ -1,15 +1,5 @@
 require 'faker'
 
-Fixjour::MergingProxy.class_eval do
-  def unprotect(*attrs)
-    old = @klass.accessible_attributes || []
-    @klass.attr_accessible *(attrs.to_a + old.to_a)
-    result = yield
-    @klass.attr_accessible *old.to_a
-    result
-  end
-end
-
 Fixjour :verify => true do
   define_builder(User) do |klass, overrides|
     klass.new \
@@ -27,9 +17,8 @@ Fixjour :verify => true do
   end
   
   define_builder(Article) do |klass, overrides|
-    klass.unprotect(:feed, :user, :source) do
-      klass.new :header => 'A name', :content => 'Some content', :feed => new_feed
-    end
+    klass.protected :feed, :user
+    klass.new :header => 'A name', :content => 'Some content', :feed => new_feed
   end
   
   define_builder(Feed) do |klass, overrides|
