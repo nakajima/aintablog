@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     redirect_to @commentable and return if @commentable
     access_denied and return unless logged_in?
     @spams = Comment.spammy(:include => :commentable, :order => 'spaminess ASC').all
-    @hams = Comment.hammy(:include => :commentable).all
+    @hams = Comment.hammy(:include => :commentable, :order => 'created_at DESC').all
   end
   
   # DELETE /comments/spammy
