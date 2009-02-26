@@ -189,7 +189,9 @@ class CachingIntegrationTest < ActionController::IntegrationTest
 private
   
   def get_paths(*urls)
-    urls.each { |url| get url }
+    urls.each do |url|
+      get url
+    end
   end
   
   def login_as(name)

@@ -135,18 +135,6 @@ class PostsControllerTest < ActionController::TestCase
     end
   end
   
-  test "should_redirect_to_root_when_post_not_found" do
-    get :show, :id => 999999
-    assert_redirected_to root_path
-  end
-
-  test "should_redirect_to_root_when_post_not_found_even_for_relative_urls" do
-    set_relative_url do
-      get :show, :id => 999999
-      assert_redirected_to root_path
-    end
-  end
-
   test "feed_tag" do
     get :index
     assert(h = Hpricot.parse(@response.body))

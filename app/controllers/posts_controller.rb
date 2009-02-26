@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  
+  def self.for_type(name)
+    define_method(:post_type) { name }
+  end
 
   # Used by feeds_controller to calculate cache expirations.
   @@subtypes = [:articles, :links, :pictures, :quotes, :snippets, :tweets, :gists]
@@ -14,7 +18,7 @@ class PostsController < ApplicationController
   def index
     if fresh_when \
       :etag => (post_repo.etag || 'empty'),
-      :last_modified => post_repo.last_modified.utc
+      :last_modified => post_repo.last_modified.try(:utc)
       return
     end
     

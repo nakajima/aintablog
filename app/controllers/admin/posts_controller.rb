@@ -6,6 +6,10 @@ class Admin::PostsController < ApplicationController
   after_filter :expire_index!, :only => [:create, :update, :destroy]
   after_filter :expire_post!, :only => [:update, :destroy]
   
+  def self.for_type(name)
+    define_method(:post_type) { name }
+  end
+  
   # GET /posts
   # GET /posts.xml
   def index
