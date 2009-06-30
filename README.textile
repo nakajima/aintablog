@@ -2,6 +2,8 @@ h1. AintaBlog: Open Source Tumblogging
 
 h3. "aintablog.com":http://aintablog.com
 
+"Recommend me on Working with Rails":http://www.workingwithrails.com/person/7973-pat-nakajima. Please?
+
 Aintablog is an open source blogging platform that attempts to combine the cooler parts of tumblr with more traditional blogging mainstays (commenting anyone?) It's not done. It's really not done.
 
 Still, certain things work. You can create new posts (or as we call them, “articles”), quotes, and even import your Twitter/Flickr/del.icio.us feeds.
